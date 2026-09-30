@@ -60,7 +60,7 @@ Pre-specified rule: mean of probabilities of all seeds of resnet1d_wang, incepti
 - The ensemble is significantly better than both reproduced single models, but its margin over the
   published ensemble (.934) is +0.002 and its CI includes .934. This supports "matches or slightly exceeds
   published", not a clear improvement.
-- Fold 10 has now been scored for 7 entries in total (4 in rounds 1-2, 3 in this round).
+- Fold 10 has now been scored for 8 entries in total (5 in rounds 1-2, 3 in this round). (Corrected 2026-10-01: an earlier version said 7.)
 - Train times in the round-3 JSON files are inflated: three training queues shared the GPU.
 
 ## Files

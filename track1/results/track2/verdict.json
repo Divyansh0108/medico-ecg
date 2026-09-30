@@ -1,0 +1,59 @@
+{
+ "severity_set": [
+  -6.0
+ ],
+ "best_baseline": {
+  "mixed": "B0-aug",
+  "unseen_families": "B0-aug"
+ },
+ "candidates": {
+  "E": {
+   "boot_mixed": {
+    "diff": 0.00027058150959224925,
+    "lo": -0.0017925308860675003,
+    "hi": 0.0026544964711171623,
+    "p_le_0": 0.386
+   },
+   "boot_unseen": {
+    "diff": -0.0012864995140381419,
+    "lo": -0.0030645220425746774,
+    "hi": 0.0006606292296711223,
+    "p_le_0": 0.902
+   },
+   "checks": {
+    "1_mixed": false,
+    "2_unseen": false,
+    "3_r_severity": false,
+    "4_r_abnormal": true,
+    "5_clean": true
+   },
+   "go": false,
+   "clean_minus_B0aug": -0.0007812514518866776
+  },
+  "F": {
+   "boot_mixed": {
+    "diff": 0.002070413582786701,
+    "lo": 1.3425864884783601e-05,
+    "hi": 0.004359427152230272,
+    "p_le_0": 0.025
+   },
+   "boot_unseen": {
+    "diff": 0.0011737244504778088,
+    "lo": -0.0006218161385383475,
+    "hi": 0.0031527928376437584,
+    "p_le_0": 0.104
+   },
+   "checks": {
+    "1_mixed": false,
+    "2_unseen": false,
+    "3_r_severity": true,
+    "4_r_abnormal": true,
+    "5_clean": true
+   },
+   "go": false,
+   "clean_minus_B0aug": -0.0009255137924215617
+  }
+ },
+ "winner": null,
+ "verdict": "NO-GO"
+}
