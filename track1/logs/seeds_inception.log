@@ -1,0 +1,165 @@
+
+===== 2026-09-30 15:02:39 inception1d_crop_dsnorm_s1 =====
+fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+[inception1d_crop_dsnorm_s1] device=mps params=507653 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=nogit code=5200311c653a
+[inception1d_crop_dsnorm_s1] ep  1 loss 0.8934 val_auroc 0.9010 lr 2.00e-04 29s
+[inception1d_crop_dsnorm_s1] ep  2 loss 0.7767 val_auroc 0.9072 lr 4.00e-04 54s
+[inception1d_crop_dsnorm_s1] ep  3 loss 0.7315 val_auroc 0.9175 lr 5.00e-04 79s
+[inception1d_crop_dsnorm_s1] ep  4 loss 0.7123 val_auroc 0.9171 lr 4.99e-04 104s
+[inception1d_crop_dsnorm_s1] ep  5 loss 0.6978 val_auroc 0.9183 lr 4.97e-04 130s
+[inception1d_crop_dsnorm_s1] ep  6 loss 0.6815 val_auroc 0.9208 lr 4.93e-04 155s
+[inception1d_crop_dsnorm_s1] ep  7 loss 0.6775 val_auroc 0.9224 lr 4.89e-04 180s
+[inception1d_crop_dsnorm_s1] ep  8 loss 0.6746 val_auroc 0.9242 lr 4.84e-04 205s
+[inception1d_crop_dsnorm_s1] ep  9 loss 0.6702 val_auroc 0.9254 lr 4.77e-04 230s
+[inception1d_crop_dsnorm_s1] ep 10 loss 0.6634 val_auroc 0.9265 lr 4.70e-04 256s
+[inception1d_crop_dsnorm_s1] ep 11 loss 0.6670 val_auroc 0.9275 lr 4.62e-04 281s
+[inception1d_crop_dsnorm_s1] ep 12 loss 0.6524 val_auroc 0.9312 lr 4.52e-04 306s
+[inception1d_crop_dsnorm_s1] ep 13 loss 0.6401 val_auroc 0.9322 lr 4.42e-04 332s
+[inception1d_crop_dsnorm_s1] ep 14 loss 0.6527 val_auroc 0.9287 lr 4.31e-04 356s
+[inception1d_crop_dsnorm_s1] ep 15 loss 0.6493 val_auroc 0.9312 lr 4.19e-04 381s
+[inception1d_crop_dsnorm_s1] ep 16 loss 0.6402 val_auroc 0.9306 lr 4.07e-04 407s
+[inception1d_crop_dsnorm_s1] ep 17 loss 0.6353 val_auroc 0.9293 lr 3.94e-04 432s
+[inception1d_crop_dsnorm_s1] ep 18 loss 0.6306 val_auroc 0.9288 lr 3.80e-04 457s
+[inception1d_crop_dsnorm_s1] ep 19 loss 0.6365 val_auroc 0.9310 lr 3.65e-04 482s
+[inception1d_crop_dsnorm_s1] ep 20 loss 0.6180 val_auroc 0.9320 lr 3.50e-04 507s
+[inception1d_crop_dsnorm_s1] ep 21 loss 0.6178 val_auroc 0.9327 lr 3.35e-04 533s
+[inception1d_crop_dsnorm_s1] ep 22 loss 0.6161 val_auroc 0.9306 lr 3.19e-04 558s
+[inception1d_crop_dsnorm_s1] ep 23 loss 0.6176 val_auroc 0.9313 lr 3.03e-04 583s
+[inception1d_crop_dsnorm_s1] ep 24 loss 0.6100 val_auroc 0.9304 lr 2.87e-04 608s
+[inception1d_crop_dsnorm_s1] ep 25 loss 0.5974 val_auroc 0.9301 lr 2.71e-04 634s
+[inception1d_crop_dsnorm_s1] ep 26 loss 0.6038 val_auroc 0.9318 lr 2.54e-04 659s
+[inception1d_crop_dsnorm_s1] ep 27 loss 0.5952 val_auroc 0.9316 lr 2.38e-04 684s
+[inception1d_crop_dsnorm_s1] ep 28 loss 0.5810 val_auroc 0.9315 lr 2.21e-04 709s
+[inception1d_crop_dsnorm_s1] ep 29 loss 0.5808 val_auroc 0.9339 lr 2.05e-04 734s
+[inception1d_crop_dsnorm_s1] ep 30 loss 0.5714 val_auroc 0.9307 lr 1.89e-04 759s
+[inception1d_crop_dsnorm_s1] ep 31 loss 0.5717 val_auroc 0.9294 lr 1.73e-04 785s
+[inception1d_crop_dsnorm_s1] ep 32 loss 0.5679 val_auroc 0.9318 lr 1.57e-04 810s
+[inception1d_crop_dsnorm_s1] ep 33 loss 0.5606 val_auroc 0.9289 lr 1.42e-04 835s
+[inception1d_crop_dsnorm_s1] ep 34 loss 0.5569 val_auroc 0.9274 lr 1.27e-04 860s
+[inception1d_crop_dsnorm_s1] ep 35 loss 0.5489 val_auroc 0.9317 lr 1.13e-04 885s
+[inception1d_crop_dsnorm_s1] ep 36 loss 0.5495 val_auroc 0.9300 lr 9.97e-05 910s
+[inception1d_crop_dsnorm_s1] ep 37 loss 0.5472 val_auroc 0.9286 lr 8.69e-05 935s
+[inception1d_crop_dsnorm_s1] ep 38 loss 0.5370 val_auroc 0.9288 lr 7.47e-05 960s
+[inception1d_crop_dsnorm_s1] ep 39 loss 0.5345 val_auroc 0.9281 lr 6.33e-05 985s
+[inception1d_crop_dsnorm_s1] early stop at ep 39
+[inception1d_crop_dsnorm_s1] DONE best_ep 29 val 0.9339 test nan params 507653 time 984.9s
+
+===== 2026-09-30 15:19:37 inception1d_crop_dsnorm_s2 =====
+fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+[inception1d_crop_dsnorm_s2] device=mps params=507653 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=nogit code=1faf72a66bbf
+[inception1d_crop_dsnorm_s2] ep  1 loss 0.9031 val_auroc 0.8916 lr 2.00e-04 25s
+[inception1d_crop_dsnorm_s2] ep  2 loss 0.7776 val_auroc 0.9036 lr 4.00e-04 49s
+[inception1d_crop_dsnorm_s2] ep  3 loss 0.7434 val_auroc 0.9128 lr 5.00e-04 75s
+[inception1d_crop_dsnorm_s2] ep  4 loss 0.7172 val_auroc 0.9146 lr 4.99e-04 99s
+[inception1d_crop_dsnorm_s2] ep  5 loss 0.6944 val_auroc 0.9206 lr 4.97e-04 124s
+[inception1d_crop_dsnorm_s2] ep  6 loss 0.6890 val_auroc 0.9247 lr 4.93e-04 149s
+[inception1d_crop_dsnorm_s2] ep  7 loss 0.6799 val_auroc 0.9250 lr 4.89e-04 174s
+[inception1d_crop_dsnorm_s2] ep  8 loss 0.6734 val_auroc 0.9217 lr 4.84e-04 199s
+[inception1d_crop_dsnorm_s2] ep  9 loss 0.6707 val_auroc 0.9268 lr 4.77e-04 224s
+[inception1d_crop_dsnorm_s2] ep 10 loss 0.6752 val_auroc 0.9274 lr 4.70e-04 250s
+[inception1d_crop_dsnorm_s2] ep 11 loss 0.6592 val_auroc 0.9265 lr 4.62e-04 275s
+[inception1d_crop_dsnorm_s2] ep 12 loss 0.6645 val_auroc 0.9238 lr 4.52e-04 300s
+[inception1d_crop_dsnorm_s2] ep 13 loss 0.6516 val_auroc 0.9302 lr 4.42e-04 325s
+[inception1d_crop_dsnorm_s2] ep 14 loss 0.6440 val_auroc 0.9266 lr 4.31e-04 351s
+[inception1d_crop_dsnorm_s2] ep 15 loss 0.6453 val_auroc 0.9256 lr 4.19e-04 376s
+[inception1d_crop_dsnorm_s2] ep 16 loss 0.6449 val_auroc 0.9287 lr 4.07e-04 401s
+[inception1d_crop_dsnorm_s2] ep 17 loss 0.6375 val_auroc 0.9290 lr 3.94e-04 426s
+[inception1d_crop_dsnorm_s2] ep 18 loss 0.6405 val_auroc 0.9327 lr 3.80e-04 451s
+[inception1d_crop_dsnorm_s2] ep 19 loss 0.6239 val_auroc 0.9265 lr 3.65e-04 476s
+[inception1d_crop_dsnorm_s2] ep 20 loss 0.6184 val_auroc 0.9312 lr 3.50e-04 501s
+[inception1d_crop_dsnorm_s2] ep 21 loss 0.6124 val_auroc 0.9316 lr 3.35e-04 526s
+[inception1d_crop_dsnorm_s2] ep 22 loss 0.6153 val_auroc 0.9299 lr 3.19e-04 551s
+[inception1d_crop_dsnorm_s2] ep 23 loss 0.6100 val_auroc 0.9283 lr 3.03e-04 576s
+[inception1d_crop_dsnorm_s2] ep 24 loss 0.6011 val_auroc 0.9327 lr 2.87e-04 601s
+[inception1d_crop_dsnorm_s2] ep 25 loss 0.6112 val_auroc 0.9326 lr 2.71e-04 626s
+[inception1d_crop_dsnorm_s2] ep 26 loss 0.5974 val_auroc 0.9305 lr 2.54e-04 651s
+[inception1d_crop_dsnorm_s2] ep 27 loss 0.5974 val_auroc 0.9311 lr 2.38e-04 676s
+[inception1d_crop_dsnorm_s2] ep 28 loss 0.5962 val_auroc 0.9316 lr 2.21e-04 701s
+[inception1d_crop_dsnorm_s2] early stop at ep 28
+[inception1d_crop_dsnorm_s2] DONE best_ep 18 val 0.9327 test nan params 507653 time 700.9s
+
+===== 2026-09-30 15:31:35 inception1d_crop_dsnorm_s3 =====
+fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+[inception1d_crop_dsnorm_s3] device=mps params=507653 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=nogit code=1faf72a66bbf
+[inception1d_crop_dsnorm_s3] ep  1 loss 0.9110 val_auroc 0.8996 lr 2.00e-04 26s
+[inception1d_crop_dsnorm_s3] ep  2 loss 0.7652 val_auroc 0.9041 lr 4.00e-04 51s
+[inception1d_crop_dsnorm_s3] ep  3 loss 0.7344 val_auroc 0.9164 lr 5.00e-04 76s
+[inception1d_crop_dsnorm_s3] ep  4 loss 0.7088 val_auroc 0.9153 lr 4.99e-04 101s
+[inception1d_crop_dsnorm_s3] ep  5 loss 0.6898 val_auroc 0.9217 lr 4.97e-04 126s
+[inception1d_crop_dsnorm_s3] ep  6 loss 0.6855 val_auroc 0.9168 lr 4.93e-04 148s
+[inception1d_crop_dsnorm_s3] ep  7 loss 0.6759 val_auroc 0.9231 lr 4.89e-04 170s
+[inception1d_crop_dsnorm_s3] ep  8 loss 0.6792 val_auroc 0.9247 lr 4.84e-04 191s
+[inception1d_crop_dsnorm_s3] ep  9 loss 0.6674 val_auroc 0.9233 lr 4.77e-04 213s
+[inception1d_crop_dsnorm_s3] ep 10 loss 0.6574 val_auroc 0.9255 lr 4.70e-04 235s
+[inception1d_crop_dsnorm_s3] ep 11 loss 0.6530 val_auroc 0.9290 lr 4.62e-04 257s
+[inception1d_crop_dsnorm_s3] ep 12 loss 0.6598 val_auroc 0.9287 lr 4.52e-04 281s
+[inception1d_crop_dsnorm_s3] ep 13 loss 0.6484 val_auroc 0.9296 lr 4.42e-04 306s
+[inception1d_crop_dsnorm_s3] ep 14 loss 0.6471 val_auroc 0.9272 lr 4.31e-04 332s
+[inception1d_crop_dsnorm_s3] ep 15 loss 0.6481 val_auroc 0.9300 lr 4.19e-04 357s
+[inception1d_crop_dsnorm_s3] ep 16 loss 0.6389 val_auroc 0.9336 lr 4.07e-04 382s
+[inception1d_crop_dsnorm_s3] ep 17 loss 0.6279 val_auroc 0.9304 lr 3.94e-04 407s
+[inception1d_crop_dsnorm_s3] ep 18 loss 0.6355 val_auroc 0.9325 lr 3.80e-04 433s
+[inception1d_crop_dsnorm_s3] ep 19 loss 0.6452 val_auroc 0.9293 lr 3.65e-04 458s
+[inception1d_crop_dsnorm_s3] ep 20 loss 0.6277 val_auroc 0.9302 lr 3.50e-04 483s
+[inception1d_crop_dsnorm_s3] ep 21 loss 0.6280 val_auroc 0.9303 lr 3.35e-04 509s
+[inception1d_crop_dsnorm_s3] ep 22 loss 0.6148 val_auroc 0.9315 lr 3.19e-04 534s
+[inception1d_crop_dsnorm_s3] ep 23 loss 0.6116 val_auroc 0.9324 lr 3.03e-04 559s
+[inception1d_crop_dsnorm_s3] ep 24 loss 0.6065 val_auroc 0.9310 lr 2.87e-04 584s
+[inception1d_crop_dsnorm_s3] ep 25 loss 0.6071 val_auroc 0.9342 lr 2.71e-04 610s
+[inception1d_crop_dsnorm_s3] ep 26 loss 0.5938 val_auroc 0.9333 lr 2.54e-04 635s
+[inception1d_crop_dsnorm_s3] ep 27 loss 0.6077 val_auroc 0.9298 lr 2.38e-04 660s
+[inception1d_crop_dsnorm_s3] ep 28 loss 0.5898 val_auroc 0.9345 lr 2.21e-04 686s
+[inception1d_crop_dsnorm_s3] ep 29 loss 0.5906 val_auroc 0.9317 lr 2.05e-04 708s
+[inception1d_crop_dsnorm_s3] ep 30 loss 0.5806 val_auroc 0.9295 lr 1.89e-04 732s
+[inception1d_crop_dsnorm_s3] ep 31 loss 0.5724 val_auroc 0.9313 lr 1.73e-04 757s
+[inception1d_crop_dsnorm_s3] ep 32 loss 0.5646 val_auroc 0.9282 lr 1.57e-04 782s
+[inception1d_crop_dsnorm_s3] ep 33 loss 0.5619 val_auroc 0.9330 lr 1.42e-04 807s
+[inception1d_crop_dsnorm_s3] ep 34 loss 0.5601 val_auroc 0.9297 lr 1.27e-04 832s
+[inception1d_crop_dsnorm_s3] ep 35 loss 0.5463 val_auroc 0.9263 lr 1.13e-04 857s
+[inception1d_crop_dsnorm_s3] ep 36 loss 0.5508 val_auroc 0.9300 lr 9.97e-05 882s
+[inception1d_crop_dsnorm_s3] ep 37 loss 0.5417 val_auroc 0.9288 lr 8.69e-05 907s
+[inception1d_crop_dsnorm_s3] ep 38 loss 0.5407 val_auroc 0.9274 lr 7.47e-05 933s
+[inception1d_crop_dsnorm_s3] early stop at ep 38
+[inception1d_crop_dsnorm_s3] DONE best_ep 28 val 0.9345 test nan params 507653 time 932.5s
+
+===== 2026-09-30 15:47:24 inception1d_crop_dsnorm_s4 =====
+fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+[inception1d_crop_dsnorm_s4] device=mps params=507653 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=nogit code=1faf72a66bbf
+[inception1d_crop_dsnorm_s4] ep  1 loss 0.9044 val_auroc 0.8943 lr 2.00e-04 25s
+[inception1d_crop_dsnorm_s4] ep  2 loss 0.7777 val_auroc 0.9116 lr 4.00e-04 51s
+[inception1d_crop_dsnorm_s4] ep  3 loss 0.7321 val_auroc 0.9156 lr 5.00e-04 76s
+[inception1d_crop_dsnorm_s4] ep  4 loss 0.7021 val_auroc 0.9208 lr 4.99e-04 101s
+[inception1d_crop_dsnorm_s4] ep  5 loss 0.7041 val_auroc 0.9142 lr 4.97e-04 127s
+[inception1d_crop_dsnorm_s4] ep  6 loss 0.6876 val_auroc 0.9206 lr 4.93e-04 157s
+[inception1d_crop_dsnorm_s4] ep  7 loss 0.6899 val_auroc 0.9241 lr 4.89e-04 187s
+[inception1d_crop_dsnorm_s4] ep  8 loss 0.6721 val_auroc 0.9250 lr 4.84e-04 217s
+[inception1d_crop_dsnorm_s4] ep  9 loss 0.6759 val_auroc 0.9249 lr 4.77e-04 248s
+[inception1d_crop_dsnorm_s4] ep 10 loss 0.6663 val_auroc 0.9288 lr 4.70e-04 277s
+[inception1d_crop_dsnorm_s4] ep 11 loss 0.6630 val_auroc 0.9292 lr 4.62e-04 307s
+[inception1d_crop_dsnorm_s4] ep 12 loss 0.6459 val_auroc 0.9263 lr 4.52e-04 337s
+[inception1d_crop_dsnorm_s4] ep 13 loss 0.6557 val_auroc 0.9256 lr 4.42e-04 367s
+[inception1d_crop_dsnorm_s4] ep 14 loss 0.6488 val_auroc 0.9249 lr 4.31e-04 397s
+[inception1d_crop_dsnorm_s4] ep 15 loss 0.6450 val_auroc 0.9275 lr 4.19e-04 427s
+[inception1d_crop_dsnorm_s4] ep 16 loss 0.6339 val_auroc 0.9290 lr 4.07e-04 457s
+[inception1d_crop_dsnorm_s4] ep 17 loss 0.6414 val_auroc 0.9330 lr 3.94e-04 487s
+[inception1d_crop_dsnorm_s4] ep 18 loss 0.6378 val_auroc 0.9293 lr 3.80e-04 511s
+[inception1d_crop_dsnorm_s4] ep 19 loss 0.6253 val_auroc 0.9293 lr 3.65e-04 532s
+[inception1d_crop_dsnorm_s4] ep 20 loss 0.6247 val_auroc 0.9283 lr 3.50e-04 553s
+[inception1d_crop_dsnorm_s4] ep 21 loss 0.6246 val_auroc 0.9292 lr 3.35e-04 574s
+[inception1d_crop_dsnorm_s4] ep 22 loss 0.6207 val_auroc 0.9308 lr 3.19e-04 596s
+[inception1d_crop_dsnorm_s4] ep 23 loss 0.6116 val_auroc 0.9308 lr 3.03e-04 617s
+[inception1d_crop_dsnorm_s4] ep 24 loss 0.6128 val_auroc 0.9282 lr 2.87e-04 638s
+[inception1d_crop_dsnorm_s4] ep 25 loss 0.5975 val_auroc 0.9308 lr 2.71e-04 660s
+[inception1d_crop_dsnorm_s4] ep 26 loss 0.5940 val_auroc 0.9294 lr 2.54e-04 681s
+[inception1d_crop_dsnorm_s4] ep 27 loss 0.6062 val_auroc 0.9303 lr 2.38e-04 702s
+[inception1d_crop_dsnorm_s4] early stop at ep 27
+[inception1d_crop_dsnorm_s4] DONE best_ep 17 val 0.9330 test nan params 507653 time 702.5s
+QUEUE_DONE inception

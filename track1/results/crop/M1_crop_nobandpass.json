@@ -1,0 +1,266 @@
+{
+  "model": "M1",
+  "tag": "M1_crop_nobandpass",
+  "seed": 0,
+  "n_params": 1046557,
+  "git_hash": "nogit",
+  "code_sha": "abbb55c03f7b",
+  "device": "mps",
+  "best_epoch": 33,
+  "epochs_run": 43,
+  "train_time_s": 522.3,
+  "val_macro_auroc": 0.9143772768649994,
+  "val_per_class_auroc": {
+    "NORM": 0.9413902699566119,
+    "MI": 0.9293782574604493,
+    "STTC": 0.9271313256171105,
+    "CD": 0.9352409620126156,
+    "HYP": 0.8387455692782098
+  },
+  "classes": [
+    "NORM",
+    "MI",
+    "STTC",
+    "CD",
+    "HYP"
+  ],
+  "config": {
+    "model": "M1",
+    "tag": "M1_crop_nobandpass",
+    "seed": 0,
+    "epochs": 50,
+    "patience": 10,
+    "bs": 32,
+    "lr": 0.0005,
+    "wd": 0.0001,
+    "mixup": 0.4,
+    "warmup": 0.05,
+    "sched": "cosine",
+    "crop": 250,
+    "stride": 125,
+    "agg": "mean",
+    "no_bandpass": true,
+    "norm": "record",
+    "eval_test": false,
+    "limit": 0,
+    "out": "results/crop"
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.9168364254631725,
+      "val_macro_auroc": 0.8647070019916198
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.7792995463515076,
+      "val_macro_auroc": 0.8840457521169964
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.7528372557820271,
+      "val_macro_auroc": 0.8830617388913012
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.746631100540054,
+      "val_macro_auroc": 0.8940783471333221
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.7269549473642158,
+      "val_macro_auroc": 0.8914586433177991
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.7228848839693732,
+      "val_macro_auroc": 0.8988510790393839
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.7139876491150959,
+      "val_macro_auroc": 0.9025253836292799
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.7086695185229025,
+      "val_macro_auroc": 0.9004819950568514
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.6981718756085786,
+      "val_macro_auroc": 0.9013854708382748
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.6996330481813708,
+      "val_macro_auroc": 0.9025710812858522
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.6870086307800283,
+      "val_macro_auroc": 0.8998794404935136
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.6835233212438407,
+      "val_macro_auroc": 0.9027426174127344
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.6868581820974526,
+      "val_macro_auroc": 0.9050257194847436
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.6778183193989421,
+      "val_macro_auroc": 0.9027597193338955
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.6716906148526016,
+      "val_macro_auroc": 0.9049288170391916
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.6747764916560656,
+      "val_macro_auroc": 0.9086505518357153
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.6672396489173292,
+      "val_macro_auroc": 0.907013647938901
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.666482599452574,
+      "val_macro_auroc": 0.9093710881493651
+    },
+    {
+      "epoch": 19,
+      "train_loss": 0.6728746862412616,
+      "val_macro_auroc": 0.9072954466007435
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.6549634597558825,
+      "val_macro_auroc": 0.9073916699449042
+    },
+    {
+      "epoch": 21,
+      "train_loss": 0.6559979705307026,
+      "val_macro_auroc": 0.9118042800047894
+    },
+    {
+      "epoch": 22,
+      "train_loss": 0.6586131730394491,
+      "val_macro_auroc": 0.910241566537079
+    },
+    {
+      "epoch": 23,
+      "train_loss": 0.6520958132108574,
+      "val_macro_auroc": 0.909075551051548
+    },
+    {
+      "epoch": 24,
+      "train_loss": 0.6412118686582466,
+      "val_macro_auroc": 0.9085935744340403
+    },
+    {
+      "epoch": 25,
+      "train_loss": 0.6427653887126183,
+      "val_macro_auroc": 0.9120261362403828
+    },
+    {
+      "epoch": 26,
+      "train_loss": 0.6302251608135605,
+      "val_macro_auroc": 0.9120484343182176
+    },
+    {
+      "epoch": 27,
+      "train_loss": 0.6272332600479912,
+      "val_macro_auroc": 0.9122998447374361
+    },
+    {
+      "epoch": 28,
+      "train_loss": 0.6196653775520163,
+      "val_macro_auroc": 0.9107365064892239
+    },
+    {
+      "epoch": 29,
+      "train_loss": 0.6180994292384036,
+      "val_macro_auroc": 0.9092652076201475
+    },
+    {
+      "epoch": 30,
+      "train_loss": 0.6302891966331426,
+      "val_macro_auroc": 0.9113739881604224
+    },
+    {
+      "epoch": 31,
+      "train_loss": 0.6197009555658783,
+      "val_macro_auroc": 0.9114985890464598
+    },
+    {
+      "epoch": 32,
+      "train_loss": 0.6164837025613591,
+      "val_macro_auroc": 0.9123662250132105
+    },
+    {
+      "epoch": 33,
+      "train_loss": 0.6108544978680138,
+      "val_macro_auroc": 0.9143772768649994
+    },
+    {
+      "epoch": 34,
+      "train_loss": 0.6090026990126961,
+      "val_macro_auroc": 0.912425052282383
+    },
+    {
+      "epoch": 35,
+      "train_loss": 0.6083796778207528,
+      "val_macro_auroc": 0.9128283846373847
+    },
+    {
+      "epoch": 36,
+      "train_loss": 0.6022252194414204,
+      "val_macro_auroc": 0.9099363940642569
+    },
+    {
+      "epoch": 37,
+      "train_loss": 0.5907890000211581,
+      "val_macro_auroc": 0.91305390736403
+    },
+    {
+      "epoch": 38,
+      "train_loss": 0.5961968333289652,
+      "val_macro_auroc": 0.914336887416213
+    },
+    {
+      "epoch": 39,
+      "train_loss": 0.593750188282853,
+      "val_macro_auroc": 0.9123680898045301
+    },
+    {
+      "epoch": 40,
+      "train_loss": 0.5921909608848758,
+      "val_macro_auroc": 0.9112004062825715
+    },
+    {
+      "epoch": 41,
+      "train_loss": 0.5752531285588508,
+      "val_macro_auroc": 0.9121765761212014
+    },
+    {
+      "epoch": 42,
+      "train_loss": 0.5768699228303044,
+      "val_macro_auroc": 0.9117896256980851
+    },
+    {
+      "epoch": 43,
+      "train_loss": 0.5710789775212011,
+      "val_macro_auroc": 0.9130294090378129
+    }
+  ],
+  "val_macro_auroc_agg_max": 0.9120828159991039
+}

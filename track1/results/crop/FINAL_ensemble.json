@@ -1,0 +1,57 @@
+{
+  "name": "FINAL_ensemble",
+  "tags": [
+    "M1_crop_datasetnorm",
+    "resnet1d_wang_crop_dsnorm",
+    "xresnet1d50_crop_dsnorm",
+    "xresnet1d101_crop_dsnorm",
+    "inception1d_crop_dsnorm"
+  ],
+  "runs": [
+    {
+      "tag": "M1_crop_datasetnorm",
+      "val": 0.9326720166630782,
+      "test": 0.9311800782221514
+    },
+    {
+      "tag": "resnet1d_wang_crop_dsnorm",
+      "val": 0.9364674050748001,
+      "test": 0.9332438411203341
+    },
+    {
+      "tag": "xresnet1d50_crop_dsnorm",
+      "val": 0.933299329818771,
+      "test": 0.9299534652544581
+    },
+    {
+      "tag": "xresnet1d101_crop_dsnorm",
+      "val": 0.9310734621842783,
+      "test": 0.9309330580226046
+    },
+    {
+      "tag": "inception1d_crop_dsnorm",
+      "val": 0.9345780094796812,
+      "test": 0.9298357292940208
+    }
+  ],
+  "classes": [
+    "NORM",
+    "MI",
+    "STTC",
+    "CD",
+    "HYP"
+  ],
+  "val_macro_auroc": 0.9387855741022859,
+  "test_macro_auroc": 0.9363657666928322,
+  "test_ci95_patient_bootstrap": [
+    0.9288813209657639,
+    0.9429826815662168
+  ],
+  "test_per_class_auroc": {
+    "NORM": 0.9532154138262142,
+    "MI": 0.9383208955223881,
+    "STTC": 0.9413737268093758,
+    "CD": 0.9340014945072008,
+    "HYP": 0.9149173027989823
+  }
+}

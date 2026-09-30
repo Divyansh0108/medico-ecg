@@ -1,0 +1,97 @@
+
+===== 2026-09-29 23:23:18 STAGE 0: data check =====
+PTB-XL root: /Volumes/Projects/medico/data/ptb-xl
+Total records: 21799
+
+Records per strat_fold (all / with >=1 superclass / dropped):
+  fold  1:  2175 /  2139 /   36
+  fold  2:  2181 /  2138 /   43
+  fold  3:  2192 /  2150 /   42
+  fold  4:  2174 /  2130 /   44
+  fold  5:  2174 /  2135 /   39
+  fold  6:  2173 /  2129 /   44
+  fold  7:  2176 /  2134 /   42
+  fold  8:  2173 /  2129 /   44
+  fold  9:  2183 /  2146 /   37
+  fold 10:  2198 /  2158 /   40
+Records with no superclass label: 411 -> DROPPED (as in Strodthoff et al. 2021)
+
+Label prevalence per split (after dropping):
+  split     N       NORM      MI    STTC      CD     HYP
+  train  17084    0.445   0.256   0.245   0.229   0.124
+  val     2146    0.445   0.252   0.246   0.231   0.125
+  test    2158    0.446   0.255   0.241   0.230   0.121
+
+Patients: 18869; patients in >1 fold: 0
+OK: no patient_id appears in more than one fold.
+train: X (17084, 12, 1000) float32, mean -0.000 std 1.000, finite True
+val: X (2146, 12, 1000) float32, mean 0.000 std 1.000, finite True
+test: X (2158, 12, 1000) float32, mean 0.000 std 1.000, finite True
+
+===== 2026-09-29 23:23:21 STAGE 1: M1 seed 0 =====
+[M1_s0] device=mps params=1046557 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=5426f6e2ec941bd883b8c377da1e10480470bec9
+[M1_s0] ep  1 loss 0.8570 val_auroc 0.8848 lr 2.00e-04 13s
+[M1_s0] ep  2 loss 0.7348 val_auroc 0.8876 lr 4.00e-04 24s
+[M1_s0] ep  3 loss 0.7099 val_auroc 0.8902 lr 5.00e-04 36s
+[M1_s0] ep  4 loss 0.7045 val_auroc 0.8920 lr 4.99e-04 48s
+[M1_s0] ep  5 loss 0.6857 val_auroc 0.8970 lr 4.97e-04 59s
+[M1_s0] ep  6 loss 0.6852 val_auroc 0.8960 lr 4.93e-04 71s
+[M1_s0] ep  7 loss 0.6645 val_auroc 0.8945 lr 4.89e-04 83s
+[M1_s0] ep  8 loss 0.6528 val_auroc 0.8976 lr 4.84e-04 95s
+[M1_s0] ep  9 loss 0.6409 val_auroc 0.8988 lr 4.77e-04 107s
+[M1_s0] ep 10 loss 0.6338 val_auroc 0.8994 lr 4.70e-04 119s
+[M1_s0] ep 11 loss 0.6186 val_auroc 0.8983 lr 4.62e-04 131s
+[M1_s0] ep 12 loss 0.6020 val_auroc 0.8948 lr 4.52e-04 143s
+[M1_s0] ep 13 loss 0.5998 val_auroc 0.8930 lr 4.42e-04 155s
+[M1_s0] ep 14 loss 0.5854 val_auroc 0.8878 lr 4.31e-04 166s
+[M1_s0] ep 15 loss 0.5663 val_auroc 0.8919 lr 4.19e-04 178s
+[M1_s0] ep 16 loss 0.5507 val_auroc 0.8913 lr 4.07e-04 190s
+[M1_s0] ep 17 loss 0.5381 val_auroc 0.8843 lr 3.94e-04 202s
+[M1_s0] ep 18 loss 0.5260 val_auroc 0.8904 lr 3.80e-04 214s
+[M1_s0] ep 19 loss 0.5277 val_auroc 0.8789 lr 3.65e-04 226s
+[M1_s0] ep 20 loss 0.4904 val_auroc 0.8843 lr 3.50e-04 238s
+[M1_s0] early stop at ep 20
+[M1_s0] DONE best_ep 10 val 0.8994 test 0.8967 per-class {'NORM': 0.935, 'MI': 0.912, 'STTC': 0.913, 'CD': 0.909, 'HYP': 0.814}
+
+===== 2026-09-29 23:27:22 STAGE 2: M2 seed 0 =====
+[M2_s0] device=mps params=1311517 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=5426f6e2ec941bd883b8c377da1e10480470bec9
+[M2_s0] ep  1 loss 0.8514 val_auroc 0.8791 lr 2.00e-04 16s
+[M2_s0] ep  2 loss 0.7440 val_auroc 0.8854 lr 4.00e-04 31s
+[M2_s0] ep  3 loss 0.7198 val_auroc 0.8893 lr 5.00e-04 47s
+[M2_s0] ep  4 loss 0.7116 val_auroc 0.8907 lr 4.99e-04 62s
+[M2_s0] ep  5 loss 0.6918 val_auroc 0.8983 lr 4.97e-04 78s
+[M2_s0] ep  6 loss 0.6896 val_auroc 0.8984 lr 4.93e-04 93s
+[M2_s0] ep  7 loss 0.6706 val_auroc 0.8981 lr 4.89e-04 108s
+[M2_s0] ep  8 loss 0.6585 val_auroc 0.8957 lr 4.84e-04 124s
+[M2_s0] ep  9 loss 0.6465 val_auroc 0.8994 lr 4.77e-04 139s
+[M2_s0] ep 10 loss 0.6387 val_auroc 0.8995 lr 4.70e-04 155s
+[M2_s0] ep 11 loss 0.6235 val_auroc 0.8991 lr 4.62e-04 170s
+[M2_s0] ep 12 loss 0.6097 val_auroc 0.8989 lr 4.52e-04 186s
+[M2_s0] ep 13 loss 0.6068 val_auroc 0.8969 lr 4.42e-04 201s
+[M2_s0] ep 14 loss 0.5942 val_auroc 0.8951 lr 4.31e-04 216s
+[M2_s0] ep 15 loss 0.5765 val_auroc 0.8932 lr 4.19e-04 232s
+[M2_s0] ep 16 loss 0.5630 val_auroc 0.8955 lr 4.07e-04 248s
+[M2_s0] ep 17 loss 0.5488 val_auroc 0.8917 lr 3.94e-04 263s
+[M2_s0] ep 18 loss 0.5385 val_auroc 0.8941 lr 3.80e-04 279s
+[M2_s0] ep 19 loss 0.5380 val_auroc 0.8914 lr 3.65e-04 294s
+[M2_s0] ep 20 loss 0.5046 val_auroc 0.8889 lr 3.50e-04 310s
+[M2_s0] early stop at ep 20
+[M2_s0] DONE best_ep 10 val 0.8995 test 0.8999 per-class {'NORM': 0.936, 'MI': 0.906, 'STTC': 0.92, 'CD': 0.907, 'HYP': 0.831}
+
+===== 2026-09-29 23:32:35 COMPARISON =====
+model                        test mAUROC val mAUROC    params best_ep
+M1 (seed 0, ours)                 0.8967     0.8994   1046557      10
+M2 (seed 0, ours)                 0.8999     0.8995   1311517      10
+xresnet1d101 (published)           0.928          -         -       -
+resnet1d_wang (published)          0.930          -         -       -
+inception1d (published)            0.921          -         -       -
+ensemble (published)               0.934          -         -       -
+naive (published)                  0.500          -         -       -
+
+===== 2026-09-29 23:32:35 STAGE 3: calibration =====
+model M2: test mAUROC 0.8999 (cal 0.8999) 95% CI [0.8902, 0.9081]
+ECE mean before 0.1287 after 0.0231
+macro-F1 0.6982 P 0.6784 R 0.7233 BalAcc 0.8056  thresholds {'NORM': 0.59, 'MI': 0.72, 'STTC': 0.56, 'CD': 0.63, 'HYP': 0.76}
+
+===== 2026-09-29 23:32:39 GATE: best seed-0 test mAUROC < 0.92 -> stop (no seeds 1-4) =====
+PIPELINE_DONE

@@ -1,0 +1,17 @@
+name: medico
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - scipy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - pyyaml
+  - tqdm
+  - pytest
+  - pytorch
+  - pip
+  - pip:
+      - wfdb

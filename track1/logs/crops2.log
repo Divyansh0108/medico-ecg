@@ -1,0 +1,281 @@
+skip M1_crop
+skip resnet1d_wang_crop
+skip xresnet1d50_crop
+skip xresnet1d101_crop
+skip inception1d_crop
+skip M1_crop_nomixup
+skip M1_crop_nobandpass
+skip M1_crop_datasetnorm
+skip M1_crop_onecycle
+
+===== 2026-09-30 11:42:43 REPORT =====
+# PTB-XL Track 1 - crops, backbones, ablations (seed 0)
+
+Selection on fold 9 only. Fold 10 is evaluated only via final_eval.py (table 3).
+
+## 1. All runs (fold 9)
+
+| run | model | fold-9 mAUROC (mean agg) | fold-9 (max agg) | params | best ep / run | train time |
+|---|---|---|---|---|---|---|
+| M1_crop | M1 | 0.9144 | 0.9123 | 1,046,557 | 33 / 43 | 8.5 min |
+| M1_crop_datasetnorm | M1 | 0.9327 | 0.9310 | 1,046,557 | 38 / 48 | 9.5 min |
+| M1_crop_nobandpass | M1 | 0.9144 | 0.9121 | 1,046,557 | 33 / 43 | 8.7 min |
+| M1_crop_nomixup | M1 | 0.9124 | 0.9103 | 1,046,557 | 13 / 23 | 4.6 min |
+| M1_crop_onecycle | M1 | 0.8971 | 0.8931 | 1,046,557 | 2 / 12 | 2.5 min |
+| inception1d_crop | inception1d | 0.9170 | 0.9158 | 507,653 | 26 / 36 | 12.3 min |
+| resnet1d_wang_crop | resnet1d_wang | 0.9178 | 0.9160 | 473,349 | 21 / 31 | 3.4 min |
+| xresnet1d101_crop | xresnet1d101 | 0.9149 | 0.9142 | 1,872,261 | 25 / 35 | 21.8 min |
+| xresnet1d50_crop | xresnet1d50 | 0.9174 | 0.9165 | 953,989 | 25 / 35 | 12.4 min |
+
+## 2. Fold-9 ensembles of backbone runs (mean of probabilities)
+
+| members | fold-9 mAUROC |
+|---|---|
+| resnet1d_wang_crop + M1_crop_datasetnorm | 0.9343 |
+| inception1d_crop + M1_crop_datasetnorm | 0.9340 |
+| xresnet1d50_crop + M1_crop_datasetnorm | 0.9334 |
+| resnet1d_wang_crop + inception1d_crop + M1_crop_datasetnorm | 0.9334 |
+| xresnet1d50_crop + inception1d_crop + M1_crop_datasetnorm | 0.9329 |
+| resnet1d_wang_crop + xresnet1d50_crop + M1_crop_datasetnorm | 0.9327 |
+| xresnet1d101_crop + M1_crop_datasetnorm | 0.9322 |
+| xresnet1d101_crop + inception1d_crop + M1_crop_datasetnorm | 0.9322 |
+
+## 3. Fold 10 (evaluated once per entry) vs published
+
+| model | fold-9 | fold-10 mAUROC | 95% CI (patient bootstrap) |
+|---|---|---|---|
+| **M1_crop_fold10** (M1_crop) | 0.9144 | **0.9129** | 0.9042 - 0.9202 |
+| M1 full-length, no crops (previous run) | 0.8994 | 0.8967 | - |
+| xresnet1d101 (Strodthoff et al. 2021, published) | - | 0.928 | - |
+| resnet1d_wang (Strodthoff et al. 2021, published) | - | 0.930 | - |
+| inception1d (Strodthoff et al. 2021, published) | - | 0.921 | - |
+| ensemble (Strodthoff et al. 2021, published) | - | 0.934 | - |
+CROPS_DONE
+
+===== 2026-09-30 11:42:45 resnet1d_wang_crop_dsnorm =====
+fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+[resnet1d_wang_crop_dsnorm] device=mps params=473349 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=nogit code=db3d13875ba0
+[resnet1d_wang_crop_dsnorm] ep  1 loss 0.9143 val_auroc 0.8927 lr 2.00e-04 8s
+[resnet1d_wang_crop_dsnorm] ep  2 loss 0.7810 val_auroc 0.9024 lr 4.00e-04 15s
+[resnet1d_wang_crop_dsnorm] ep  3 loss 0.7378 val_auroc 0.9125 lr 5.00e-04 23s
+[resnet1d_wang_crop_dsnorm] ep  4 loss 0.7249 val_auroc 0.9163 lr 4.99e-04 30s
+[resnet1d_wang_crop_dsnorm] ep  5 loss 0.7058 val_auroc 0.9205 lr 4.97e-04 37s
+[resnet1d_wang_crop_dsnorm] ep  6 loss 0.6994 val_auroc 0.9242 lr 4.93e-04 43s
+[resnet1d_wang_crop_dsnorm] ep  7 loss 0.6908 val_auroc 0.9245 lr 4.89e-04 50s
+[resnet1d_wang_crop_dsnorm] ep  8 loss 0.6827 val_auroc 0.9231 lr 4.84e-04 57s
+[resnet1d_wang_crop_dsnorm] ep  9 loss 0.6770 val_auroc 0.9276 lr 4.77e-04 64s
+[resnet1d_wang_crop_dsnorm] ep 10 loss 0.6789 val_auroc 0.9236 lr 4.70e-04 71s
+[resnet1d_wang_crop_dsnorm] ep 11 loss 0.6680 val_auroc 0.9276 lr 4.62e-04 78s
+[resnet1d_wang_crop_dsnorm] ep 12 loss 0.6650 val_auroc 0.9246 lr 4.52e-04 84s
+[resnet1d_wang_crop_dsnorm] ep 13 loss 0.6679 val_auroc 0.9247 lr 4.42e-04 91s
+[resnet1d_wang_crop_dsnorm] ep 14 loss 0.6586 val_auroc 0.9300 lr 4.31e-04 98s
+[resnet1d_wang_crop_dsnorm] ep 15 loss 0.6551 val_auroc 0.9316 lr 4.19e-04 104s
+[resnet1d_wang_crop_dsnorm] ep 16 loss 0.6606 val_auroc 0.9307 lr 4.07e-04 111s
+[resnet1d_wang_crop_dsnorm] ep 17 loss 0.6528 val_auroc 0.9312 lr 3.94e-04 118s
+[resnet1d_wang_crop_dsnorm] ep 18 loss 0.6557 val_auroc 0.9331 lr 3.80e-04 125s
+[resnet1d_wang_crop_dsnorm] ep 19 loss 0.6606 val_auroc 0.9319 lr 3.65e-04 131s
+[resnet1d_wang_crop_dsnorm] ep 20 loss 0.6424 val_auroc 0.9314 lr 3.50e-04 138s
+[resnet1d_wang_crop_dsnorm] ep 21 loss 0.6425 val_auroc 0.9308 lr 3.35e-04 145s
+[resnet1d_wang_crop_dsnorm] ep 22 loss 0.6488 val_auroc 0.9315 lr 3.19e-04 151s
+[resnet1d_wang_crop_dsnorm] ep 23 loss 0.6451 val_auroc 0.9310 lr 3.03e-04 158s
+[resnet1d_wang_crop_dsnorm] ep 24 loss 0.6320 val_auroc 0.9304 lr 2.87e-04 164s
+[resnet1d_wang_crop_dsnorm] ep 25 loss 0.6345 val_auroc 0.9323 lr 2.71e-04 171s
+[resnet1d_wang_crop_dsnorm] ep 26 loss 0.6185 val_auroc 0.9353 lr 2.54e-04 178s
+[resnet1d_wang_crop_dsnorm] ep 27 loss 0.6197 val_auroc 0.9343 lr 2.38e-04 184s
+[resnet1d_wang_crop_dsnorm] ep 28 loss 0.6113 val_auroc 0.9365 lr 2.21e-04 191s
+[resnet1d_wang_crop_dsnorm] ep 29 loss 0.6125 val_auroc 0.9329 lr 2.05e-04 198s
+[resnet1d_wang_crop_dsnorm] ep 30 loss 0.6252 val_auroc 0.9330 lr 1.89e-04 204s
+[resnet1d_wang_crop_dsnorm] ep 31 loss 0.6125 val_auroc 0.9293 lr 1.73e-04 211s
+[resnet1d_wang_crop_dsnorm] ep 32 loss 0.6082 val_auroc 0.9337 lr 1.57e-04 217s
+[resnet1d_wang_crop_dsnorm] ep 33 loss 0.6044 val_auroc 0.9336 lr 1.42e-04 224s
+[resnet1d_wang_crop_dsnorm] ep 34 loss 0.6029 val_auroc 0.9344 lr 1.27e-04 231s
+[resnet1d_wang_crop_dsnorm] ep 35 loss 0.6022 val_auroc 0.9339 lr 1.13e-04 238s
+[resnet1d_wang_crop_dsnorm] ep 36 loss 0.5983 val_auroc 0.9330 lr 9.97e-05 244s
+[resnet1d_wang_crop_dsnorm] ep 37 loss 0.5854 val_auroc 0.9329 lr 8.69e-05 251s
+[resnet1d_wang_crop_dsnorm] ep 38 loss 0.5930 val_auroc 0.9337 lr 7.47e-05 258s
+[resnet1d_wang_crop_dsnorm] early stop at ep 38
+[resnet1d_wang_crop_dsnorm] DONE best_ep 28 val 0.9365 test nan params 473349 time 257.6s
+
+===== 2026-09-30 11:47:16 xresnet1d50_crop_dsnorm =====
+fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+[xresnet1d50_crop_dsnorm] device=mps params=953989 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=nogit code=db3d13875ba0
+[xresnet1d50_crop_dsnorm] ep  1 loss 1.2620 val_auroc 0.8702 lr 2.00e-04 22s
+[xresnet1d50_crop_dsnorm] ep  2 loss 0.9720 val_auroc 0.8915 lr 4.00e-04 43s
+[xresnet1d50_crop_dsnorm] ep  3 loss 0.8547 val_auroc 0.9022 lr 5.00e-04 65s
+[xresnet1d50_crop_dsnorm] ep  4 loss 0.7952 val_auroc 0.9040 lr 4.99e-04 86s
+[xresnet1d50_crop_dsnorm] ep  5 loss 0.7514 val_auroc 0.9079 lr 4.97e-04 107s
+[xresnet1d50_crop_dsnorm] ep  6 loss 0.7320 val_auroc 0.9105 lr 4.93e-04 129s
+[xresnet1d50_crop_dsnorm] ep  7 loss 0.7170 val_auroc 0.9181 lr 4.89e-04 152s
+[xresnet1d50_crop_dsnorm] ep  8 loss 0.7043 val_auroc 0.9169 lr 4.84e-04 173s
+[xresnet1d50_crop_dsnorm] ep  9 loss 0.6919 val_auroc 0.9167 lr 4.77e-04 194s
+[xresnet1d50_crop_dsnorm] ep 10 loss 0.6929 val_auroc 0.9204 lr 4.70e-04 216s
+[xresnet1d50_crop_dsnorm] ep 11 loss 0.6758 val_auroc 0.9218 lr 4.62e-04 237s
+[xresnet1d50_crop_dsnorm] ep 12 loss 0.6731 val_auroc 0.9230 lr 4.52e-04 258s
+[xresnet1d50_crop_dsnorm] ep 13 loss 0.6771 val_auroc 0.9195 lr 4.42e-04 280s
+[xresnet1d50_crop_dsnorm] ep 14 loss 0.6641 val_auroc 0.9272 lr 4.31e-04 301s
+[xresnet1d50_crop_dsnorm] ep 15 loss 0.6605 val_auroc 0.9255 lr 4.19e-04 322s
+[xresnet1d50_crop_dsnorm] ep 16 loss 0.6634 val_auroc 0.9266 lr 4.07e-04 343s
+[xresnet1d50_crop_dsnorm] ep 17 loss 0.6554 val_auroc 0.9266 lr 3.94e-04 364s
+[xresnet1d50_crop_dsnorm] ep 18 loss 0.6584 val_auroc 0.9279 lr 3.80e-04 385s
+[xresnet1d50_crop_dsnorm] ep 19 loss 0.6617 val_auroc 0.9257 lr 3.65e-04 406s
+[xresnet1d50_crop_dsnorm] ep 20 loss 0.6433 val_auroc 0.9283 lr 3.50e-04 426s
+[xresnet1d50_crop_dsnorm] ep 21 loss 0.6433 val_auroc 0.9286 lr 3.35e-04 448s
+[xresnet1d50_crop_dsnorm] ep 22 loss 0.6486 val_auroc 0.9290 lr 3.19e-04 468s
+[xresnet1d50_crop_dsnorm] ep 23 loss 0.6435 val_auroc 0.9281 lr 3.03e-04 490s
+[xresnet1d50_crop_dsnorm] ep 24 loss 0.6306 val_auroc 0.9285 lr 2.87e-04 510s
+[xresnet1d50_crop_dsnorm] ep 25 loss 0.6319 val_auroc 0.9296 lr 2.71e-04 531s
+[xresnet1d50_crop_dsnorm] ep 26 loss 0.6156 val_auroc 0.9325 lr 2.54e-04 553s
+[xresnet1d50_crop_dsnorm] ep 27 loss 0.6158 val_auroc 0.9311 lr 2.38e-04 575s
+[xresnet1d50_crop_dsnorm] ep 28 loss 0.6068 val_auroc 0.9333 lr 2.21e-04 596s
+[xresnet1d50_crop_dsnorm] ep 29 loss 0.6077 val_auroc 0.9304 lr 2.05e-04 618s
+[xresnet1d50_crop_dsnorm] ep 30 loss 0.6205 val_auroc 0.9291 lr 1.89e-04 640s
+[xresnet1d50_crop_dsnorm] ep 31 loss 0.6058 val_auroc 0.9274 lr 1.73e-04 661s
+[xresnet1d50_crop_dsnorm] ep 32 loss 0.6048 val_auroc 0.9291 lr 1.57e-04 682s
+[xresnet1d50_crop_dsnorm] ep 33 loss 0.5982 val_auroc 0.9299 lr 1.42e-04 704s
+[xresnet1d50_crop_dsnorm] ep 34 loss 0.5959 val_auroc 0.9301 lr 1.27e-04 725s
+[xresnet1d50_crop_dsnorm] ep 35 loss 0.5967 val_auroc 0.9321 lr 1.13e-04 746s
+[xresnet1d50_crop_dsnorm] ep 36 loss 0.5954 val_auroc 0.9302 lr 9.97e-05 768s
+[xresnet1d50_crop_dsnorm] ep 37 loss 0.5788 val_auroc 0.9295 lr 8.69e-05 789s
+[xresnet1d50_crop_dsnorm] ep 38 loss 0.5867 val_auroc 0.9308 lr 7.47e-05 810s
+[xresnet1d50_crop_dsnorm] early stop at ep 38
+[xresnet1d50_crop_dsnorm] DONE best_ep 28 val 0.9333 test nan params 953989 time 810.3s
+
+===== 2026-09-30 12:00:58 xresnet1d101_crop_dsnorm =====
+fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+[xresnet1d101_crop_dsnorm] device=mps params=1872261 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=nogit code=db3d13875ba0
+[xresnet1d101_crop_dsnorm] ep  1 loss 1.2850 val_auroc 0.8686 lr 2.00e-04 38s
+[xresnet1d101_crop_dsnorm] ep  2 loss 0.9790 val_auroc 0.8920 lr 4.00e-04 76s
+[xresnet1d101_crop_dsnorm] ep  3 loss 0.8459 val_auroc 0.8988 lr 5.00e-04 114s
+[xresnet1d101_crop_dsnorm] ep  4 loss 0.7912 val_auroc 0.9063 lr 4.99e-04 152s
+[xresnet1d101_crop_dsnorm] ep  5 loss 0.7461 val_auroc 0.9095 lr 4.97e-04 189s
+[xresnet1d101_crop_dsnorm] ep  6 loss 0.7280 val_auroc 0.9120 lr 4.93e-04 227s
+[xresnet1d101_crop_dsnorm] ep  7 loss 0.7131 val_auroc 0.9170 lr 4.89e-04 265s
+[xresnet1d101_crop_dsnorm] ep  8 loss 0.7011 val_auroc 0.9182 lr 4.84e-04 303s
+[xresnet1d101_crop_dsnorm] ep  9 loss 0.6903 val_auroc 0.9193 lr 4.77e-04 341s
+[xresnet1d101_crop_dsnorm] ep 10 loss 0.6898 val_auroc 0.9204 lr 4.70e-04 379s
+[xresnet1d101_crop_dsnorm] ep 11 loss 0.6748 val_auroc 0.9218 lr 4.62e-04 417s
+[xresnet1d101_crop_dsnorm] ep 12 loss 0.6744 val_auroc 0.9235 lr 4.52e-04 454s
+[xresnet1d101_crop_dsnorm] ep 13 loss 0.6766 val_auroc 0.9148 lr 4.42e-04 492s
+[xresnet1d101_crop_dsnorm] ep 14 loss 0.6619 val_auroc 0.9239 lr 4.31e-04 530s
+[xresnet1d101_crop_dsnorm] ep 15 loss 0.6597 val_auroc 0.9256 lr 4.19e-04 568s
+[xresnet1d101_crop_dsnorm] ep 16 loss 0.6622 val_auroc 0.9233 lr 4.07e-04 606s
+[xresnet1d101_crop_dsnorm] ep 17 loss 0.6563 val_auroc 0.9258 lr 3.94e-04 644s
+[xresnet1d101_crop_dsnorm] ep 18 loss 0.6582 val_auroc 0.9295 lr 3.80e-04 683s
+[xresnet1d101_crop_dsnorm] ep 19 loss 0.6627 val_auroc 0.9245 lr 3.65e-04 722s
+[xresnet1d101_crop_dsnorm] ep 20 loss 0.6428 val_auroc 0.9259 lr 3.50e-04 762s
+[xresnet1d101_crop_dsnorm] ep 21 loss 0.6435 val_auroc 0.9253 lr 3.35e-04 800s
+[xresnet1d101_crop_dsnorm] ep 22 loss 0.6456 val_auroc 0.9281 lr 3.19e-04 839s
+[xresnet1d101_crop_dsnorm] ep 23 loss 0.6425 val_auroc 0.9283 lr 3.03e-04 877s
+[xresnet1d101_crop_dsnorm] ep 24 loss 0.6305 val_auroc 0.9273 lr 2.87e-04 915s
+[xresnet1d101_crop_dsnorm] ep 25 loss 0.6317 val_auroc 0.9307 lr 2.71e-04 953s
+[xresnet1d101_crop_dsnorm] ep 26 loss 0.6180 val_auroc 0.9311 lr 2.54e-04 992s
+[xresnet1d101_crop_dsnorm] ep 27 loss 0.6186 val_auroc 0.9294 lr 2.38e-04 1030s
+[xresnet1d101_crop_dsnorm] ep 28 loss 0.6081 val_auroc 0.9309 lr 2.21e-04 1067s
+[xresnet1d101_crop_dsnorm] ep 29 loss 0.6080 val_auroc 0.9273 lr 2.05e-04 1106s
+[xresnet1d101_crop_dsnorm] ep 30 loss 0.6192 val_auroc 0.9285 lr 1.89e-04 1143s
+[xresnet1d101_crop_dsnorm] ep 31 loss 0.6107 val_auroc 0.9265 lr 1.73e-04 1180s
+[xresnet1d101_crop_dsnorm] ep 32 loss 0.6054 val_auroc 0.9272 lr 1.57e-04 1217s
+[xresnet1d101_crop_dsnorm] ep 33 loss 0.5987 val_auroc 0.9287 lr 1.42e-04 1254s
+[xresnet1d101_crop_dsnorm] ep 34 loss 0.6002 val_auroc 0.9302 lr 1.27e-04 1291s
+[xresnet1d101_crop_dsnorm] ep 35 loss 0.5988 val_auroc 0.9299 lr 1.13e-04 1328s
+[xresnet1d101_crop_dsnorm] ep 36 loss 0.5963 val_auroc 0.9256 lr 9.97e-05 1365s
+[xresnet1d101_crop_dsnorm] early stop at ep 36
+[xresnet1d101_crop_dsnorm] DONE best_ep 26 val 0.9311 test nan params 1872261 time 1365.0s
+
+===== 2026-09-30 12:23:56 inception1d_crop_dsnorm =====
+fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+[inception1d_crop_dsnorm] device=mps params=507653 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=nogit code=db3d13875ba0
+[inception1d_crop_dsnorm] ep  1 loss 0.9126 val_auroc 0.8963 lr 2.00e-04 21s
+[inception1d_crop_dsnorm] ep  2 loss 0.7665 val_auroc 0.9084 lr 4.00e-04 41s
+[inception1d_crop_dsnorm] ep  3 loss 0.7254 val_auroc 0.9132 lr 5.00e-04 61s
+[inception1d_crop_dsnorm] ep  4 loss 0.7140 val_auroc 0.9165 lr 4.99e-04 82s
+[inception1d_crop_dsnorm] ep  5 loss 0.6958 val_auroc 0.9178 lr 4.97e-04 102s
+[inception1d_crop_dsnorm] ep  6 loss 0.6911 val_auroc 0.9248 lr 4.93e-04 123s
+[inception1d_crop_dsnorm] ep  7 loss 0.6833 val_auroc 0.9253 lr 4.89e-04 143s
+[inception1d_crop_dsnorm] ep  8 loss 0.6734 val_auroc 0.9267 lr 4.84e-04 164s
+[inception1d_crop_dsnorm] ep  9 loss 0.6645 val_auroc 0.9237 lr 4.77e-04 183s
+[inception1d_crop_dsnorm] ep 10 loss 0.6649 val_auroc 0.9234 lr 4.70e-04 203s
+[inception1d_crop_dsnorm] ep 11 loss 0.6533 val_auroc 0.9279 lr 4.62e-04 223s
+[inception1d_crop_dsnorm] ep 12 loss 0.6509 val_auroc 0.9273 lr 4.52e-04 243s
+[inception1d_crop_dsnorm] ep 13 loss 0.6522 val_auroc 0.9223 lr 4.42e-04 263s
+[inception1d_crop_dsnorm] ep 14 loss 0.6442 val_auroc 0.9303 lr 4.31e-04 282s
+[inception1d_crop_dsnorm] ep 15 loss 0.6401 val_auroc 0.9314 lr 4.19e-04 302s
+[inception1d_crop_dsnorm] ep 16 loss 0.6420 val_auroc 0.9281 lr 4.07e-04 322s
+[inception1d_crop_dsnorm] ep 17 loss 0.6331 val_auroc 0.9322 lr 3.94e-04 341s
+[inception1d_crop_dsnorm] ep 18 loss 0.6361 val_auroc 0.9312 lr 3.80e-04 361s
+[inception1d_crop_dsnorm] ep 19 loss 0.6420 val_auroc 0.9318 lr 3.65e-04 381s
+[inception1d_crop_dsnorm] ep 20 loss 0.6208 val_auroc 0.9316 lr 3.50e-04 400s
+[inception1d_crop_dsnorm] ep 21 loss 0.6217 val_auroc 0.9318 lr 3.35e-04 420s
+[inception1d_crop_dsnorm] ep 22 loss 0.6252 val_auroc 0.9320 lr 3.19e-04 441s
+[inception1d_crop_dsnorm] ep 23 loss 0.6199 val_auroc 0.9333 lr 3.03e-04 461s
+[inception1d_crop_dsnorm] ep 24 loss 0.6067 val_auroc 0.9304 lr 2.87e-04 482s
+[inception1d_crop_dsnorm] ep 25 loss 0.6068 val_auroc 0.9336 lr 2.71e-04 502s
+[inception1d_crop_dsnorm] ep 26 loss 0.5899 val_auroc 0.9346 lr 2.54e-04 522s
+[inception1d_crop_dsnorm] ep 27 loss 0.5894 val_auroc 0.9308 lr 2.38e-04 543s
+[inception1d_crop_dsnorm] ep 28 loss 0.5755 val_auroc 0.9345 lr 2.21e-04 564s
+[inception1d_crop_dsnorm] ep 29 loss 0.5794 val_auroc 0.9292 lr 2.05e-04 584s
+[inception1d_crop_dsnorm] ep 30 loss 0.5886 val_auroc 0.9290 lr 1.89e-04 604s
+[inception1d_crop_dsnorm] ep 31 loss 0.5753 val_auroc 0.9264 lr 1.73e-04 624s
+[inception1d_crop_dsnorm] ep 32 loss 0.5673 val_auroc 0.9285 lr 1.57e-04 644s
+[inception1d_crop_dsnorm] ep 33 loss 0.5608 val_auroc 0.9283 lr 1.42e-04 664s
+[inception1d_crop_dsnorm] ep 34 loss 0.5603 val_auroc 0.9276 lr 1.27e-04 685s
+[inception1d_crop_dsnorm] ep 35 loss 0.5602 val_auroc 0.9284 lr 1.13e-04 705s
+[inception1d_crop_dsnorm] ep 36 loss 0.5510 val_auroc 0.9248 lr 9.97e-05 725s
+[inception1d_crop_dsnorm] early stop at ep 36
+[inception1d_crop_dsnorm] DONE best_ep 26 val 0.9346 test nan params 507653 time 725.4s
+
+===== 2026-09-30 12:36:15 REPORT2 =====
+# PTB-XL Track 1 - crops, backbones, ablations (seed 0)
+
+Selection on fold 9 only. Fold 10 is evaluated only via final_eval.py (table 3).
+
+## 1. All runs (fold 9)
+
+| run | model | fold-9 mAUROC (mean agg) | fold-9 (max agg) | params | best ep / run | train time |
+|---|---|---|---|---|---|---|
+| M1_crop | M1 | 0.9144 | 0.9123 | 1,046,557 | 33 / 43 | 8.5 min |
+| M1_crop_datasetnorm | M1 | 0.9327 | 0.9310 | 1,046,557 | 38 / 48 | 9.5 min |
+| M1_crop_nobandpass | M1 | 0.9144 | 0.9121 | 1,046,557 | 33 / 43 | 8.7 min |
+| M1_crop_nomixup | M1 | 0.9124 | 0.9103 | 1,046,557 | 13 / 23 | 4.6 min |
+| M1_crop_onecycle | M1 | 0.8971 | 0.8931 | 1,046,557 | 2 / 12 | 2.5 min |
+| inception1d_crop | inception1d | 0.9170 | 0.9158 | 507,653 | 26 / 36 | 12.3 min |
+| inception1d_crop_dsnorm | inception1d | 0.9346 | 0.9334 | 507,653 | 26 / 36 | 12.1 min |
+| resnet1d_wang_crop | resnet1d_wang | 0.9178 | 0.9160 | 473,349 | 21 / 31 | 3.4 min |
+| resnet1d_wang_crop_dsnorm | resnet1d_wang | 0.9365 | 0.9337 | 473,349 | 28 / 38 | 4.3 min |
+| xresnet1d101_crop | xresnet1d101 | 0.9149 | 0.9142 | 1,872,261 | 25 / 35 | 21.8 min |
+| xresnet1d101_crop_dsnorm | xresnet1d101 | 0.9311 | 0.9294 | 1,872,261 | 26 / 36 | 22.8 min |
+| xresnet1d50_crop | xresnet1d50 | 0.9174 | 0.9165 | 953,989 | 25 / 35 | 12.4 min |
+| xresnet1d50_crop_dsnorm | xresnet1d50 | 0.9333 | 0.9317 | 953,989 | 28 / 38 | 13.5 min |
+
+## 2. Fold-9 ensembles of backbone runs (mean of probabilities)
+
+| members | fold-9 mAUROC |
+|---|---|
+| resnet1d_wang_crop + M1_crop_datasetnorm + resnet1d_wang_crop_dsnorm + xresnet1d50_crop_dsnorm + inception1d_crop_dsnorm | 0.9395 |
+| inception1d_crop + M1_crop_datasetnorm + resnet1d_wang_crop_dsnorm + xresnet1d50_crop_dsnorm + inception1d_crop_dsnorm | 0.9394 |
+| xresnet1d50_crop + M1_crop_datasetnorm + resnet1d_wang_crop_dsnorm + xresnet1d50_crop_dsnorm + inception1d_crop_dsnorm | 0.9394 |
+| M1_crop_datasetnorm + resnet1d_wang_crop_dsnorm + xresnet1d50_crop_dsnorm + inception1d_crop_dsnorm | 0.9393 |
+| resnet1d_wang_crop + resnet1d_wang_crop_dsnorm + xresnet1d50_crop_dsnorm + inception1d_crop_dsnorm | 0.9393 |
+| resnet1d_wang_crop_dsnorm + xresnet1d50_crop_dsnorm + inception1d_crop_dsnorm | 0.9392 |
+| xresnet1d50_crop + resnet1d_wang_crop_dsnorm + xresnet1d50_crop_dsnorm + inception1d_crop_dsnorm | 0.9392 |
+| resnet1d_wang_crop + M1_crop_datasetnorm + resnet1d_wang_crop_dsnorm + xresnet1d50_crop_dsnorm + xresnet1d101_crop_dsnorm + inception1d_crop_dsnorm | 0.9391 |
+
+## 3. Fold 10 (evaluated once per entry) vs published
+
+| model | fold-9 | fold-10 mAUROC | 95% CI (patient bootstrap) |
+|---|---|---|---|
+| **M1_crop_fold10** (M1_crop) | 0.9144 | **0.9129** | 0.9042 - 0.9202 |
+| M1 full-length, no crops (previous run) | 0.8994 | 0.8967 | - |
+| xresnet1d101 (Strodthoff et al. 2021, published) | - | 0.928 | - |
+| resnet1d_wang (Strodthoff et al. 2021, published) | - | 0.930 | - |
+| inception1d (Strodthoff et al. 2021, published) | - | 0.921 | - |
+| ensemble (Strodthoff et al. 2021, published) | - | 0.934 | - |
+STAGE2_DONE

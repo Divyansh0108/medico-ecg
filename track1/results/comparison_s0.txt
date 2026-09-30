@@ -1,0 +1,8 @@
+model                        test mAUROC val mAUROC    params best_ep
+M1 (seed 0, ours)                 0.8967     0.8994   1046557      10
+M2 (seed 0, ours)                 0.8999     0.8995   1311517      10
+xresnet1d101 (published)           0.928          -         -       -
+resnet1d_wang (published)          0.930          -         -       -
+inception1d (published)            0.921          -         -       -
+ensemble (published)               0.934          -         -       -
+naive (published)                  0.500          -         -       -

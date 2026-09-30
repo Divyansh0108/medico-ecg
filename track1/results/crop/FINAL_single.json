@@ -1,0 +1,33 @@
+{
+  "name": "FINAL_single",
+  "tags": [
+    "resnet1d_wang_crop_dsnorm"
+  ],
+  "runs": [
+    {
+      "tag": "resnet1d_wang_crop_dsnorm",
+      "val": 0.9364674050748001,
+      "test": 0.9332438411203341
+    }
+  ],
+  "classes": [
+    "NORM",
+    "MI",
+    "STTC",
+    "CD",
+    "HYP"
+  ],
+  "val_macro_auroc": 0.9364674050748001,
+  "test_macro_auroc": 0.9332438411203341,
+  "test_ci95_patient_bootstrap": [
+    0.9255455074598353,
+    0.9398746292789402
+  ],
+  "test_per_class_auroc": {
+    "NORM": 0.9525675951633016,
+    "MI": 0.936319538670285,
+    "STTC": 0.9353376864424764,
+    "CD": 0.9303040448740343,
+    "HYP": 0.9116903404515735
+  }
+}

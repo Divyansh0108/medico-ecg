@@ -1,0 +1,72 @@
+# RACER Phase 1 configuration (docs/master.md Part B, reduced by B-scope 2026-09-29).
+# Scope: PTB-XL only, 100 Hz records100, lead II, strat_fold 1-8/9/10, 5 superclasses;
+# synthetic corruptions only (no NSTDB); variants A, C, E x {clean, aug}.
+# All paths relative to phase1/ (shared data lives in ../data).
+
+paths:
+  ptbxl_root: ../data/ptb-xl
+  nstdb_root: ../data/nstdb      # read only if a family below is nstdb_* (not in Phase 1)
+  cache_dir: ../data/cache
+  runs_dir: runs
+  results_dir: results
+
+variants: [A, C, E]           # sweep (scripts/run_all.sh); B, D, F, G stay implemented, not run
+
+data:
+  fs: 100                     # 100 -> records100 (filename_lr), 500 -> records500
+  lead: II
+  train_folds: [1, 2, 3, 4, 5, 6, 7, 8]
+  val_folds: [9]
+  test_folds: [10]
+  nstdb_train_frac: 0.6       # NSTDB only
+
+corruptions:
+  train_families: [baseline_wander, emg]   # augmentation (+ 2-family mixes)
+  unseen_families: [motion_burst, dropout] # test-only; powerline impossible at 100 Hz (Nyquist 50 Hz)
+
+train:
+  optimizer: adamw
+  lr: 1.0e-3
+  weight_decay: 1.0e-2        # AdamW default; identical for all variants
+  schedule: cosine            # per-step cosine decay over max_epochs, no warmup, floor 0
+  batch_size: 64              # paired variants: 64 clean/corrupted PAIRS (128 views)
+  max_epochs: 40
+  patience: 8                 # early stop after 8 epochs w/o clean-val macro-AUROC gain
+  p_corrupt: 0.5              # regime aug (unpaired variants)
+  lambda1: 0.1                # mild-pair logit consistency (F, G)
+  lambda2: 0.1                # reliability margin-ranking loss (F)
+  margin: 0.1
+  num_workers: 4
+  amp: false                  # fp32: fp16 autocast gave no speedup on MPS (README); if true,
+                              # fp16 autocast on MPS after a one-time check, fallback fp32
+  max_batches_per_epoch: null # null = full epoch (smoke only)
+  seeds: [0, 1, 2, 3, 4]
+
+eval:
+  batch_size: 256
+  n_bootstrap: 1000
+  bootstrap_seed: 12345
+  noise_seed: 20260929        # fixed test-corruption seed: identical corrupted test set for all runs
+  ci: 0.95
+  r_abnormal_tolerance: 0.05  # B8: r(clean-abnormal) >= r(clean-NORM) - 0.05
+  binding_groups: [mixed]     # B8 CI criteria; real_noise dropped with NSTDB. PROVISIONAL, needs sign-off
+
+# Applied on top of the above when --smoke is passed (end-to-end check on synthetic data
+# written by tests/make_synthetic_data.py). Outputs go to separate dirs.
+smoke:
+  paths:
+    ptbxl_root: ../data/synthetic/ptb-xl
+    nstdb_root: ../data/synthetic/nstdb
+    cache_dir: ../data/cache/smoke
+    runs_dir: runs/smoke
+    results_dir: results/smoke
+  train:
+    batch_size: 8
+    max_epochs: 2
+    patience: 2
+    num_workers: 0
+    max_batches_per_epoch: 3
+    seeds: [0, 1]
+  eval:
+    batch_size: 16
+    n_bootstrap: 20

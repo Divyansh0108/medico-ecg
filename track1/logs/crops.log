@@ -1,0 +1,426 @@
+
+===== 2026-09-30 10:17:26 M1_crop =====
+fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+[M1_crop] device=mps params=1046557 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=nogit code=abbb55c03f7b
+[M1_crop] ep  1 loss 0.9077 val_auroc 0.8775 lr 2.00e-04 12s
+[M1_crop] ep  2 loss 0.7684 val_auroc 0.8946 lr 4.00e-04 24s
+[M1_crop] ep  3 loss 0.7433 val_auroc 0.8860 lr 5.00e-04 36s
+[M1_crop] ep  4 loss 0.7391 val_auroc 0.8958 lr 4.99e-04 48s
+[M1_crop] ep  5 loss 0.7191 val_auroc 0.8943 lr 4.97e-04 60s
+[M1_crop] ep  6 loss 0.7166 val_auroc 0.8997 lr 4.93e-04 72s
+[M1_crop] ep  7 loss 0.7092 val_auroc 0.9026 lr 4.89e-04 84s
+[M1_crop] ep  8 loss 0.7016 val_auroc 0.9032 lr 4.84e-04 96s
+[M1_crop] ep  9 loss 0.6922 val_auroc 0.9011 lr 4.77e-04 108s
+[M1_crop] ep 10 loss 0.6935 val_auroc 0.9029 lr 4.70e-04 119s
+[M1_crop] ep 11 loss 0.6791 val_auroc 0.9000 lr 4.62e-04 131s
+[M1_crop] ep 12 loss 0.6779 val_auroc 0.9034 lr 4.52e-04 143s
+[M1_crop] ep 13 loss 0.6824 val_auroc 0.9055 lr 4.42e-04 154s
+[M1_crop] ep 14 loss 0.6718 val_auroc 0.9051 lr 4.31e-04 166s
+[M1_crop] ep 15 loss 0.6669 val_auroc 0.9058 lr 4.19e-04 178s
+[M1_crop] ep 16 loss 0.6686 val_auroc 0.9071 lr 4.07e-04 190s
+[M1_crop] ep 17 loss 0.6602 val_auroc 0.9068 lr 3.94e-04 202s
+[M1_crop] ep 18 loss 0.6625 val_auroc 0.9092 lr 3.80e-04 214s
+[M1_crop] ep 19 loss 0.6683 val_auroc 0.9077 lr 3.65e-04 226s
+[M1_crop] ep 20 loss 0.6499 val_auroc 0.9075 lr 3.50e-04 238s
+[M1_crop] ep 21 loss 0.6500 val_auroc 0.9118 lr 3.35e-04 250s
+[M1_crop] ep 22 loss 0.6541 val_auroc 0.9108 lr 3.19e-04 262s
+[M1_crop] ep 23 loss 0.6468 val_auroc 0.9100 lr 3.03e-04 274s
+[M1_crop] ep 24 loss 0.6359 val_auroc 0.9074 lr 2.87e-04 286s
+[M1_crop] ep 25 loss 0.6376 val_auroc 0.9122 lr 2.71e-04 299s
+[M1_crop] ep 26 loss 0.6248 val_auroc 0.9122 lr 2.54e-04 311s
+[M1_crop] ep 27 loss 0.6214 val_auroc 0.9113 lr 2.38e-04 323s
+[M1_crop] ep 28 loss 0.6141 val_auroc 0.9102 lr 2.21e-04 335s
+[M1_crop] ep 29 loss 0.6128 val_auroc 0.9092 lr 2.05e-04 347s
+[M1_crop] ep 30 loss 0.6255 val_auroc 0.9116 lr 1.89e-04 359s
+[M1_crop] ep 31 loss 0.6144 val_auroc 0.9107 lr 1.73e-04 371s
+[M1_crop] ep 32 loss 0.6104 val_auroc 0.9118 lr 1.57e-04 383s
+[M1_crop] ep 33 loss 0.6040 val_auroc 0.9144 lr 1.42e-04 395s
+[M1_crop] ep 34 loss 0.6036 val_auroc 0.9115 lr 1.27e-04 407s
+[M1_crop] ep 35 loss 0.6027 val_auroc 0.9112 lr 1.13e-04 418s
+[M1_crop] ep 36 loss 0.5949 val_auroc 0.9097 lr 9.97e-05 429s
+[M1_crop] ep 37 loss 0.5828 val_auroc 0.9129 lr 8.69e-05 440s
+[M1_crop] ep 38 loss 0.5908 val_auroc 0.9139 lr 7.47e-05 451s
+[M1_crop] ep 39 loss 0.5877 val_auroc 0.9133 lr 6.33e-05 463s
+[M1_crop] ep 40 loss 0.5886 val_auroc 0.9121 lr 5.27e-05 476s
+[M1_crop] ep 41 loss 0.5678 val_auroc 0.9122 lr 4.30e-05 488s
+[M1_crop] ep 42 loss 0.5737 val_auroc 0.9116 lr 3.42e-05 499s
+[M1_crop] ep 43 loss 0.5633 val_auroc 0.9133 lr 2.63e-05 511s
+[M1_crop] early stop at ep 43
+[M1_crop] DONE best_ep 33 val 0.9144 test nan params 1046557 time 510.6s
+
+===== 2026-09-30 10:26:01 M1_crop fold 10 =====
+M1_crop: val 0.9144 test 0.9129
+[M1_crop_fold10] val 0.9144 TEST 0.9129 CI [0.9042, 0.9202]
+
+===== 2026-09-30 10:26:07 resnet1d_wang_crop =====
+fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+[resnet1d_wang_crop] device=mps params=473349 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=nogit code=abbb55c03f7b
+[resnet1d_wang_crop] ep  1 loss 0.9312 val_auroc 0.8770 lr 2.00e-04 7s
+[resnet1d_wang_crop] ep  2 loss 0.8033 val_auroc 0.8857 lr 4.00e-04 14s
+[resnet1d_wang_crop] ep  3 loss 0.7586 val_auroc 0.8920 lr 5.00e-04 21s
+[resnet1d_wang_crop] ep  4 loss 0.7472 val_auroc 0.8992 lr 4.99e-04 27s
+[resnet1d_wang_crop] ep  5 loss 0.7288 val_auroc 0.9037 lr 4.97e-04 34s
+[resnet1d_wang_crop] ep  6 loss 0.7255 val_auroc 0.9068 lr 4.93e-04 41s
+[resnet1d_wang_crop] ep  7 loss 0.7205 val_auroc 0.9072 lr 4.89e-04 47s
+[resnet1d_wang_crop] ep  8 loss 0.7102 val_auroc 0.9090 lr 4.84e-04 54s
+[resnet1d_wang_crop] ep  9 loss 0.7048 val_auroc 0.9047 lr 4.77e-04 61s
+[resnet1d_wang_crop] ep 10 loss 0.7070 val_auroc 0.9042 lr 4.70e-04 67s
+[resnet1d_wang_crop] ep 11 loss 0.6945 val_auroc 0.9073 lr 4.62e-04 74s
+[resnet1d_wang_crop] ep 12 loss 0.6938 val_auroc 0.9041 lr 4.52e-04 80s
+[resnet1d_wang_crop] ep 13 loss 0.6946 val_auroc 0.9082 lr 4.42e-04 87s
+[resnet1d_wang_crop] ep 14 loss 0.6852 val_auroc 0.9139 lr 4.31e-04 94s
+[resnet1d_wang_crop] ep 15 loss 0.6826 val_auroc 0.9132 lr 4.19e-04 100s
+[resnet1d_wang_crop] ep 16 loss 0.6871 val_auroc 0.9101 lr 4.07e-04 107s
+[resnet1d_wang_crop] ep 17 loss 0.6804 val_auroc 0.9128 lr 3.94e-04 113s
+[resnet1d_wang_crop] ep 18 loss 0.6814 val_auroc 0.9164 lr 3.80e-04 120s
+[resnet1d_wang_crop] ep 19 loss 0.6856 val_auroc 0.9127 lr 3.65e-04 127s
+[resnet1d_wang_crop] ep 20 loss 0.6689 val_auroc 0.9118 lr 3.50e-04 133s
+[resnet1d_wang_crop] ep 21 loss 0.6689 val_auroc 0.9178 lr 3.35e-04 140s
+[resnet1d_wang_crop] ep 22 loss 0.6733 val_auroc 0.9145 lr 3.19e-04 147s
+[resnet1d_wang_crop] ep 23 loss 0.6676 val_auroc 0.9117 lr 3.03e-04 153s
+[resnet1d_wang_crop] ep 24 loss 0.6558 val_auroc 0.9144 lr 2.87e-04 160s
+[resnet1d_wang_crop] ep 25 loss 0.6601 val_auroc 0.9172 lr 2.71e-04 166s
+[resnet1d_wang_crop] ep 26 loss 0.6440 val_auroc 0.9174 lr 2.54e-04 173s
+[resnet1d_wang_crop] ep 27 loss 0.6434 val_auroc 0.9140 lr 2.38e-04 180s
+[resnet1d_wang_crop] ep 28 loss 0.6336 val_auroc 0.9160 lr 2.21e-04 186s
+[resnet1d_wang_crop] ep 29 loss 0.6353 val_auroc 0.9148 lr 2.05e-04 193s
+[resnet1d_wang_crop] ep 30 loss 0.6484 val_auroc 0.9168 lr 1.89e-04 200s
+[resnet1d_wang_crop] ep 31 loss 0.6343 val_auroc 0.9156 lr 1.73e-04 206s
+[resnet1d_wang_crop] early stop at ep 31
+[resnet1d_wang_crop] DONE best_ep 21 val 0.9178 test nan params 473349 time 206.3s
+
+===== 2026-09-30 10:29:38 xresnet1d50_crop =====
+fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+[xresnet1d50_crop] device=mps params=953989 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=nogit code=abbb55c03f7b
+[xresnet1d50_crop] ep  1 loss 1.2892 val_auroc 0.8547 lr 2.00e-04 22s
+[xresnet1d50_crop] ep  2 loss 1.0009 val_auroc 0.8782 lr 4.00e-04 44s
+[xresnet1d50_crop] ep  3 loss 0.8669 val_auroc 0.8855 lr 5.00e-04 66s
+[xresnet1d50_crop] ep  4 loss 0.8097 val_auroc 0.8941 lr 4.99e-04 87s
+[xresnet1d50_crop] ep  5 loss 0.7671 val_auroc 0.8942 lr 4.97e-04 108s
+[xresnet1d50_crop] ep  6 loss 0.7515 val_auroc 0.8978 lr 4.93e-04 129s
+[xresnet1d50_crop] ep  7 loss 0.7403 val_auroc 0.9022 lr 4.89e-04 150s
+[xresnet1d50_crop] ep  8 loss 0.7315 val_auroc 0.9035 lr 4.84e-04 172s
+[xresnet1d50_crop] ep  9 loss 0.7192 val_auroc 0.8999 lr 4.77e-04 193s
+[xresnet1d50_crop] ep 10 loss 0.7192 val_auroc 0.9009 lr 4.70e-04 214s
+[xresnet1d50_crop] ep 11 loss 0.7043 val_auroc 0.9002 lr 4.62e-04 235s
+[xresnet1d50_crop] ep 12 loss 0.7039 val_auroc 0.9053 lr 4.52e-04 256s
+[xresnet1d50_crop] ep 13 loss 0.7032 val_auroc 0.9067 lr 4.42e-04 277s
+[xresnet1d50_crop] ep 14 loss 0.6943 val_auroc 0.9071 lr 4.31e-04 299s
+[xresnet1d50_crop] ep 15 loss 0.6872 val_auroc 0.9070 lr 4.19e-04 320s
+[xresnet1d50_crop] ep 16 loss 0.6953 val_auroc 0.9079 lr 4.07e-04 342s
+[xresnet1d50_crop] ep 17 loss 0.6845 val_auroc 0.9066 lr 3.94e-04 363s
+[xresnet1d50_crop] ep 18 loss 0.6852 val_auroc 0.9123 lr 3.80e-04 385s
+[xresnet1d50_crop] ep 19 loss 0.6893 val_auroc 0.9084 lr 3.65e-04 406s
+[xresnet1d50_crop] ep 20 loss 0.6725 val_auroc 0.9091 lr 3.50e-04 427s
+[xresnet1d50_crop] ep 21 loss 0.6733 val_auroc 0.9135 lr 3.35e-04 448s
+[xresnet1d50_crop] ep 22 loss 0.6747 val_auroc 0.9107 lr 3.19e-04 469s
+[xresnet1d50_crop] ep 23 loss 0.6698 val_auroc 0.9114 lr 3.03e-04 490s
+[xresnet1d50_crop] ep 24 loss 0.6598 val_auroc 0.9118 lr 2.87e-04 511s
+[xresnet1d50_crop] ep 25 loss 0.6591 val_auroc 0.9174 lr 2.71e-04 532s
+[xresnet1d50_crop] ep 26 loss 0.6450 val_auroc 0.9164 lr 2.54e-04 554s
+[xresnet1d50_crop] ep 27 loss 0.6439 val_auroc 0.9125 lr 2.38e-04 575s
+[xresnet1d50_crop] ep 28 loss 0.6369 val_auroc 0.9141 lr 2.21e-04 596s
+[xresnet1d50_crop] ep 29 loss 0.6347 val_auroc 0.9122 lr 2.05e-04 617s
+[xresnet1d50_crop] ep 30 loss 0.6489 val_auroc 0.9134 lr 1.89e-04 638s
+[xresnet1d50_crop] ep 31 loss 0.6355 val_auroc 0.9137 lr 1.73e-04 659s
+[xresnet1d50_crop] ep 32 loss 0.6318 val_auroc 0.9140 lr 1.57e-04 680s
+[xresnet1d50_crop] ep 33 loss 0.6267 val_auroc 0.9154 lr 1.42e-04 701s
+[xresnet1d50_crop] ep 34 loss 0.6243 val_auroc 0.9139 lr 1.27e-04 722s
+[xresnet1d50_crop] ep 35 loss 0.6227 val_auroc 0.9145 lr 1.13e-04 743s
+[xresnet1d50_crop] early stop at ep 35
+[xresnet1d50_crop] DONE best_ep 25 val 0.9174 test nan params 953989 time 742.7s
+
+===== 2026-09-30 10:42:05 xresnet1d101_crop =====
+fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+[xresnet1d101_crop] device=mps params=1872261 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=nogit code=abbb55c03f7b
+[xresnet1d101_crop] ep  1 loss 1.3128 val_auroc 0.8540 lr 2.00e-04 38s
+[xresnet1d101_crop] ep  2 loss 0.9971 val_auroc 0.8796 lr 4.00e-04 74s
+[xresnet1d101_crop] ep  3 loss 0.8656 val_auroc 0.8833 lr 5.00e-04 111s
+[xresnet1d101_crop] ep  4 loss 0.8074 val_auroc 0.8925 lr 4.99e-04 147s
+[xresnet1d101_crop] ep  5 loss 0.7679 val_auroc 0.8939 lr 4.97e-04 184s
+[xresnet1d101_crop] ep  6 loss 0.7538 val_auroc 0.8935 lr 4.93e-04 221s
+[xresnet1d101_crop] ep  7 loss 0.7397 val_auroc 0.9003 lr 4.89e-04 258s
+[xresnet1d101_crop] ep  8 loss 0.7307 val_auroc 0.9007 lr 4.84e-04 295s
+[xresnet1d101_crop] ep  9 loss 0.7171 val_auroc 0.9020 lr 4.77e-04 333s
+[xresnet1d101_crop] ep 10 loss 0.7166 val_auroc 0.9001 lr 4.70e-04 370s
+[xresnet1d101_crop] ep 11 loss 0.7036 val_auroc 0.9041 lr 4.62e-04 409s
+[xresnet1d101_crop] ep 12 loss 0.7011 val_auroc 0.8975 lr 4.52e-04 446s
+[xresnet1d101_crop] ep 13 loss 0.7029 val_auroc 0.9066 lr 4.42e-04 484s
+[xresnet1d101_crop] ep 14 loss 0.6913 val_auroc 0.9083 lr 4.31e-04 521s
+[xresnet1d101_crop] ep 15 loss 0.6869 val_auroc 0.9060 lr 4.19e-04 558s
+[xresnet1d101_crop] ep 16 loss 0.6906 val_auroc 0.9052 lr 4.07e-04 597s
+[xresnet1d101_crop] ep 17 loss 0.6850 val_auroc 0.9098 lr 3.94e-04 635s
+[xresnet1d101_crop] ep 18 loss 0.6845 val_auroc 0.9116 lr 3.80e-04 673s
+[xresnet1d101_crop] ep 19 loss 0.6886 val_auroc 0.9089 lr 3.65e-04 712s
+[xresnet1d101_crop] ep 20 loss 0.6712 val_auroc 0.9111 lr 3.50e-04 750s
+[xresnet1d101_crop] ep 21 loss 0.6724 val_auroc 0.9121 lr 3.35e-04 787s
+[xresnet1d101_crop] ep 22 loss 0.6745 val_auroc 0.9099 lr 3.19e-04 824s
+[xresnet1d101_crop] ep 23 loss 0.6701 val_auroc 0.9100 lr 3.03e-04 862s
+[xresnet1d101_crop] ep 24 loss 0.6605 val_auroc 0.9098 lr 2.87e-04 899s
+[xresnet1d101_crop] ep 25 loss 0.6591 val_auroc 0.9149 lr 2.71e-04 936s
+[xresnet1d101_crop] ep 26 loss 0.6471 val_auroc 0.9136 lr 2.54e-04 973s
+[xresnet1d101_crop] ep 27 loss 0.6461 val_auroc 0.9115 lr 2.38e-04 1010s
+[xresnet1d101_crop] ep 28 loss 0.6356 val_auroc 0.9101 lr 2.21e-04 1046s
+[xresnet1d101_crop] ep 29 loss 0.6346 val_auroc 0.9081 lr 2.05e-04 1084s
+[xresnet1d101_crop] ep 30 loss 0.6470 val_auroc 0.9086 lr 1.89e-04 1122s
+[xresnet1d101_crop] ep 31 loss 0.6361 val_auroc 0.9092 lr 1.73e-04 1160s
+[xresnet1d101_crop] ep 32 loss 0.6333 val_auroc 0.9107 lr 1.57e-04 1196s
+[xresnet1d101_crop] ep 33 loss 0.6251 val_auroc 0.9121 lr 1.42e-04 1233s
+[xresnet1d101_crop] ep 34 loss 0.6282 val_auroc 0.9117 lr 1.27e-04 1269s
+[xresnet1d101_crop] ep 35 loss 0.6231 val_auroc 0.9124 lr 1.13e-04 1305s
+[xresnet1d101_crop] early stop at ep 35
+[xresnet1d101_crop] DONE best_ep 25 val 0.9149 test nan params 1872261 time 1305.5s
+
+===== 2026-09-30 11:03:58 inception1d_crop =====
+fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+[inception1d_crop] device=mps params=507653 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=nogit code=abbb55c03f7b
+[inception1d_crop] ep  1 loss 0.9191 val_auroc 0.8835 lr 2.00e-04 22s
+[inception1d_crop] ep  2 loss 0.7876 val_auroc 0.8956 lr 4.00e-04 43s
+[inception1d_crop] ep  3 loss 0.7468 val_auroc 0.8970 lr 5.00e-04 63s
+[inception1d_crop] ep  4 loss 0.7386 val_auroc 0.8978 lr 4.99e-04 84s
+[inception1d_crop] ep  5 loss 0.7205 val_auroc 0.9005 lr 4.97e-04 104s
+[inception1d_crop] ep  6 loss 0.7157 val_auroc 0.9041 lr 4.93e-04 125s
+[inception1d_crop] ep  7 loss 0.7075 val_auroc 0.9105 lr 4.89e-04 145s
+[inception1d_crop] ep  8 loss 0.6991 val_auroc 0.9076 lr 4.84e-04 166s
+[inception1d_crop] ep  9 loss 0.6918 val_auroc 0.9068 lr 4.77e-04 186s
+[inception1d_crop] ep 10 loss 0.6920 val_auroc 0.9076 lr 4.70e-04 206s
+[inception1d_crop] ep 11 loss 0.6794 val_auroc 0.9053 lr 4.62e-04 226s
+[inception1d_crop] ep 12 loss 0.6771 val_auroc 0.9040 lr 4.52e-04 246s
+[inception1d_crop] ep 13 loss 0.6780 val_auroc 0.9094 lr 4.42e-04 266s
+[inception1d_crop] ep 14 loss 0.6678 val_auroc 0.9114 lr 4.31e-04 286s
+[inception1d_crop] ep 15 loss 0.6660 val_auroc 0.9099 lr 4.19e-04 307s
+[inception1d_crop] ep 16 loss 0.6657 val_auroc 0.9111 lr 4.07e-04 327s
+[inception1d_crop] ep 17 loss 0.6600 val_auroc 0.9118 lr 3.94e-04 348s
+[inception1d_crop] ep 18 loss 0.6573 val_auroc 0.9120 lr 3.80e-04 368s
+[inception1d_crop] ep 19 loss 0.6649 val_auroc 0.9129 lr 3.65e-04 389s
+[inception1d_crop] ep 20 loss 0.6420 val_auroc 0.9120 lr 3.50e-04 409s
+[inception1d_crop] ep 21 loss 0.6431 val_auroc 0.9125 lr 3.35e-04 430s
+[inception1d_crop] ep 22 loss 0.6471 val_auroc 0.9135 lr 3.19e-04 451s
+[inception1d_crop] ep 23 loss 0.6375 val_auroc 0.9108 lr 3.03e-04 471s
+[inception1d_crop] ep 24 loss 0.6235 val_auroc 0.9092 lr 2.87e-04 491s
+[inception1d_crop] ep 25 loss 0.6262 val_auroc 0.9158 lr 2.71e-04 512s
+[inception1d_crop] ep 26 loss 0.6065 val_auroc 0.9170 lr 2.54e-04 532s
+[inception1d_crop] ep 27 loss 0.6034 val_auroc 0.9108 lr 2.38e-04 553s
+[inception1d_crop] ep 28 loss 0.5923 val_auroc 0.9129 lr 2.21e-04 573s
+[inception1d_crop] ep 29 loss 0.5895 val_auroc 0.9102 lr 2.05e-04 594s
+[inception1d_crop] ep 30 loss 0.5989 val_auroc 0.9125 lr 1.89e-04 614s
+[inception1d_crop] ep 31 loss 0.5832 val_auroc 0.9100 lr 1.73e-04 635s
+[inception1d_crop] ep 32 loss 0.5787 val_auroc 0.9092 lr 1.57e-04 655s
+[inception1d_crop] ep 33 loss 0.5681 val_auroc 0.9101 lr 1.42e-04 675s
+[inception1d_crop] ep 34 loss 0.5673 val_auroc 0.9085 lr 1.27e-04 695s
+[inception1d_crop] ep 35 loss 0.5632 val_auroc 0.9084 lr 1.13e-04 715s
+[inception1d_crop] ep 36 loss 0.5535 val_auroc 0.9084 lr 9.97e-05 736s
+[inception1d_crop] early stop at ep 36
+[inception1d_crop] DONE best_ep 26 val 0.9170 test nan params 507653 time 735.8s
+
+===== 2026-09-30 11:16:21 M1_crop_nomixup =====
+fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+[M1_crop_nomixup] device=mps params=1046557 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=nogit code=abbb55c03f7b
+[M1_crop_nomixup] ep  1 loss 0.8395 val_auroc 0.8764 lr 2.00e-04 13s
+[M1_crop_nomixup] ep  2 loss 0.6559 val_auroc 0.8930 lr 4.00e-04 25s
+[M1_crop_nomixup] ep  3 loss 0.6259 val_auroc 0.8990 lr 5.00e-04 37s
+[M1_crop_nomixup] ep  4 loss 0.5989 val_auroc 0.8968 lr 4.99e-04 49s
+[M1_crop_nomixup] ep  5 loss 0.5860 val_auroc 0.8939 lr 4.97e-04 61s
+[M1_crop_nomixup] ep  6 loss 0.5733 val_auroc 0.8924 lr 4.93e-04 73s
+[M1_crop_nomixup] ep  7 loss 0.5655 val_auroc 0.9028 lr 4.89e-04 85s
+[M1_crop_nomixup] ep  8 loss 0.5568 val_auroc 0.9066 lr 4.84e-04 97s
+[M1_crop_nomixup] ep  9 loss 0.5535 val_auroc 0.9065 lr 4.77e-04 108s
+[M1_crop_nomixup] ep 10 loss 0.5428 val_auroc 0.9083 lr 4.70e-04 120s
+[M1_crop_nomixup] ep 11 loss 0.5347 val_auroc 0.9064 lr 4.62e-04 131s
+[M1_crop_nomixup] ep 12 loss 0.5293 val_auroc 0.9105 lr 4.52e-04 143s
+[M1_crop_nomixup] ep 13 loss 0.5216 val_auroc 0.9124 lr 4.42e-04 154s
+[M1_crop_nomixup] ep 14 loss 0.5193 val_auroc 0.9104 lr 4.31e-04 167s
+[M1_crop_nomixup] ep 15 loss 0.5109 val_auroc 0.9089 lr 4.19e-04 179s
+[M1_crop_nomixup] ep 16 loss 0.5037 val_auroc 0.9099 lr 4.07e-04 191s
+[M1_crop_nomixup] ep 17 loss 0.4950 val_auroc 0.9089 lr 3.94e-04 203s
+[M1_crop_nomixup] ep 18 loss 0.4898 val_auroc 0.9118 lr 3.80e-04 215s
+[M1_crop_nomixup] ep 19 loss 0.4887 val_auroc 0.9097 lr 3.65e-04 228s
+[M1_crop_nomixup] ep 20 loss 0.4820 val_auroc 0.9101 lr 3.50e-04 240s
+[M1_crop_nomixup] ep 21 loss 0.4734 val_auroc 0.9069 lr 3.35e-04 252s
+[M1_crop_nomixup] ep 22 loss 0.4646 val_auroc 0.9086 lr 3.19e-04 264s
+[M1_crop_nomixup] ep 23 loss 0.4582 val_auroc 0.9100 lr 3.03e-04 276s
+[M1_crop_nomixup] early stop at ep 23
+[M1_crop_nomixup] DONE best_ep 13 val 0.9124 test nan params 1046557 time 275.8s
+
+===== 2026-09-30 11:21:02 M1_crop_nobandpass =====
+fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+[M1_crop_nobandpass] device=mps params=1046557 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=nogit code=abbb55c03f7b
+[M1_crop_nobandpass] ep  1 loss 0.9168 val_auroc 0.8647 lr 2.00e-04 13s
+[M1_crop_nobandpass] ep  2 loss 0.7793 val_auroc 0.8840 lr 4.00e-04 26s
+[M1_crop_nobandpass] ep  3 loss 0.7528 val_auroc 0.8831 lr 5.00e-04 39s
+[M1_crop_nobandpass] ep  4 loss 0.7466 val_auroc 0.8941 lr 4.99e-04 51s
+[M1_crop_nobandpass] ep  5 loss 0.7270 val_auroc 0.8915 lr 4.97e-04 64s
+[M1_crop_nobandpass] ep  6 loss 0.7229 val_auroc 0.8989 lr 4.93e-04 77s
+[M1_crop_nobandpass] ep  7 loss 0.7140 val_auroc 0.9025 lr 4.89e-04 89s
+[M1_crop_nobandpass] ep  8 loss 0.7087 val_auroc 0.9005 lr 4.84e-04 101s
+[M1_crop_nobandpass] ep  9 loss 0.6982 val_auroc 0.9014 lr 4.77e-04 113s
+[M1_crop_nobandpass] ep 10 loss 0.6996 val_auroc 0.9026 lr 4.70e-04 126s
+[M1_crop_nobandpass] ep 11 loss 0.6870 val_auroc 0.8999 lr 4.62e-04 138s
+[M1_crop_nobandpass] ep 12 loss 0.6835 val_auroc 0.9027 lr 4.52e-04 150s
+[M1_crop_nobandpass] ep 13 loss 0.6869 val_auroc 0.9050 lr 4.42e-04 162s
+[M1_crop_nobandpass] ep 14 loss 0.6778 val_auroc 0.9028 lr 4.31e-04 174s
+[M1_crop_nobandpass] ep 15 loss 0.6717 val_auroc 0.9049 lr 4.19e-04 186s
+[M1_crop_nobandpass] ep 16 loss 0.6748 val_auroc 0.9087 lr 4.07e-04 198s
+[M1_crop_nobandpass] ep 17 loss 0.6672 val_auroc 0.9070 lr 3.94e-04 210s
+[M1_crop_nobandpass] ep 18 loss 0.6665 val_auroc 0.9094 lr 3.80e-04 222s
+[M1_crop_nobandpass] ep 19 loss 0.6729 val_auroc 0.9073 lr 3.65e-04 234s
+[M1_crop_nobandpass] ep 20 loss 0.6550 val_auroc 0.9074 lr 3.50e-04 246s
+[M1_crop_nobandpass] ep 21 loss 0.6560 val_auroc 0.9118 lr 3.35e-04 259s
+[M1_crop_nobandpass] ep 22 loss 0.6586 val_auroc 0.9102 lr 3.19e-04 270s
+[M1_crop_nobandpass] ep 23 loss 0.6521 val_auroc 0.9091 lr 3.03e-04 283s
+[M1_crop_nobandpass] ep 24 loss 0.6412 val_auroc 0.9086 lr 2.87e-04 295s
+[M1_crop_nobandpass] ep 25 loss 0.6428 val_auroc 0.9120 lr 2.71e-04 307s
+[M1_crop_nobandpass] ep 26 loss 0.6302 val_auroc 0.9120 lr 2.54e-04 319s
+[M1_crop_nobandpass] ep 27 loss 0.6272 val_auroc 0.9123 lr 2.38e-04 331s
+[M1_crop_nobandpass] ep 28 loss 0.6197 val_auroc 0.9107 lr 2.21e-04 343s
+[M1_crop_nobandpass] ep 29 loss 0.6181 val_auroc 0.9093 lr 2.05e-04 355s
+[M1_crop_nobandpass] ep 30 loss 0.6303 val_auroc 0.9114 lr 1.89e-04 367s
+[M1_crop_nobandpass] ep 31 loss 0.6197 val_auroc 0.9115 lr 1.73e-04 379s
+[M1_crop_nobandpass] ep 32 loss 0.6165 val_auroc 0.9124 lr 1.57e-04 391s
+[M1_crop_nobandpass] ep 33 loss 0.6109 val_auroc 0.9144 lr 1.42e-04 403s
+[M1_crop_nobandpass] ep 34 loss 0.6090 val_auroc 0.9124 lr 1.27e-04 415s
+[M1_crop_nobandpass] ep 35 loss 0.6084 val_auroc 0.9128 lr 1.13e-04 427s
+[M1_crop_nobandpass] ep 36 loss 0.6022 val_auroc 0.9099 lr 9.97e-05 439s
+[M1_crop_nobandpass] ep 37 loss 0.5908 val_auroc 0.9131 lr 8.69e-05 451s
+[M1_crop_nobandpass] ep 38 loss 0.5962 val_auroc 0.9143 lr 7.47e-05 463s
+[M1_crop_nobandpass] ep 39 loss 0.5938 val_auroc 0.9124 lr 6.33e-05 475s
+[M1_crop_nobandpass] ep 40 loss 0.5922 val_auroc 0.9112 lr 5.27e-05 486s
+[M1_crop_nobandpass] ep 41 loss 0.5753 val_auroc 0.9122 lr 4.30e-05 498s
+[M1_crop_nobandpass] ep 42 loss 0.5769 val_auroc 0.9118 lr 3.42e-05 510s
+[M1_crop_nobandpass] ep 43 loss 0.5711 val_auroc 0.9130 lr 2.63e-05 522s
+[M1_crop_nobandpass] early stop at ep 43
+[M1_crop_nobandpass] DONE best_ep 33 val 0.9144 test nan params 1046557 time 522.3s
+
+===== 2026-09-30 11:29:51 M1_crop_datasetnorm =====
+fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+[M1_crop_datasetnorm] device=mps params=1046557 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=nogit code=abbb55c03f7b
+[M1_crop_datasetnorm] ep  1 loss 0.8791 val_auroc 0.8828 lr 2.00e-04 12s
+[M1_crop_datasetnorm] ep  2 loss 0.7490 val_auroc 0.8970 lr 4.00e-04 24s
+[M1_crop_datasetnorm] ep  3 loss 0.7260 val_auroc 0.9008 lr 5.00e-04 36s
+[M1_crop_datasetnorm] ep  4 loss 0.7196 val_auroc 0.9102 lr 4.99e-04 48s
+[M1_crop_datasetnorm] ep  5 loss 0.6994 val_auroc 0.9090 lr 4.97e-04 59s
+[M1_crop_datasetnorm] ep  6 loss 0.6961 val_auroc 0.9130 lr 4.93e-04 71s
+[M1_crop_datasetnorm] ep  7 loss 0.6853 val_auroc 0.9166 lr 4.89e-04 83s
+[M1_crop_datasetnorm] ep  8 loss 0.6770 val_auroc 0.9173 lr 4.84e-04 95s
+[M1_crop_datasetnorm] ep  9 loss 0.6663 val_auroc 0.9187 lr 4.77e-04 107s
+[M1_crop_datasetnorm] ep 10 loss 0.6688 val_auroc 0.9190 lr 4.70e-04 119s
+[M1_crop_datasetnorm] ep 11 loss 0.6522 val_auroc 0.9226 lr 4.62e-04 131s
+[M1_crop_datasetnorm] ep 12 loss 0.6533 val_auroc 0.9212 lr 4.52e-04 143s
+[M1_crop_datasetnorm] ep 13 loss 0.6560 val_auroc 0.9149 lr 4.42e-04 155s
+[M1_crop_datasetnorm] ep 14 loss 0.6442 val_auroc 0.9250 lr 4.31e-04 167s
+[M1_crop_datasetnorm] ep 15 loss 0.6398 val_auroc 0.9230 lr 4.19e-04 178s
+[M1_crop_datasetnorm] ep 16 loss 0.6415 val_auroc 0.9243 lr 4.07e-04 190s
+[M1_crop_datasetnorm] ep 17 loss 0.6329 val_auroc 0.9231 lr 3.94e-04 202s
+[M1_crop_datasetnorm] ep 18 loss 0.6357 val_auroc 0.9281 lr 3.80e-04 214s
+[M1_crop_datasetnorm] ep 19 loss 0.6422 val_auroc 0.9230 lr 3.65e-04 226s
+[M1_crop_datasetnorm] ep 20 loss 0.6208 val_auroc 0.9241 lr 3.50e-04 238s
+[M1_crop_datasetnorm] ep 21 loss 0.6226 val_auroc 0.9285 lr 3.35e-04 250s
+[M1_crop_datasetnorm] ep 22 loss 0.6262 val_auroc 0.9282 lr 3.19e-04 262s
+[M1_crop_datasetnorm] ep 23 loss 0.6199 val_auroc 0.9288 lr 3.03e-04 274s
+[M1_crop_datasetnorm] ep 24 loss 0.6087 val_auroc 0.9260 lr 2.87e-04 285s
+[M1_crop_datasetnorm] ep 25 loss 0.6108 val_auroc 0.9312 lr 2.71e-04 297s
+[M1_crop_datasetnorm] ep 26 loss 0.5955 val_auroc 0.9316 lr 2.54e-04 309s
+[M1_crop_datasetnorm] ep 27 loss 0.5955 val_auroc 0.9286 lr 2.38e-04 321s
+[M1_crop_datasetnorm] ep 28 loss 0.5864 val_auroc 0.9318 lr 2.21e-04 333s
+[M1_crop_datasetnorm] ep 29 loss 0.5856 val_auroc 0.9302 lr 2.05e-04 345s
+[M1_crop_datasetnorm] ep 30 loss 0.5988 val_auroc 0.9288 lr 1.89e-04 357s
+[M1_crop_datasetnorm] ep 31 loss 0.5890 val_auroc 0.9291 lr 1.73e-04 368s
+[M1_crop_datasetnorm] ep 32 loss 0.5838 val_auroc 0.9290 lr 1.57e-04 380s
+[M1_crop_datasetnorm] ep 33 loss 0.5776 val_auroc 0.9321 lr 1.42e-04 392s
+[M1_crop_datasetnorm] ep 34 loss 0.5777 val_auroc 0.9320 lr 1.27e-04 404s
+[M1_crop_datasetnorm] ep 35 loss 0.5789 val_auroc 0.9300 lr 1.13e-04 416s
+[M1_crop_datasetnorm] ep 36 loss 0.5750 val_auroc 0.9298 lr 9.97e-05 428s
+[M1_crop_datasetnorm] ep 37 loss 0.5588 val_auroc 0.9304 lr 8.69e-05 440s
+[M1_crop_datasetnorm] ep 38 loss 0.5666 val_auroc 0.9327 lr 7.47e-05 452s
+[M1_crop_datasetnorm] ep 39 loss 0.5639 val_auroc 0.9309 lr 6.33e-05 464s
+[M1_crop_datasetnorm] ep 40 loss 0.5622 val_auroc 0.9317 lr 5.27e-05 476s
+[M1_crop_datasetnorm] ep 41 loss 0.5439 val_auroc 0.9314 lr 4.30e-05 487s
+[M1_crop_datasetnorm] ep 42 loss 0.5483 val_auroc 0.9317 lr 3.42e-05 499s
+[M1_crop_datasetnorm] ep 43 loss 0.5386 val_auroc 0.9309 lr 2.63e-05 511s
+[M1_crop_datasetnorm] ep 44 loss 0.5549 val_auroc 0.9323 lr 1.94e-05 523s
+[M1_crop_datasetnorm] ep 45 loss 0.5612 val_auroc 0.9324 lr 1.35e-05 534s
+[M1_crop_datasetnorm] ep 46 loss 0.5410 val_auroc 0.9325 lr 8.70e-06 546s
+[M1_crop_datasetnorm] ep 47 loss 0.5391 val_auroc 0.9319 lr 4.91e-06 558s
+[M1_crop_datasetnorm] ep 48 loss 0.5463 val_auroc 0.9323 lr 2.18e-06 570s
+[M1_crop_datasetnorm] early stop at ep 48
+[M1_crop_datasetnorm] DONE best_ep 38 val 0.9327 test nan params 1046557 time 570.2s
+
+===== 2026-09-30 11:39:33 M1_crop_onecycle =====
+fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+[M1_crop_onecycle] device=mps params=1046557 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=nogit code=abbb55c03f7b
+[M1_crop_onecycle] ep  1 loss 0.8211 val_auroc 0.8864 lr 5.05e-04 12s
+[M1_crop_onecycle] ep  2 loss 0.7521 val_auroc 0.8971 lr 8.15e-04 24s
+[M1_crop_onecycle] ep  3 loss 0.7405 val_auroc 0.8829 lr 1.32e-03 36s
+[M1_crop_onecycle] ep  4 loss 0.7501 val_auroc 0.8944 lr 1.99e-03 48s
+[M1_crop_onecycle] ep  5 loss 0.7398 val_auroc 0.8877 lr 2.80e-03 61s
+[M1_crop_onecycle] ep  6 loss 0.7442 val_auroc 0.8868 lr 3.72e-03 73s
+[M1_crop_onecycle] ep  7 loss 0.7439 val_auroc 0.8903 lr 4.70e-03 86s
+[M1_crop_onecycle] ep  8 loss 0.7410 val_auroc 0.8943 lr 5.70e-03 98s
+[M1_crop_onecycle] ep  9 loss 0.7391 val_auroc 0.8923 lr 6.68e-03 110s
+[M1_crop_onecycle] ep 10 loss 0.7478 val_auroc 0.8841 lr 7.60e-03 123s
+[M1_crop_onecycle] ep 11 loss 0.7376 val_auroc 0.8889 lr 8.41e-03 135s
+[M1_crop_onecycle] ep 12 loss 0.7408 val_auroc 0.8915 lr 9.08e-03 147s
+[M1_crop_onecycle] early stop at ep 12
+[M1_crop_onecycle] DONE best_ep 2 val 0.8971 test nan params 1046557 time 147.1s
+
+===== 2026-09-30 11:42:04 REPORT =====
+# PTB-XL Track 1 - crops, backbones, ablations (seed 0)
+
+Selection on fold 9 only. Fold 10 is evaluated only via final_eval.py (table 3).
+
+## 1. All runs (fold 9)
+
+| run | model | fold-9 mAUROC (mean agg) | fold-9 (max agg) | params | best ep / run | train time |
+|---|---|---|---|---|---|---|
+| M1_crop | M1 | 0.9144 | 0.9123 | 1,046,557 | 33 / 43 | 8.5 min |
+| M1_crop_datasetnorm | M1 | 0.9327 | 0.9310 | 1,046,557 | 38 / 48 | 9.5 min |
+| M1_crop_nobandpass | M1 | 0.9144 | 0.9121 | 1,046,557 | 33 / 43 | 8.7 min |
+| M1_crop_nomixup | M1 | 0.9124 | 0.9103 | 1,046,557 | 13 / 23 | 4.6 min |
+| M1_crop_onecycle | M1 | 0.8971 | 0.8931 | 1,046,557 | 2 / 12 | 2.5 min |
+| inception1d_crop | inception1d | 0.9170 | 0.9158 | 507,653 | 26 / 36 | 12.3 min |
+| resnet1d_wang_crop | resnet1d_wang | 0.9178 | 0.9160 | 473,349 | 21 / 31 | 3.4 min |
+| xresnet1d101_crop | xresnet1d101 | 0.9149 | 0.9142 | 1,872,261 | 25 / 35 | 21.8 min |
+| xresnet1d50_crop | xresnet1d50 | 0.9174 | 0.9165 | 953,989 | 25 / 35 | 12.4 min |
+
+## 2. Fold-9 ensembles of backbone runs (mean of probabilities)
+
+| members | fold-9 mAUROC |
+|---|---|
+| M1_crop + resnet1d_wang_crop + xresnet1d50_crop + inception1d_crop | 0.9240 |
+| M1_crop + resnet1d_wang_crop + xresnet1d50_crop + xresnet1d101_crop + inception1d_crop | 0.9236 |
+| resnet1d_wang_crop + xresnet1d50_crop + inception1d_crop | 0.9235 |
+| M1_crop + resnet1d_wang_crop + inception1d_crop | 0.9235 |
+| M1_crop + resnet1d_wang_crop + xresnet1d101_crop + inception1d_crop | 0.9233 |
+| M1_crop + xresnet1d50_crop + inception1d_crop | 0.9231 |
+| resnet1d_wang_crop + xresnet1d50_crop + xresnet1d101_crop + inception1d_crop | 0.9231 |
+| M1_crop + xresnet1d50_crop + xresnet1d101_crop + inception1d_crop | 0.9229 |
+
+## 3. Fold 10 (evaluated once per entry) vs published
+
+| model | fold-9 | fold-10 mAUROC | 95% CI (patient bootstrap) |
+|---|---|---|---|
+| **M1_crop_fold10** (M1_crop) | 0.9144 | **0.9129** | 0.9042 - 0.9202 |
+| M1 full-length, no crops (previous run) | 0.8994 | 0.8967 | - |
+| xresnet1d101 (Strodthoff et al. 2021, published) | - | 0.928 | - |
+| resnet1d_wang (Strodthoff et al. 2021, published) | - | 0.930 | - |
+| inception1d (Strodthoff et al. 2021, published) | - | 0.921 | - |
+| ensemble (Strodthoff et al. 2021, published) | - | 0.934 | - |
+CROPS_DONE

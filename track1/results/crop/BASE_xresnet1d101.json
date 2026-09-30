@@ -1,0 +1,33 @@
+{
+  "name": "BASE_xresnet1d101",
+  "tags": [
+    "xresnet1d101_crop_dsnorm"
+  ],
+  "runs": [
+    {
+      "tag": "xresnet1d101_crop_dsnorm",
+      "val": 0.9310734621842783,
+      "test": 0.9309330580226046
+    }
+  ],
+  "classes": [
+    "NORM",
+    "MI",
+    "STTC",
+    "CD",
+    "HYP"
+  ],
+  "val_macro_auroc": 0.9310734621842783,
+  "test_macro_auroc": 0.9309330580226046,
+  "test_ci95_patient_bootstrap": [
+    0.9232956711888326,
+    0.937845797752136
+  ],
+  "test_per_class_auroc": {
+    "NORM": 0.9489331195662092,
+    "MI": 0.9334203980099501,
+    "STTC": 0.9350773909954189,
+    "CD": 0.9264076511005007,
+    "HYP": 0.9108267304409443
+  }
+}

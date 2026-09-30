@@ -1,0 +1,20 @@
+resnet1d_wang_crop_dsnorm_ls05: val 0.9382 test 0.9335
+[FINAL2_single] val 0.9382 TEST 0.9335 CI [0.9259, 0.9401]
+xresnet1d101_crop_dsnorm: val 0.9311 test 0.9309
+[BASE_xresnet1d101] val 0.9311 TEST 0.9309 CI [0.9233, 0.9378]
+resnet1d_wang_crop_dsnorm: val 0.9365 test 0.9332
+resnet1d_wang_crop_dsnorm_s1: val 0.9356 test 0.9307
+resnet1d_wang_crop_dsnorm_s2: val 0.9349 test 0.9311
+resnet1d_wang_crop_dsnorm_s3: val 0.9368 test 0.9308
+resnet1d_wang_crop_dsnorm_s4: val 0.9349 test 0.9315
+inception1d_crop_dsnorm: val 0.9346 test 0.9298
+inception1d_crop_dsnorm_s1: val 0.9339 test 0.9297
+inception1d_crop_dsnorm_s2: val 0.9327 test 0.9278
+inception1d_crop_dsnorm_s3: val 0.9345 test 0.9314
+inception1d_crop_dsnorm_s4: val 0.9330 test 0.9289
+xresnet1d50_crop_dsnorm: val 0.9333 test 0.9300
+xresnet1d50_crop_dsnorm_s1: val 0.9336 test 0.9273
+xresnet1d50_crop_dsnorm_s2: val 0.9318 test 0.9267
+xresnet1d50_crop_dsnorm_s3: val 0.9316 test 0.9272
+xresnet1d50_crop_dsnorm_s4: val 0.9321 test 0.9289
+[FINAL2_ensemble] val 0.9403 TEST 0.9363 CI [0.9291, 0.9428]
