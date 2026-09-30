@@ -4,6 +4,9 @@ Usage: python train.py --model M1 --seed 0 --eval-test                  (origina
        python train.py --model xresnet1d101 --crop 250 --tag xresnet1d101_crop --out results/crop
 --crop L: random L-sample crop per record per epoch; val/test use sliding windows (length L, --stride)
 with per-record averaging of probabilities (--agg).
+--aug: Track 2 corruption augmentation (corruptions.py) on the band-passed record before standardization,
+p=0.5, seen families, SNR U[0,20] dB; noise RNG seeded by (seed, epoch). --aux (variant F): clean and
+corrupted views of every record + consistency (>= --cons-min-snr only) and severity-ranking losses on r.
 --avg swa|ema: no early stopping; the final model is the weight average over the last --avg-epochs epochs
 (swa: mean of epoch-end weights, ema: per-step EMA), BatchNorm statistics recomputed on train.
 Writes {out}/{tag}.json, {out}/probs/{tag}.npz and checkpoints/{tag}.pt.
@@ -22,12 +25,14 @@ import numpy as np
 import torch
 import torch.nn as nn
 
-from data import SUPERCLASSES, load_variant, set_seed
+from corruptions import TRAIN_P, random_seen
+from data import SUPERCLASSES, load_filtered, load_variant, set_seed, standardize
 from metrics import macro_auroc, per_class_auroc
 from models import MODELS
 from strodthoff import STRODTHOFF
+from track2_models import T2_MODELS
 
-ALL_MODELS = {**MODELS, **STRODTHOFF}
+ALL_MODELS = {**MODELS, **STRODTHOFF, **T2_MODELS}
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -122,6 +127,12 @@ def main():
                     help="weight averaging over the last --avg-epochs epochs (disables early stopping)")
     ap.add_argument("--avg-epochs", type=int, default=10)
     ap.add_argument("--ema-decay", type=float, default=0.999)
+    ap.add_argument("--aug", action="store_true", help="Track 2 corruption augmentation (p=0.5, seen families)")
+    ap.add_argument("--aux", action="store_true", help="variant F losses (implies --aug; model must have a gate)")
+    ap.add_argument("--w-cons", type=float, default=0.1)
+    ap.add_argument("--w-sev", type=float, default=0.1)
+    ap.add_argument("--sev-margin", type=float, default=0.05)
+    ap.add_argument("--cons-min-snr", type=float, default=15.0)
     ap.add_argument("--eval-test", action="store_true", help="also predict fold 10 (off: fold 10 untouched)")
     ap.add_argument("--limit", type=int, default=0, help="debug: subsample train set")
     ap.add_argument("--out", default=os.path.join(HERE, "results"))
@@ -136,6 +147,13 @@ def main():
         Xtr, Ytr = Xtr[: a.limit], Ytr[: a.limit]
     Xtr_t, Ytr_t = torch.from_numpy(Xtr).to(device), torch.from_numpy(Ytr).to(device)
     Xva_t, Xte_t = torch.from_numpy(Xva), torch.from_numpy(Xte)
+    a.aug = a.aug or a.aux
+    if a.aug:   # band-passed, unstandardized train records: noise is added here, then standardized
+        assert a.norm == "dataset" and not a.no_bandpass, "--aug needs --norm dataset with band-pass"
+        dfl, mu_t, sd_t = load_filtered()
+        Xtr_raw = dfl["train"][0][: len(Xtr)].astype(np.float32)
+        del dfl
+        assert np.abs(standardize(Xtr_raw[:16], mu_t, sd_t) - Xtr[:16]).max() < 1e-4
 
     torch.manual_seed(a.seed)
     model = build_model(a.model).to(device)
@@ -168,20 +186,47 @@ def main():
     for ep in range(1, a.epochs + 1):
         model.train()
         perm = torch.randperm(len(Xtr), generator=g)
-        tl = 0.0
+        rng = np.random.default_rng([a.seed, ep, 7])          # corruption noise; separate from g
+        tl, aux_sum = 0.0, np.zeros(2)
         for i in range(0, len(Xtr), a.bs):
+            idx_np = perm[i:i + a.bs].numpy()
             idx = perm[i:i + a.bs].to(device)
             x, y = Xtr_t[idx], Ytr_t[idx]
+            xn = None
+            if a.aux:            # corrupted view of every record; BCE sees it with p=0.5
+                cor = [random_seen(Xtr_raw[k], rng) for k in idx_np]
+                xn = torch.from_numpy(standardize(np.stack([c[0] for c in cor]), mu_t, sd_t)).to(device)
+                snr_t = torch.tensor([c[1] for c in cor], device=device)
+                use_n = torch.from_numpy(rng.random(len(idx_np)) < TRAIN_P).to(device)
+            elif a.aug:
+                sel = np.flatnonzero(rng.random(len(idx_np)) < TRAIN_P)
+                if len(sel):
+                    xc = standardize(np.stack([random_seen(Xtr_raw[idx_np[k]], rng)[0] for k in sel]), mu_t, sd_t)
+                    x = x.clone()
+                    x[torch.from_numpy(sel).to(device)] = torch.from_numpy(xc).to(device)
             if a.crop:
                 st = torch.randint(0, x.shape[-1] - L + 1, (len(idx), 1, 1), generator=g).to(device)
-                x = x.gather(2, (st + torch.arange(L, device=device)).expand(-1, x.shape[1], -1))
+                gi = (st + torch.arange(L, device=device)).expand(-1, x.shape[1], -1)
+                x = x.gather(2, gi)
+                xn = None if xn is None else xn.gather(2, gi)
             if a.mixup > 0:
                 lam = beta.sample().item()
                 j = torch.randperm(len(idx), generator=g).to(device)
                 x, y = lam * x + (1 - lam) * x[j], lam * y + (1 - lam) * y[j]
+                xn = None if xn is None else lam * xn + (1 - lam) * xn[j]
             if a.label_smooth > 0:
                 y = y * (1 - a.label_smooth) + 0.5 * a.label_smooth
-            loss = crit(model(x), y)
+            if a.aux:
+                out = model(torch.cat([x, xn]))
+                lc, ln = out[:len(idx)], out[len(idx):]
+                rc, rn = model.last_r[:len(idx)], model.last_r[len(idx):]
+                mild = snr_t >= a.cons_min_snr         # consistency only against mild (>= 15 dB) copies
+                l_cons = nn.functional.mse_loss(lc[mild], ln[mild]) if mild.any() else lc.sum() * 0
+                l_sev = torch.relu(rn.mean() - rc.mean() + a.sev_margin)
+                loss = crit(torch.where(use_n[:, None], ln, lc), y) + a.w_cons * l_cons + a.w_sev * l_sev
+                aux_sum += [l_cons.item() * len(idx), l_sev.item() * len(idx)]
+            else:
+                loss = crit(model(x), y)
             opt.zero_grad(set_to_none=True)
             loss.backward()
             opt.step()
@@ -204,7 +249,8 @@ def main():
                         e.lerp_(p, 1 / n_avg)
         pva = predict(model, Xva_t, device, **ev)
         auc = macro_auroc(Yva, pva)
-        hist.append({"epoch": ep, "train_loss": tl / len(Xtr), "val_macro_auroc": auc})
+        hist.append({"epoch": ep, "train_loss": tl / len(Xtr), "val_macro_auroc": auc,
+                     **({"l_cons": aux_sum[0] / len(Xtr), "l_sev": aux_sum[1] / len(Xtr)} if a.aux else {})})
         print(f"[{tag}] ep {ep:2d} loss {tl / len(Xtr):.4f} val_auroc {auc:.4f} "
               f"lr {sched.get_last_lr()[0]:.2e} {time.time() - t0:.0f}s", flush=True)
         if auc > best:

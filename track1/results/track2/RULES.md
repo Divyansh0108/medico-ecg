@@ -87,3 +87,18 @@ Reading, fixed now:
     SNR >= 15 dB. It is 0 if there are none.
   - L_severity = max(0, mean r(corrupted) - mean r(clean) + 0.05) over the batch.
   - Loss = BCE + 0.1 * L_consistency + 0.1 * L_severity.
+
+## E. Chosen severity set (difficulty check, fold 9, 2026-10-01) and amendment
+
+From difficulty.md, B0-clean seeds 0-2: the mean drop on mixed is 0.0003 at +15 dB, 0.0056 at +6 dB,
+0.0228 at 0 dB and 0.0786 at -6 dB.
+**Chosen severity set: {-6 dB}.** -6 dB is the only level that meets the 0.03 bar.
+
+Amendment, written before any B0-aug or variant run: with one chosen level, "Spearman(SNR, r)" (rule 3)
+and "r by SNR" have no SNR variation, so they are undefined. Therefore:
+- Performance groups, rules 1, 2 and 5, and the fold-10 grid use the chosen set {-6 dB} only.
+- Rule 3, first part: mean r at -6 dB (all families, both modes) vs mean r on clean records.
+- Rule 3, second part, and the r diagnostics/figures use all four levels {15, 6, 0, -6} dB. Spearman is
+  over all (record, condition) pairs of the corrupted conditions at those four levels.
+- The fold-9 grid is therefore evaluated at all four levels. Performance-vs-SNR figures show all four;
+  group scores use -6 dB only.
