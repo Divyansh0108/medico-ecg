@@ -111,15 +111,17 @@ def load_raw_split(split: str, root: str = ROOT) -> tuple[np.ndarray, np.ndarray
     return X, Y, meta
 
 
-def load_variant(use_bandpass: bool = True, norm: str = "record", root: str = ROOT) -> dict:
+def load_variant(use_bandpass: bool = True, norm: str = "record", root: str = ROOT, leads=None) -> dict:
     """{split: (X, Y, meta)} for train/val/test under a preprocessing variant.
     norm="record": per-record per-lead z-score (default pipeline).
-    norm="dataset": one global mean/std fitted on the train split only (as in Strodthoff et al.)."""
-    if use_bandpass and norm == "record":
+    norm="dataset": one global mean/std fitted on the train split only (as in Strodthoff et al.).
+    leads: optional list of lead indices kept BEFORE the dataset mean/std is fitted (e.g. [0] = lead I)."""
+    if use_bandpass and norm == "record" and leads is None:
         return {s: load_split(s, root) for s in SPLITS}
     out = {}
     for s in SPLITS:
         X, Y, meta = load_raw_split(s, root)
+        X = X if leads is None else X[:, leads]
         X = bandpass(X) if use_bandpass else X.astype(np.float64)
         out[s] = [X, Y, meta]
     if norm == "record":
@@ -134,13 +136,13 @@ def load_variant(use_bandpass: bool = True, norm: str = "record", root: str = RO
     return {s: (v[0].astype(np.float32), v[1], v[2]) for s, v in out.items()}
 
 
-def load_filtered(root: str = ROOT) -> tuple[dict, float, float]:
+def load_filtered(root: str = ROOT, leads=None) -> tuple[dict, float, float]:
     """Band-passed, NOT standardized splits {split: (X float64, Y, meta)} and the train mean/std that
-    norm="dataset" uses. standardize(X, mu, sd) reproduces load_variant(norm="dataset")."""
+    norm="dataset" uses. standardize(X, mu, sd) reproduces load_variant(norm="dataset", leads=leads)."""
     out = {}
     for s in SPLITS:
         X, Y, meta = load_raw_split(s, root)
-        out[s] = (bandpass(X), Y, meta)
+        out[s] = (bandpass(X if leads is None else X[:, leads]), Y, meta)
     return out, float(out["train"][0].mean()), float(out["train"][0].std())
 
 

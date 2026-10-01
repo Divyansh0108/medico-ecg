@@ -94,12 +94,12 @@ def update_bn(model, X: torch.Tensor, bs: int, L: int, g: torch.Generator, devic
         m.momentum = v
 
 
-def build_model(name: str) -> nn.Module:
-    return ALL_MODELS[name]()
+def build_model(name: str, leads=None) -> nn.Module:
+    return ALL_MODELS[name]() if leads is None else ALL_MODELS[name](in_ch=len(leads))
 
 
 def get_data(a):
-    d = load_variant(use_bandpass=not a.no_bandpass, norm=a.norm)
+    d = load_variant(use_bandpass=not a.no_bandpass, norm=a.norm, leads=getattr(a, "leads", None))
     return d["train"], d["val"], d["test"]
 
 
@@ -133,6 +133,8 @@ def main():
     ap.add_argument("--w-sev", type=float, default=0.1)
     ap.add_argument("--sev-margin", type=float, default=0.05)
     ap.add_argument("--cons-min-snr", type=float, default=15.0)
+    ap.add_argument("--leads", type=int, nargs="+", default=None,
+                    help="input lead indices (default all 12; [0] = lead I); dataset norm is fitted on these leads")
     ap.add_argument("--eval-test", action="store_true", help="also predict fold 10 (off: fold 10 untouched)")
     ap.add_argument("--limit", type=int, default=0, help="debug: subsample train set")
     ap.add_argument("--out", default=os.path.join(HERE, "results"))
@@ -150,13 +152,13 @@ def main():
     a.aug = a.aug or a.aux
     if a.aug:   # band-passed, unstandardized train records: noise is added here, then standardized
         assert a.norm == "dataset" and not a.no_bandpass, "--aug needs --norm dataset with band-pass"
-        dfl, mu_t, sd_t = load_filtered()
+        dfl, mu_t, sd_t = load_filtered(leads=a.leads)
         Xtr_raw = dfl["train"][0][: len(Xtr)].astype(np.float32)
         del dfl
         assert np.abs(standardize(Xtr_raw[:16], mu_t, sd_t) - Xtr[:16]).max() < 1e-4
 
     torch.manual_seed(a.seed)
-    model = build_model(a.model).to(device)
+    model = build_model(a.model, a.leads).to(device)
     n_params = sum(p.numel() for p in model.parameters())
     pos = Ytr.sum(0)
     pos_weight = torch.tensor((len(Ytr) - pos) / pos, dtype=torch.float32, device=device)

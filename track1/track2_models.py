@@ -26,10 +26,10 @@ def _mlp(nin: int, h: int) -> nn.Sequential:
 
 
 class SplitWang(nn.Module):
-    def __init__(self, variant: str, n_classes: int = 5, d: int = 64, gate_h: int = 32):
+    def __init__(self, variant: str, n_classes: int = 5, d: int = 64, gate_h: int = 32, in_ch: int = 12):
         super().__init__()
         assert variant in "CDE"
-        w = ResNet1dWang(n_classes)
+        w = ResNet1dWang(n_classes, in_ch=in_ch)
         mods = list(w.children())                                            # [conv, bn, relu, s1, s2, s3, head]
         self.shallow, self.deep = nn.Sequential(*mods[:4]), nn.Sequential(*mods[4:6])   # B0 head unused
         self.variant = variant
@@ -53,7 +53,8 @@ class SplitWang(nn.Module):
         return self.head(r * fl + (1 - r) * fc)
 
 
-T2_MODELS = {"t2_C": lambda: SplitWang("C"), "t2_D": lambda: SplitWang("D"), "t2_E": lambda: SplitWang("E")}
+T2_MODELS = {"t2_C": lambda **kw: SplitWang("C", **kw), "t2_D": lambda **kw: SplitWang("D", **kw),
+             "t2_E": lambda **kw: SplitWang("E", **kw)}
 
 
 @torch.no_grad()
