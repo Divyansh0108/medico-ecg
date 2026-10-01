@@ -78,8 +78,11 @@ A. Single-lead PTB-XL models. resnet1d_wang trunk with 1 input channel = PTB-XL 
    seeds 0-2, i.e. 18 runs (train.py --leads 0). Corruption augmentation is applied to the single lead
    exactly as to each lead before. Reported: clean fold-9 macro-AUROC (3-seed average and per seed).
    Fold 10 is not scored for these models.
-B. Data. CinC 2017 training set, 8,528 recordings, 300 Hz. Labels from REFERENCE-v3.csv (the label
-   file shipped with the downloaded set; v3 is the final relabelled version): N, A, O, ~.
+B. Data. CinC 2017 training set, 8,528 recordings, 300 Hz. Labels: training2017/REFERENCE.csv (as
+   specified; N 5050, A 738, O 2456, ~ 284). Sensitivity: REFERENCE-v3.csv (the later relabelled
+   version; N 5076, A 758, O 2415, ~ 279; 148 records differ).
+   [Amended 2026-10-01, before any CinC 2017 run: the first version said REFERENCE-v3.csv and wrongly
+   called it the file shipped with the set. The zip ships REFERENCE.csv, which differs from v3.]
    - Resample 300 -> 100 Hz (resample_poly(x, 1, 3)), band-pass with data.bandpass.
    - Main: standardize with CinC 2017's own pooled mean/std over all samples of all recordings (labels
      not used). Sensitivity: per-record z-score.
