@@ -1,0 +1,84 @@
+CinC2017: 8528 recordings, fs 300 Hz -> 100 Hz; length 9.1-61.0 s (median 30.0); labels {'A': np.int64(738), 'N': np.int64(5050), 'O': np.int64(2456), '~': np.int64(284)}
+pooled mean 0.00001 sd 0.22465 (all samples, labels not used)
+windows: 47805 (per record 1-12), 16 records < 10 s reflect-padded
+[pooled] SL_B0clean_s0 18s
+[pooled] SL_B0clean_s1 19s
+[pooled] SL_B0clean_s2 21s
+[pooled] SL_B0aug_s0 20s
+[pooled] SL_B0aug_s1 21s
+[pooled] SL_B0aug_s2 21s
+[pooled] SL_D_s0 22s
+[pooled] SL_D_s1 22s
+[pooled] SL_D_s2 22s
+[pooled] SL_E_s0 22s
+[pooled] SL_E_s1 22s
+[pooled] SL_E_s2 22s
+[pooled] SL_F_s0 22s
+[pooled] SL_F_s1 22s
+[pooled] SL_F_s2 22s
+[pooled] SL_Eclean_s0 22s
+[pooled] SL_Eclean_s1 22s
+[pooled] SL_Eclean_s2 22s
+[record] SL_B0clean_s0 21s
+[record] SL_B0clean_s1 21s
+[record] SL_B0clean_s2 20s
+[record] SL_B0aug_s0 21s
+[record] SL_B0aug_s1 22s
+[record] SL_B0aug_s2 22s
+[record] SL_D_s0 22s
+[record] SL_D_s1 22s
+[record] SL_D_s2 22s
+[record] SL_E_s0 22s
+[record] SL_E_s1 22s
+[record] SL_E_s2 23s
+[record] SL_F_s0 22s
+[record] SL_F_s1 22s
+[record] SL_F_s2 21s
+[record] SL_Eclean_s0 23s
+[record] SL_Eclean_s1 22s
+[record] SL_Eclean_s2 22s
+CINC_DONE
+[pooled] SL_D_s0 15s
+[pooled] SL_D_s1 15s
+[pooled] SL_D_s2 15s
+[pooled] SL_E_s0 15s
+[pooled] SL_E_s1 13s
+[pooled] SL_E_s2 12s
+[pooled] SL_F_s0 13s
+[pooled] SL_F_s1 12s
+[pooled] SL_F_s2 13s
+[pooled] SL_Eclean_s0 12s
+[pooled] SL_Eclean_s1 12s
+[pooled] SL_Eclean_s2 13s
+[window] SL_D_s0 13s
+[window] SL_D_s1 13s
+[window] SL_D_s2 13s
+[window] SL_E_s0 13s
+[window] SL_E_s1 13s
+[window] SL_E_s2 13s
+[window] SL_F_s0 13s
+[window] SL_F_s1 13s
+[window] SL_F_s2 13s
+[window] SL_Eclean_s0 13s
+[window] SL_Eclean_s1 13s
+[window] SL_Eclean_s2 13s
+BUTQDB_DONE
+[nstdb] 1/17 clean 4s
+[nstdb] 2/17 nstdb_bw|+0|whole 8s
+[nstdb] 3/17 nstdb_bw|+0|burst 12s
+[nstdb] 4/17 nstdb_bw|-6|whole 16s
+[nstdb] 5/17 nstdb_bw|-6|burst 20s
+[nstdb] 6/17 nstdb_ma|+0|whole 25s
+[nstdb] 7/17 nstdb_ma|+0|burst 29s
+[nstdb] 8/17 nstdb_ma|-6|whole 33s
+[nstdb] 9/17 nstdb_ma|-6|burst 37s
+[nstdb] 10/17 nstdb_em|+0|whole 41s
+[nstdb] 11/17 nstdb_em|+0|burst 46s
+[nstdb] 12/17 nstdb_em|-6|whole 50s
+[nstdb] 13/17 nstdb_em|-6|burst 54s
+[nstdb] 14/17 nstdb_mixed|+0|whole 59s
+[nstdb] 15/17 nstdb_mixed|+0|burst 63s
+[nstdb] 16/17 nstdb_mixed|-6|whole 67s
+[nstdb] 17/17 nstdb_mixed|-6|burst 72s
+[nstdb] wrote 6 files to /Volumes/Projects/medico/track1/results/track2/grid/nstdb
+REAL_DONE
