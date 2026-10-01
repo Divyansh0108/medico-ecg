@@ -26,15 +26,16 @@ ens = {k: {grp: g.score(g.ens[k], c) for grp, c in {**G, "clean": ["clean"]}.ite
 seed = {k: {grp: [g.score(P, c) for P in g.seed[k]] for grp, c in {"clean": ["clean"], "nstdb_all": G["nstdb_all"],
                                                                     "nstdb_all@-6": G["nstdb_all@-6"]}.items()} for k in M}
 BG = {"nstdb_all@-6": G["nstdb_all@-6"], "nstdb_mixed@-6": G["nstdb_mixed@-6"]}
-bs = g.boot({k: g.ens[k] for k in MAIN}, BG)
+bs = g.boot({k: g.ens[k] for k in M}, BG)
 PAIRS = [("F", "B0-aug"), ("E", "B0-aug"), ("D", "B0-aug"), ("C", "B0-aug"), ("B0-aug", "B0-clean")]
-boot = {grp: {f"{a} - {b}": paired(bs[grp], {k: ens[k][grp] for k in MAIN}, a, b) for a, b in PAIRS} for grp in BG}
+REAL_PAIRS = [p for p in [("B0-aug-real", "B0-aug"), ("F-real", "B0-aug"), ("F-real", "B0-aug-real"), ("F-real", "F")] if p[0] in M]
+boot = {grp: {f"{a} - {b}": paired(bs[grp], {k: ens[k][grp] for k in M}, a, b) for a, b in PAIRS + REAL_PAIRS} for grp in BG}
 fb = boot["nstdb_all@-6"]["F - B0-aug"]
 claim = fb["lo"] > 0 and fb["diff"] >= 0.005
 
 # r diagnostics
 rd = {}
-for k in [k for k in GATED if k in g.rens]:
+for k in [k for k in GATED + ["F-real"] if k in g.rens]:
     R = g.rens[k]
     allc = G["nstdb_all"]
     snr = np.concatenate([np.full(len(g.Y), snr_of(c)) for c in allc])
@@ -92,6 +93,11 @@ L += ["", "For reference, synthetic benchmark at -6 dB (REPORT.md, 3-seed averag
       "| comparison | nstdb_all @ -6 dB | nstdb_mixed @ -6 dB |", "|---|---|---|"]
 for a, b in PAIRS:
     L.append(f"| {a} - {b} | " + " | ".join(fmt_boot(boot[grp][f"{a} - {b}"]) for grp in BG) + " |")
+if REAL_PAIRS:
+    L += ["", "Trained on real noise (separate rows; NSTDB TRAIN noise was in their augmentation, so these families are not unseen for them):", "",
+          "| comparison | nstdb_all @ -6 dB | nstdb_mixed @ -6 dB |", "|---|---|---|"]
+    for a, b in REAL_PAIRS:
+        L.append(f"| {a} - {b} | " + " | ".join(fmt_boot(boot[grp][f"{a} - {b}"]) for grp in BG) + " |")
 L += ["", f"Rule (descriptive, RULES2.md 1): claim \"F beats B0-aug on real noise\" only if on nstdb_all at -6 dB the CI lower "
       f"bound > 0 and the difference >= +0.005. Observed {fmt_boot(fb)} -> **{'claim holds' if claim else 'claim NOT supported'}**.",
       f"(nstdb_mixed at -6 dB, reported only: {fmt_boot(boot['nstdb_mixed@-6']['F - B0-aug'])}.)", "",
@@ -110,8 +116,5 @@ L += ["", "Spearman(SNR, r) pairs each record's r with the condition SNR over al
       "|---" * (2 + len(FAMS) * len(SNRS) * len(MODES)) + "|"]
 for k, r in rd.items():
     L.append(f"| {k} | {f4(r['clean'])} | " + " | ".join(f4(r["by_condition"][cond_name(f, s, m)]) for f in FAMS for s in SNRS for m in MODES) + " |")
-fin = os.path.join(D, "nstdb_real.md")
-if os.path.exists(fin):
-    L += ["", open(fin).read()]
 open(os.path.join(D, "nstdb.md"), "w").write("\n".join(L) + "\n")
 print("\n".join(L))

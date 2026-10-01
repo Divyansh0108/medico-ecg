@@ -1,0 +1,60 @@
+[fold10 #13] track2 grid 'report': resnet1d_wang_crop_dsnorm: RULES2.md section 4: single descriptive fold-10 reporting pass (no selection)
+[fold10 #14] track2 grid 'report': resnet1d_wang_crop_dsnorm_s1: RULES2.md section 4: single descriptive fold-10 reporting pass (no selection)
+[fold10 #15] track2 grid 'report': resnet1d_wang_crop_dsnorm_s2: RULES2.md section 4: single descriptive fold-10 reporting pass (no selection)
+[fold10 #16] track2 grid 'report': B0aug_s0: RULES2.md section 4: single descriptive fold-10 reporting pass (no selection)
+[fold10 #17] track2 grid 'report': B0aug_s1: RULES2.md section 4: single descriptive fold-10 reporting pass (no selection)
+[fold10 #18] track2 grid 'report': B0aug_s2: RULES2.md section 4: single descriptive fold-10 reporting pass (no selection)
+[fold10 #19] track2 grid 'report': C_s0: RULES2.md section 4: single descriptive fold-10 reporting pass (no selection)
+[fold10 #20] track2 grid 'report': C_s1: RULES2.md section 4: single descriptive fold-10 reporting pass (no selection)
+[fold10 #21] track2 grid 'report': C_s2: RULES2.md section 4: single descriptive fold-10 reporting pass (no selection)
+[fold10 #22] track2 grid 'report': D_s0: RULES2.md section 4: single descriptive fold-10 reporting pass (no selection)
+[fold10 #23] track2 grid 'report': D_s1: RULES2.md section 4: single descriptive fold-10 reporting pass (no selection)
+[fold10 #24] track2 grid 'report': D_s2: RULES2.md section 4: single descriptive fold-10 reporting pass (no selection)
+[fold10 #25] track2 grid 'report': E_s0: RULES2.md section 4: single descriptive fold-10 reporting pass (no selection)
+[fold10 #26] track2 grid 'report': E_s1: RULES2.md section 4: single descriptive fold-10 reporting pass (no selection)
+[fold10 #27] track2 grid 'report': E_s2: RULES2.md section 4: single descriptive fold-10 reporting pass (no selection)
+[fold10 #28] track2 grid 'report': F_s0: RULES2.md section 4: single descriptive fold-10 reporting pass (no selection)
+[fold10 #29] track2 grid 'report': F_s1: RULES2.md section 4: single descriptive fold-10 reporting pass (no selection)
+[fold10 #30] track2 grid 'report': F_s2: RULES2.md section 4: single descriptive fold-10 reporting pass (no selection)
+[report] 1/41 clean 21s
+[report] 2/41 baseline_wander|+0|whole 44s
+[report] 3/41 baseline_wander|+0|burst 66s
+[report] 4/41 baseline_wander|-6|whole 88s
+[report] 5/41 baseline_wander|-6|burst 110s
+[report] 6/41 emg|+0|whole 132s
+[report] 7/41 emg|+0|burst 153s
+[report] 8/41 emg|-6|whole 175s
+[report] 9/41 emg|-6|burst 198s
+[report] 10/41 motion_burst|+0|whole 224s
+[report] 11/41 motion_burst|+0|burst 247s
+[report] 12/41 motion_burst|-6|whole 272s
+[report] 13/41 motion_burst|-6|burst 296s
+[report] 14/41 dropout|+0|whole 324s
+[report] 15/41 dropout|+0|burst 348s
+[report] 16/41 dropout|-6|whole 375s
+[report] 17/41 dropout|-6|burst 398s
+[report] 18/41 powerline|+0|whole 419s
+[report] 19/41 powerline|+0|burst 441s
+[report] 20/41 powerline|-6|whole 462s
+[report] 21/41 powerline|-6|burst 484s
+[report] 22/41 mixed|+0|whole 513s
+[report] 23/41 mixed|+0|burst 537s
+[report] 24/41 mixed|-6|whole 563s
+[report] 25/41 mixed|-6|burst 588s
+[report] 26/41 nstdb_bw|+0|whole 610s
+[report] 27/41 nstdb_bw|+0|burst 631s
+[report] 28/41 nstdb_bw|-6|whole 654s
+[report] 29/41 nstdb_bw|-6|burst 676s
+[report] 30/41 nstdb_ma|+0|whole 698s
+[report] 31/41 nstdb_ma|+0|burst 721s
+[report] 32/41 nstdb_ma|-6|whole 742s
+[report] 33/41 nstdb_ma|-6|burst 763s
+[report] 34/41 nstdb_em|+0|whole 784s
+[report] 35/41 nstdb_em|+0|burst 805s
+[report] 36/41 nstdb_em|-6|whole 826s
+[report] 37/41 nstdb_em|-6|burst 847s
+[report] 38/41 nstdb_mixed|+0|whole 869s
+[report] 39/41 nstdb_mixed|+0|burst 889s
+[report] 40/41 nstdb_mixed|-6|whole 911s
+[report] 41/41 nstdb_mixed|-6|burst 932s
+[report] wrote 18 files to /Volumes/Projects/medico/track1/results/track2/grid/report_fold10
