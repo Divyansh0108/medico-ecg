@@ -130,3 +130,58 @@ ONE fold-10 reporting pass. It is descriptive, not selection, and nothing is cho
   B0-aug on the same resamples.
 - Every model and every 3-seed average scored on fold 10 is logged in FOLD10_LOG.md. track2_eval.py
   refuses to score a tag twice under the same grid name.
+
+## 5. BUT QDB (real ambulatory quality labels) - written 2026-10-01, before any BUT QDB run
+
+Source and protocol. PhysioNet butqdb 1.0.0 (the only version published; all 95 files SHA256-checked).
+The README (PhysioNet page) was read. The Scientific Data descriptor (Smital et al. 2026,
+doi:10.1038/s41597-026-07905-w) says it provides "a standardized evaluation protocol and open-source
+code", but only its abstract was accessible: the full text is behind a login (Europe PMC: "subscription
+required"), and no official code repository could be found (GitHub search: only third-party repos).
+The descriptor's protocol is therefore NOT followed here, because it could not be read. Everything below
+follows the PhysioNet README and is listed as an assumption. If the descriptor becomes available, this
+section is re-checked against it before any claim is made.
+
+Verified from the files (printed by butqdb.py): 18 recordings, 15 subjects (subject = first 3 digits of
+the record name; 100 has 2 recordings, 103 has 3). ECG 1 channel at 1000 Hz, ACC 3 channels (x, y, z) at
+100 Hz. Consensus-annotated time: class 1 51.2 h, class 2 33.1 h, class 3 15.1 h (class 3 is concentrated
+in record 105001).
+
+Classes (README wording, verified): 1 = P, QRS and T clearly visible, onsets and offsets reliable;
+2 = noise increased, significant points unreliable, QRS clearly visible and reliably detectable;
+3 = QRS not reliably detectable, signal unsuitable for analysis. 0 = not annotated.
+
+Assumptions:
+A1. Labels = the consensus columns (10-12). The 3 annotators' own columns are not used.
+A2. Annotation sample indices are 1-based and inclusive at the ECG rate, 1000 Hz (as in ann_reader.m;
+    the last end equals the record length). Class 0 spans are excluded.
+A3. Windows: a fixed non-overlapping 10 s grid from the start of each recording. A window is kept only if
+    all of its 10,000 ECG samples carry one consensus class in {1, 2, 3}. Grid windows that touch
+    annotated samples but span two classes, or include class-0 samples, are counted as dropped. No
+    official split exists in the README, so there is no split: everything is evaluation, nothing is
+    fitted.
+A4. ECG: resample_poly(x, 1, 10) over the whole recording, then data.bandpass. Main standardization:
+    BUT QDB pooled mean/std over all samples of the kept windows. Sensitivity: each 10 s window
+    z-scored on its own (PTB-XL's per-record z-score is also per 10 s record).
+A5. The BUT QDB lead (Bittium Faros 180, chest-worn) is not PTB-XL lead I; the lead-I models are applied
+    as they are. This is a domain shift and is stated as a caveat.
+A6. ACC: vector magnitude sqrt(x^2 + y^2 + z^2) in the units of the header, high-pass 0.5 Hz (4th-order
+    Butterworth, zero-phase) over the whole recording, RMS over the window's 1000 ACC samples
+    (ACC index = ECG index / 10).
+A7. Heuristics H1 and H2 as in section 3, computed per 10 s window on the band-passed 100 Hz signal.
+A8. Models: single-lead D, E, F, E-clean, seeds 0-2, 3-seed average of the per-window r (window scored as
+    in section 3). No retraining, nothing tuned on BUT QDB.
+
+Analyses (subject-level bootstrap: 1000 resamples of the 15 subjects with replacement, seed 0; a resampled
+subject brings all its windows from all its recordings):
+a. Mean r per class (pooled windows) and differences between classes (1-2, 2-3, 1-3); Spearman(class, r)
+   over pooled windows; pairwise AUROC 1v2, 2v3, 1v3 within each subject with >= 5 windows in both
+   classes, then averaged over those subjects. Orientation: the score is -r (for H1 and H2 the score is
+   the value), so AUROC > 0.5 means worse quality gets a lower r.
+b. Number of subjects (among those with >= 5 windows in each of the 3 classes) whose mean r follows
+   class 1 > 2 > 3 (H1, H2: 1 < 2 < 3).
+c. Spearman(motion RMS, r): pooled and within each class.
+d. The same quantities for H1 and H2.
+Claims: with 15 subjects, a finding is claimed only if its subject-level 95% CI excludes 0 (for AUROC,
+the CI of AUROC - 0.5). Caveat to state: class 2 may be dominated by baseline-drift noise, which the
+0.5-40 Hz band-pass partly removes before any model or heuristic sees it.
