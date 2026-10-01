@@ -107,3 +107,23 @@ D. Frozen-representation probe. Features = the vector that enters the classifier
    of A). Reported: mean +- std over the 15 folds for each seed, and the mean over seeds.
 Notes for the report: no patient IDs, so folds are record-level; the hidden test set is not
 available, so scores are not comparable to the leaderboard; nothing is retrained or tuned on CinC 2017.
+
+## 4. Freeze and the single fold-10 reporting pass - written 2026-10-01, before any fold-10 scoring in this part
+
+From this point no model or hyperparameter changes are made to the 12-lead Track 2 models B0-clean,
+B0-aug, C, D, E, F (and E-clean). Their checkpoints (seeds 0-2) are final. The runs still in progress
+use recipes fixed earlier in this file: the single-lead models (section 3, fixed before they started)
+and the optional real-noise models (section 1). They are never scored on fold 10 and nothing is tuned
+on any result.
+
+ONE fold-10 reporting pass. It is descriptive, not selection, and nothing is chosen from it:
+- Models: B0-clean, B0-aug, C, D, E, F; 3-seed probability average and each seed.
+- Conditions on fold 10 (the same seeded generators as fold 9, keyed by ecg_id): clean; the synthetic
+  families at -6 dB and 0 dB, both modes; the NSTDB families (EVAL noise) at 0 and -6 dB, both modes.
+- Groups: clean; synthetic seen_families, unseen_families, mixed and all_corrupted, each at -6 dB and at
+  0 dB; nstdb_bw, nstdb_ma, nstdb_em, nstdb_mixed and nstdb_all (0 and -6 dB pooled), plus nstdb_all
+  and nstdb_mixed at -6 dB.
+- Patient bootstrap 95% CIs (1000 resamples, seed 0) of every group score, and paired differences vs
+  B0-aug on the same resamples.
+- Every model and every 3-seed average scored on fold 10 is logged in FOLD10_LOG.md. track2_eval.py
+  refuses to score a tag twice under the same grid name.

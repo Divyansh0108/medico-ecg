@@ -1,6 +1,7 @@
 """Evaluate models on the corruption grid (clean + family x SNR x mode) of fold 9.
 
 Usage: python track2_eval.py --name difficulty --snrs 15 6 0 -6 --tags TAG [TAG ...]
+       python track2_eval.py --name nstdb --nstdb-snrs 0 -6 --tags ...        (real noise, nstdb.py)
 Each condition is generated once (fixed seeded RNG per record, corruptions.py) and every model predicts
 on the same corrupted records. Writes results/track2/grid/{name}/{tag}.npz with
   conds (C,), probs (C, N, 5), r (C, N) (NaN when the model has no gate), y, patient_id, ecg_id.
@@ -17,6 +18,7 @@ from types import SimpleNamespace
 import numpy as np
 import torch
 
+import nstdb
 from corruptions import cond_name, conditions, corrupt_split
 from data import load_filtered, set_seed, standardize
 from fold10_log import log_fold10
@@ -38,7 +40,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--name", required=True)
     ap.add_argument("--tags", nargs="+", required=True)
-    ap.add_argument("--snrs", nargs="+", type=float, required=True)
+    ap.add_argument("--snrs", nargs="*", type=float, default=[], help="synthetic benchmark SNRs")
+    ap.add_argument("--nstdb-snrs", nargs="*", type=float, default=[], help="NSTDB benchmark SNRs (EVAL noise)")
     ap.add_argument("--fold10", action="store_true")
     ap.add_argument("--purpose", default="")
     a = ap.parse_args()
@@ -66,13 +69,15 @@ def main():
     Xf, Y, meta = d[split]
     ids = meta["ecg_id"].to_numpy()
     del d
-    conds = [("clean", None, None)] + conditions(a.snrs)
+    conds = [("clean", None, None)] + (conditions(a.snrs) if a.snrs else []) + \
+        (nstdb.conditions(a.nstdb_snrs) if a.nstdb_snrs else [])
     names = ["clean"] + [cond_name(*c) for c in conds[1:]]
     P = {t: np.zeros((len(conds), len(Y), Y.shape[1]), np.float32) for t in models}
     R = {t: np.zeros((len(conds), len(Y)), np.float32) for t in models}
     t0 = time.time()
     for k, (fam, snr, mode) in enumerate(conds):
-        Xc = Xf if fam == "clean" else corrupt_split(Xf, ids, fam, snr, mode)
+        Xc = (Xf if fam == "clean" else nstdb.corrupt_split(Xf, ids, fam, snr, mode) if fam.startswith("nstdb_")
+              else corrupt_split(Xf, ids, fam, snr, mode))
         Xt = torch.from_numpy(standardize(Xc, mu, sd))
         for t, (m, crop, stride) in models.items():
             P[t][k], R[t][k] = predict_with_r(m, Xt, device, crop, stride)

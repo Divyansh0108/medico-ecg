@@ -4,6 +4,25 @@ One row = one entry (single model or ensemble) scored on fold 10. Rows 1-8 are f
 reconstructed from the result files. Every later row is written by fold10_log.log_fold10() when the
 scoring happens.
 
+## Disclosure (written 2026-10-01, before the Track 2 fold-10 reporting pass)
+
+Before this pass, fold 10 had been scored for 12 entries. An entry is one model or one ensemble. The
+per-member fold-10 scores printed while an ensemble was scored are not counted separately: 5 members in
+round 2 and 15 in round 3.
+- Selection-related entries: 8 (#1-8, Track 1 rounds 1-3). #1-2 (round 1, M1/M2 full length) fed the
+  pre-agreed round-1 gate in decide.py ("continue with seeds 1-4 iff the best seed-0 TEST macro-AUROC
+  >= 0.92"). The gate failed, and that project-level decision (start round 2 instead of more seeds)
+  DID depend on fold 10. No model or hyperparameter was chosen from those scores. #3-8 were scored after
+  the configurations were fixed on fold 9 (results/crop/SELECTION.md, SELECTION2.md); those files record
+  that the choices used fold 9 only. #3 (M1-crop) was requested and was scored before SELECTION.md (file times 10:26 vs 12:37)
+  was written.
+- Calibration entries: 4 (#9-12, Track 2 step 2). Platt scaling and the thresholds were fitted on fold 9;
+  fold 10 was only used to report ECE/F1 after fitting.
+- No Track 2 choice (severity set, variants, training recipe, rules, verdict) and no choice in RULES2.md
+  depended on any fold-10 result. Apart from the round-1 gate above, no model or hyperparameter choice
+  in the project used fold 10.
+Rows from #13 on are the single descriptive reporting pass of RULES2.md section 4 (no selection).
+
 | # | time | entry | models | purpose |
 |---|---|---|---|---|
 | 1 | 2026-09-29 | M1_s0 (full length) | M1_s0 | round 1, train.py --eval-test |

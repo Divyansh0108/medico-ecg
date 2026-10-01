@@ -25,6 +25,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 
+import nstdb
 from corruptions import TRAIN_P, random_seen
 from data import SUPERCLASSES, load_filtered, load_variant, set_seed, standardize
 from metrics import macro_auroc, per_class_auroc
@@ -129,6 +130,8 @@ def main():
     ap.add_argument("--ema-decay", type=float, default=0.999)
     ap.add_argument("--aug", action="store_true", help="Track 2 corruption augmentation (p=0.5, seen families)")
     ap.add_argument("--aux", action="store_true", help="variant F losses (implies --aug; model must have a gate)")
+    ap.add_argument("--aug-real", action="store_true",
+                    help="corrupted copy drawn 50/50 from synthetic seen families and NSTDB TRAIN noise (RULES2.md 1)")
     ap.add_argument("--w-cons", type=float, default=0.1)
     ap.add_argument("--w-sev", type=float, default=0.1)
     ap.add_argument("--sev-margin", type=float, default=0.05)
@@ -149,7 +152,12 @@ def main():
         Xtr, Ytr = Xtr[: a.limit], Ytr[: a.limit]
     Xtr_t, Ytr_t = torch.from_numpy(Xtr).to(device), torch.from_numpy(Ytr).to(device)
     Xva_t, Xte_t = torch.from_numpy(Xva), torch.from_numpy(Xte)
-    a.aug = a.aug or a.aux
+    a.aug = a.aug or a.aux or a.aug_real
+
+    def draw(x, rng):
+        if a.aug_real and rng.random() < 0.5:
+            return nstdb.random_train(x, rng)
+        return random_seen(x, rng)
     if a.aug:   # band-passed, unstandardized train records: noise is added here, then standardized
         assert a.norm == "dataset" and not a.no_bandpass, "--aug needs --norm dataset with band-pass"
         dfl, mu_t, sd_t = load_filtered(leads=a.leads)
@@ -196,14 +204,14 @@ def main():
             x, y = Xtr_t[idx], Ytr_t[idx]
             xn = None
             if a.aux:            # corrupted view of every record; BCE sees it with p=0.5
-                cor = [random_seen(Xtr_raw[k], rng) for k in idx_np]
+                cor = [draw(Xtr_raw[k], rng) for k in idx_np]
                 xn = torch.from_numpy(standardize(np.stack([c[0] for c in cor]), mu_t, sd_t)).to(device)
                 snr_t = torch.tensor([c[1] for c in cor], device=device)
                 use_n = torch.from_numpy(rng.random(len(idx_np)) < TRAIN_P).to(device)
             elif a.aug:
                 sel = np.flatnonzero(rng.random(len(idx_np)) < TRAIN_P)
                 if len(sel):
-                    xc = standardize(np.stack([random_seen(Xtr_raw[idx_np[k]], rng)[0] for k in sel]), mu_t, sd_t)
+                    xc = standardize(np.stack([draw(Xtr_raw[idx_np[k]], rng)[0] for k in sel]), mu_t, sd_t)
                     x = x.clone()
                     x[torch.from_numpy(sel).to(device)] = torch.from_numpy(xc).to(device)
             if a.crop:
