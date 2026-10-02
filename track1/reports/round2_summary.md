@@ -1,7 +1,7 @@
 # PTB-XL Track 1 - crops, backbones, ablations (2026-09-30, seed 0)
 
 12 leads, 100 Hz, official folds (1-8 train / 9 val / 10 test), seed 0. All selection on fold 9.
-Final configurations fixed in `results/crop/SELECTION.md` before fold 10 was opened.
+Final configurations fixed in `../results/crop/SELECTION.md` before fold 10 was opened.
 
 ## Headline (fold 10)
 
@@ -37,9 +37,9 @@ Published (Strodthoff et al. 2021): xresnet1d101 .928, resnet1d_wang .930, incep
   scored 0.001-0.003 lower for every run.
 
 ## Files
-- `results/crop/REPORT.md` - full tables (all runs, fold-9 ensembles, fold 10 vs published)
-- `results/crop/SELECTION.md` - final choice recorded before fold 10
-- `results/crop/*.json`, `results/crop/probs/` - per-run metrics, histories, probabilities
+- `../results/crop/REPORT.md` - full tables (all runs, fold-9 ensembles, fold 10 vs published)
+- `../results/crop/SELECTION.md` - final choice recorded before fold 10
+- `../results/crop/*.json`, `../results/crop/probs/` - per-run metrics, histories, probabilities
 - `strodthoff.py` (backbones), `train.py` (`--crop --norm --no-bandpass --mixup --sched`),
   `final_eval.py` (one-shot fold-10), `crop_report.py`, `scripts/run_crops.sh` (full pipeline)
 - `checkpoints/` - best weights for every run; `logs/crops*.log` - training logs

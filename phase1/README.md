@@ -88,6 +88,6 @@ Outputs in `results/`:
 ## Docs
 
 - `docs/master.md`: research plan and Phase 1 spec (binding).
-- `docs/actual.md`: Shubh's research plan v2 with SOTA references.
+- `docs/actual.md`: research plan v2 with SOTA references.
 - `docs/CONTRACT.md`: module interfaces.
 - `docs/decisions.md`: implementation decisions for points the spec left open.

@@ -1,8 +1,8 @@
 # PTB-XL Track 2 - calibration, corruption benchmark, reliability-gated variants (2026-10-01)
 
 Fold 9 for all selection. The decision rules were committed to git (`4e0b3c2`) before any Track 2 run.
-Full tables: `results/track2/REPORT.md`. Rules: `results/track2/RULES.md`. Every fold-10 use:
-`results/track2/FOLD10_LOG.md` (12 entries in total; none for the Track 2 variants).
+Full tables: `../results/track2/REPORT.md`. Rules: `../results/track2/RULES.md`. Every fold-10 use:
+`../results/track2/FOLD10_LOG.md` (12 entries in total; none for the Track 2 variants).
 
 ## 1. Calibration (resnet1d_wang seeds 0-2, no retraining; fitted on fold 9, scored on fold 10)
 
@@ -82,6 +82,6 @@ Fold 10 was not scored for any variant, as the rules require.
 - `corruptions.py`, `tests/test_corruptions.py`, `track2_models.py`, `train.py` (`--aug`, `--aux`)
 - `track2_eval.py`, `track2_difficulty.py`, `track2_report.py`, `track2_calibration.py`, `fold10_log.py`
 - `scripts/run_track2.sh`, `scripts/run_track2_eval.sh`
-- `results/track2/`: REPORT, RULES, LOG, FOLD10_LOG, calibration/difficulty/groups/verdict JSON,
+- `../results/track2/`: REPORT, RULES, LOG, FOLD10_LOG, calibration/difficulty/groups/verdict JSON,
   `figures/`, `grid/` (all predictions and r)
 - `checkpoints/`: all weights

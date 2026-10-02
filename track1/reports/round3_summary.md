@@ -2,8 +2,8 @@
 
 12 leads, 100 Hz, official folds (1-8 train / 9 val / 10 test). Recipe: 2.5 s random crops, sliding-window
 mean (250/125), dataset-level norm fitted on train, band-pass on. All selection on fold 9. The selection
-rule was written in `results/crop/SELECTION2.md` before the runs, and the final configurations were fixed
-there before fold 10 was opened. Round 2 is in `SUMMARY_for_Shubh.md`.
+rule was written in `../results/crop/SELECTION2.md` before the runs, and the final configurations were fixed
+there before fold 10 was opened. Round 2 is in `round2_summary.md`.
 
 ## Headline (fold 10, each entry evaluated once)
 
@@ -65,9 +65,9 @@ Pre-specified rule: mean of probabilities of all seeds of resnet1d_wang, incepti
 
 ## Files
 
-- `results/crop/REPORT_seeds.md` - all tables of this round; `results/crop/SELECTION2.md` - rule and decision
-- `results/crop/FINAL2_single.json`, `FINAL2_ensemble.json`, `BASE_xresnet1d101.json` - fold-10 results
-- `results/crop/*.json`, `results/crop/probs/` - per-run metrics, histories, probabilities
+- `../results/crop/REPORT_seeds.md` - all tables of this round; `../results/crop/SELECTION2.md` - rule and decision
+- `../results/crop/FINAL2_single.json`, `FINAL2_ensemble.json`, `BASE_xresnet1d101.json` - fold-10 results
+- `../results/crop/*.json`, `../results/crop/probs/` - per-run metrics, histories, probabilities
 - `train.py` (new: `--avg swa|ema --avg-epochs --ema-decay --label-smooth`), `seed_report.py`,
   `metrics.py` (`paired_patient_bootstrap`), `scripts/run_seeds.sh` (all runs of this round)
 - `checkpoints/` - weights of every run; `logs/seeds_*.log`, `logs/final2.log` - logs

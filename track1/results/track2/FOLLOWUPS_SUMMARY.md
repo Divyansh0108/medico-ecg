@@ -49,7 +49,7 @@ PTB-XL, 100 Hz. Folds 1-8 = train, fold 9 = validation, fold 10 = test. Every ru
 - `results/track2/figures/`: figures.
 - `results/track2/runs_sl/`: per-run JSON for the single-lead models.
 - `results/track2/butqdb/windows_log.csv`: kept and dropped windows per BUT QDB record.
-- `code/`: the Python code, scripts and tests.
-- `logs/`: training and pipeline logs.
+- `track1/*.py`, `track1/scripts/`, `track1/tests/`: code, pipelines and tests.
+- `track1/logs/`: training and pipeline logs.
 
 Not included: checkpoints, cached arrays (`*.npz`, `*.pt`) and the datasets.

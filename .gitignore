@@ -8,3 +8,5 @@ __pycache__/
 *.npz
 *.zip
 .DS_Store
+worDocs/
+.vscode/
