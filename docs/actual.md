@@ -1,6 +1,6 @@
 Reliability-Aware ECG Representation Learning: Research Plan v2 with SOTA References
 
-Sep 29, 2026 · @Shubh
+Sep 29, 2026
 
 Version 2 keeps the PTB-XL to CinC2017 to BUT QDB design, adds a tiered set of SOTA papers to compare against, and flags one near-overlapping paper that must be addressed before the novelty claim is frozen.
 

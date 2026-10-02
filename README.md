@@ -126,6 +126,10 @@ All scripts are resumable (completed runs are skipped). Developed on Apple Silic
 - 3 seeds per variant in Track 2; some gaps are within seed noise, which is why all rules are paired and CI-based.
 - The negative result concerns this gate design and training recipe, not reliability estimation in general.
 
+## License
+
+Code: [MIT](LICENSE). PTB-XL, NSTDB, CinC 2017 and BUT QDB are distributed by PhysioNet under their own licenses and are not included.
+
 ## Documents
 
 [Project spec](docs/master.md) · [Research plan v2](docs/actual.md) · [Interface contract](docs/CONTRACT.md) · [Decision log](docs/decisions.md) · [Track 2 report](track1/results/track2/REPORT.md) · [Follow-ups summary](track1/results/track2/FOLLOWUPS_SUMMARY.md)
