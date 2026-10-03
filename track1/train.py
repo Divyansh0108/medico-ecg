@@ -26,7 +26,7 @@ import torch
 import torch.nn as nn
 
 import nstdb
-from corruptions import TRAIN_P, random_seen
+from corruptions import FAMILIES, SEEN, TRAIN_P, random_seen
 from data import SUPERCLASSES, load_filtered, load_variant, set_seed, standardize
 from metrics import macro_auroc, per_class_auroc
 from models import MODELS
@@ -132,6 +132,8 @@ def main():
     ap.add_argument("--aux", action="store_true", help="variant F losses (implies --aug; model must have a gate)")
     ap.add_argument("--aug-real", action="store_true",
                     help="corrupted copy drawn 50/50 from synthetic seen families and NSTDB TRAIN noise (RULES2.md 1)")
+    ap.add_argument("--aug-families", choices=["seen", "all"], default="seen",
+                    help="all: synthetic augmentation draws from all five families (RULES3.md ablation)")
     ap.add_argument("--w-cons", type=float, default=0.1)
     ap.add_argument("--w-sev", type=float, default=0.1)
     ap.add_argument("--sev-margin", type=float, default=0.05)
@@ -157,7 +159,7 @@ def main():
     def draw(x, rng):
         if a.aug_real and rng.random() < 0.5:
             return nstdb.random_train(x, rng)
-        return random_seen(x, rng)
+        return random_seen(x, rng, FAMILIES if a.aug_families == "all" else SEEN)
     if a.aug:   # band-passed, unstandardized train records: noise is added here, then standardized
         assert a.norm == "dataset" and not a.no_bandpass, "--aug needs --norm dataset with band-pass"
         dfl, mu_t, sd_t = load_filtered(leads=a.leads)

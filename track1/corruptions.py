@@ -181,9 +181,10 @@ def cond_name(family: str, snr_db: float, mode: str) -> str:
     return f"{family}|{snr_db:+.0f}|{mode}"
 
 
-def random_seen(x: np.ndarray, rng: np.random.Generator) -> tuple[np.ndarray, float]:
-    """Training corruption: random SEEN family, SNR ~ U[0, 20] dB, random mode. Returns (y, snr)."""
-    fam = SEEN[int(rng.integers(len(SEEN)))]
+def random_seen(x: np.ndarray, rng: np.random.Generator, families=SEEN) -> tuple[np.ndarray, float]:
+    """Training corruption: random SEEN family, SNR ~ U[0, 20] dB, random mode. Returns (y, snr).
+    families=FAMILIES (--aug-families all, RULES3.md) draws from all five families instead."""
+    fam = families[int(rng.integers(len(families)))]
     snr = float(rng.uniform(*TRAIN_SNR))
     mode = MODES[int(rng.integers(len(MODES)))]
     return corrupt(x, fam, snr, mode, rng), snr

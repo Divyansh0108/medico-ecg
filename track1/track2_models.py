@@ -7,6 +7,12 @@ followed by GAP equals GAP followed by the projection.)
   D: g = sigmoid(MLP([F_local, F_ctx])); F = g F_local + (1 - g) F_ctx
   E: r = sigmoid(MLP([F_local, F_ctx, |F_local - P F_ctx|])); F = r F_local + (1 - r) F_ctx
 Gates are one scalar per window, kept in model.last_r after each forward (shape (B,)).
+Revision ablations (results/track2/RULES3.md):
+  E_h128: E with 128 gate hidden units instead of 32.
+  T: time-resolved E. F_local(t), F_ctx(t) are per-time 1x1 projections (the deep map is linearly
+     upsampled to the shallow length), r(t) = sigmoid(MLP([F_local(t), F_ctx(t), |F_local(t) - P F_ctx(t)|]))
+     per time step, F = mean_t(r(t) F_local(t) + (1 - r(t)) F_ctx(t)); last_r = mean_t r(t). With a constant
+     r(t) this reduces to E.
 """
 from __future__ import annotations
 
@@ -53,8 +59,30 @@ class SplitWang(nn.Module):
         return self.head(r * fl + (1 - r) * fc)
 
 
+class TimeGateWang(nn.Module):
+    def __init__(self, n_classes: int = 5, d: int = 64, gate_h: int = 32, in_ch: int = 12):
+        super().__init__()
+        w = ResNet1dWang(n_classes, in_ch=in_ch)
+        mods = list(w.children())
+        self.shallow, self.deep = nn.Sequential(*mods[:4]), nn.Sequential(*mods[4:6])
+        self.p_local, self.p_ctx, self.P = nn.Conv1d(128, d, 1), nn.Conv1d(128, d, 1), nn.Conv1d(d, d, 1)
+        self.gate = nn.Sequential(nn.Conv1d(3 * d, gate_h, 1), nn.ReLU(inplace=True), nn.Conv1d(gate_h, 1, 1))
+        self.head = _head(d, n_classes)
+        self.last_r = self.last_rt = None
+
+    def forward(self, x):
+        h1 = self.shallow(x)
+        fl = self.p_local(h1)
+        fc = nn.functional.interpolate(self.p_ctx(self.deep(h1)), size=h1.shape[-1], mode="linear", align_corners=False)
+        r = torch.sigmoid(self.gate(torch.cat([fl, fc, (fl - self.P(fc)).abs()], 1)))   # (B, 1, L)
+        self.last_rt, self.last_r = r.squeeze(1), r.mean((1, 2))
+        return self.head((r * fl + (1 - r) * fc).mean(-1))
+
+
 T2_MODELS = {"t2_C": lambda **kw: SplitWang("C", **kw), "t2_D": lambda **kw: SplitWang("D", **kw),
-             "t2_E": lambda **kw: SplitWang("E", **kw)}
+             "t2_E": lambda **kw: SplitWang("E", **kw),
+             "t2_E_h128": lambda **kw: SplitWang("E", gate_h=128, **kw),
+             "t2_T": lambda **kw: TimeGateWang(**kw)}
 
 
 @torch.no_grad()

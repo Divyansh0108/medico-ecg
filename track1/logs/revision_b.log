@@ -1,0 +1,533 @@
+
+===== 2026-10-03 15:11:34 Fh128_s0 =====
+[Fh128_s0] device=mps params=493894 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=dc6a2f781dd7358babecf8e50d60d05ae590ea97-dirty code=dcc1d16ecbee
+[Fh128_s0] ep  1 loss 1.0326 val_auroc 0.8780 lr 2.00e-04 20s
+[Fh128_s0] ep  2 loss 0.8668 val_auroc 0.8956 lr 4.00e-04 39s
+[Fh128_s0] ep  3 loss 0.7895 val_auroc 0.9057 lr 5.00e-04 59s
+[Fh128_s0] ep  4 loss 0.7648 val_auroc 0.9127 lr 4.99e-04 78s
+[Fh128_s0] ep  5 loss 0.7462 val_auroc 0.9115 lr 4.97e-04 98s
+[Fh128_s0] ep  6 loss 0.7369 val_auroc 0.9168 lr 4.93e-04 117s
+[Fh128_s0] ep  7 loss 0.7308 val_auroc 0.9196 lr 4.89e-04 138s
+[Fh128_s0] ep  8 loss 0.7251 val_auroc 0.9157 lr 4.84e-04 159s
+[Fh128_s0] ep  9 loss 0.7186 val_auroc 0.9237 lr 4.77e-04 179s
+[Fh128_s0] ep 10 loss 0.7170 val_auroc 0.9217 lr 4.70e-04 200s
+[Fh128_s0] ep 11 loss 0.7074 val_auroc 0.9191 lr 4.62e-04 219s
+[Fh128_s0] ep 12 loss 0.7059 val_auroc 0.9233 lr 4.52e-04 239s
+[Fh128_s0] ep 13 loss 0.7109 val_auroc 0.9128 lr 4.42e-04 259s
+[Fh128_s0] ep 14 loss 0.6985 val_auroc 0.9257 lr 4.31e-04 278s
+[Fh128_s0] ep 15 loss 0.6974 val_auroc 0.9250 lr 4.19e-04 298s
+[Fh128_s0] ep 16 loss 0.7008 val_auroc 0.9275 lr 4.07e-04 318s
+[Fh128_s0] ep 17 loss 0.6921 val_auroc 0.9258 lr 3.94e-04 338s
+[Fh128_s0] ep 18 loss 0.6949 val_auroc 0.9327 lr 3.80e-04 359s
+[Fh128_s0] ep 19 loss 0.6993 val_auroc 0.9274 lr 3.65e-04 379s
+[Fh128_s0] ep 20 loss 0.6836 val_auroc 0.9256 lr 3.50e-04 399s
+[Fh128_s0] ep 21 loss 0.6856 val_auroc 0.9280 lr 3.35e-04 418s
+[Fh128_s0] ep 22 loss 0.6858 val_auroc 0.9299 lr 3.19e-04 437s
+[Fh128_s0] ep 23 loss 0.6847 val_auroc 0.9293 lr 3.03e-04 457s
+[Fh128_s0] ep 24 loss 0.6734 val_auroc 0.9280 lr 2.87e-04 476s
+[Fh128_s0] ep 25 loss 0.6733 val_auroc 0.9321 lr 2.71e-04 496s
+[Fh128_s0] ep 26 loss 0.6625 val_auroc 0.9350 lr 2.54e-04 515s
+[Fh128_s0] ep 27 loss 0.6641 val_auroc 0.9317 lr 2.38e-04 534s
+[Fh128_s0] ep 28 loss 0.6545 val_auroc 0.9361 lr 2.21e-04 554s
+[Fh128_s0] ep 29 loss 0.6574 val_auroc 0.9307 lr 2.05e-04 575s
+[Fh128_s0] ep 30 loss 0.6658 val_auroc 0.9323 lr 1.89e-04 596s
+[Fh128_s0] ep 31 loss 0.6559 val_auroc 0.9281 lr 1.73e-04 616s
+[Fh128_s0] ep 32 loss 0.6500 val_auroc 0.9294 lr 1.57e-04 636s
+[Fh128_s0] ep 33 loss 0.6458 val_auroc 0.9320 lr 1.42e-04 655s
+[Fh128_s0] ep 34 loss 0.6461 val_auroc 0.9322 lr 1.27e-04 675s
+[Fh128_s0] ep 35 loss 0.6454 val_auroc 0.9320 lr 1.13e-04 694s
+[Fh128_s0] ep 36 loss 0.6422 val_auroc 0.9318 lr 9.97e-05 715s
+[Fh128_s0] ep 37 loss 0.6292 val_auroc 0.9314 lr 8.69e-05 735s
+[Fh128_s0] ep 38 loss 0.6347 val_auroc 0.9320 lr 7.47e-05 754s
+[Fh128_s0] early stop at ep 38
+[Fh128_s0] DONE best_ep 28 val 0.9361 test nan params 493894 time 754.4s
+
+===== 2026-10-03 15:24:33 T_s0 =====
+[T_s0] device=mps params=475270 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=dc6a2f781dd7358babecf8e50d60d05ae590ea97-dirty code=616e60f13152
+[T_s0] ep  1 loss 0.9382 val_auroc 0.8855 lr 2.00e-04 14s
+[T_s0] ep  2 loss 0.8031 val_auroc 0.8992 lr 4.00e-04 28s
+[T_s0] ep  3 loss 0.7570 val_auroc 0.9067 lr 5.00e-04 42s
+[T_s0] ep  4 loss 0.7374 val_auroc 0.9135 lr 4.99e-04 55s
+[T_s0] ep  5 loss 0.7202 val_auroc 0.9180 lr 4.97e-04 69s
+[T_s0] ep  6 loss 0.7108 val_auroc 0.9219 lr 4.93e-04 82s
+[T_s0] ep  7 loss 0.7040 val_auroc 0.9244 lr 4.89e-04 96s
+[T_s0] ep  8 loss 0.6950 val_auroc 0.9228 lr 4.84e-04 109s
+[T_s0] ep  9 loss 0.6877 val_auroc 0.9230 lr 4.77e-04 123s
+[T_s0] ep 10 loss 0.6890 val_auroc 0.9231 lr 4.70e-04 136s
+[T_s0] ep 11 loss 0.6759 val_auroc 0.9224 lr 4.62e-04 150s
+[T_s0] ep 12 loss 0.6760 val_auroc 0.9215 lr 4.52e-04 163s
+[T_s0] ep 13 loss 0.6817 val_auroc 0.9181 lr 4.42e-04 177s
+[T_s0] ep 14 loss 0.6676 val_auroc 0.9267 lr 4.31e-04 190s
+[T_s0] ep 15 loss 0.6697 val_auroc 0.9274 lr 4.19e-04 204s
+[T_s0] ep 16 loss 0.6693 val_auroc 0.9258 lr 4.07e-04 218s
+[T_s0] ep 17 loss 0.6623 val_auroc 0.9272 lr 3.94e-04 231s
+[T_s0] ep 18 loss 0.6654 val_auroc 0.9327 lr 3.80e-04 245s
+[T_s0] ep 19 loss 0.6713 val_auroc 0.9264 lr 3.65e-04 258s
+[T_s0] ep 20 loss 0.6546 val_auroc 0.9277 lr 3.50e-04 272s
+[T_s0] ep 21 loss 0.6537 val_auroc 0.9299 lr 3.35e-04 285s
+[T_s0] ep 22 loss 0.6584 val_auroc 0.9275 lr 3.19e-04 299s
+[T_s0] ep 23 loss 0.6544 val_auroc 0.9303 lr 3.03e-04 312s
+[T_s0] ep 24 loss 0.6433 val_auroc 0.9290 lr 2.87e-04 326s
+[T_s0] ep 25 loss 0.6440 val_auroc 0.9303 lr 2.71e-04 339s
+[T_s0] ep 26 loss 0.6318 val_auroc 0.9327 lr 2.54e-04 353s
+[T_s0] ep 27 loss 0.6318 val_auroc 0.9307 lr 2.38e-04 366s
+[T_s0] ep 28 loss 0.6211 val_auroc 0.9352 lr 2.21e-04 380s
+[T_s0] ep 29 loss 0.6250 val_auroc 0.9301 lr 2.05e-04 393s
+[T_s0] ep 30 loss 0.6356 val_auroc 0.9296 lr 1.89e-04 407s
+[T_s0] ep 31 loss 0.6239 val_auroc 0.9282 lr 1.73e-04 420s
+[T_s0] ep 32 loss 0.6193 val_auroc 0.9289 lr 1.57e-04 433s
+[T_s0] ep 33 loss 0.6145 val_auroc 0.9299 lr 1.42e-04 447s
+[T_s0] ep 34 loss 0.6162 val_auroc 0.9322 lr 1.27e-04 461s
+[T_s0] ep 35 loss 0.6134 val_auroc 0.9310 lr 1.13e-04 474s
+[T_s0] ep 36 loss 0.6103 val_auroc 0.9292 lr 9.97e-05 487s
+[T_s0] ep 37 loss 0.5948 val_auroc 0.9301 lr 8.69e-05 501s
+[T_s0] ep 38 loss 0.6025 val_auroc 0.9311 lr 7.47e-05 514s
+[T_s0] early stop at ep 38
+[T_s0] DONE best_ep 28 val 0.9352 test nan params 475270 time 514.3s
+
+===== 2026-10-03 15:33:32 TF_s0 =====
+[TF_s0] device=mps params=475270 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=dc6a2f781dd7358babecf8e50d60d05ae590ea97-dirty code=616e60f13152
+[TF_s0] ep  1 loss 1.0361 val_auroc 0.8805 lr 2.00e-04 21s
+[TF_s0] ep  2 loss 0.8711 val_auroc 0.8960 lr 4.00e-04 41s
+[TF_s0] ep  3 loss 0.7900 val_auroc 0.9038 lr 5.00e-04 62s
+[TF_s0] ep  4 loss 0.7659 val_auroc 0.9098 lr 4.99e-04 82s
+[TF_s0] ep  5 loss 0.7493 val_auroc 0.9106 lr 4.97e-04 102s
+[TF_s0] ep  6 loss 0.7414 val_auroc 0.9179 lr 4.93e-04 122s
+[TF_s0] ep  7 loss 0.7346 val_auroc 0.9215 lr 4.89e-04 143s
+[TF_s0] ep  8 loss 0.7265 val_auroc 0.9193 lr 4.84e-04 164s
+[TF_s0] ep  9 loss 0.7214 val_auroc 0.9195 lr 4.77e-04 184s
+[TF_s0] ep 10 loss 0.7190 val_auroc 0.9169 lr 4.70e-04 204s
+[TF_s0] ep 11 loss 0.7087 val_auroc 0.9210 lr 4.62e-04 224s
+[TF_s0] ep 12 loss 0.7074 val_auroc 0.9216 lr 4.52e-04 245s
+[TF_s0] ep 13 loss 0.7112 val_auroc 0.9125 lr 4.42e-04 265s
+[TF_s0] ep 14 loss 0.7012 val_auroc 0.9263 lr 4.31e-04 285s
+[TF_s0] ep 15 loss 0.6992 val_auroc 0.9242 lr 4.19e-04 305s
+[TF_s0] ep 16 loss 0.7023 val_auroc 0.9234 lr 4.07e-04 326s
+[TF_s0] ep 17 loss 0.6938 val_auroc 0.9231 lr 3.94e-04 346s
+[TF_s0] ep 18 loss 0.6972 val_auroc 0.9303 lr 3.80e-04 366s
+[TF_s0] ep 19 loss 0.7011 val_auroc 0.9249 lr 3.65e-04 386s
+[TF_s0] ep 20 loss 0.6867 val_auroc 0.9262 lr 3.50e-04 407s
+[TF_s0] ep 21 loss 0.6854 val_auroc 0.9277 lr 3.35e-04 427s
+[TF_s0] ep 22 loss 0.6879 val_auroc 0.9276 lr 3.19e-04 447s
+[TF_s0] ep 23 loss 0.6847 val_auroc 0.9280 lr 3.03e-04 467s
+[TF_s0] ep 24 loss 0.6747 val_auroc 0.9273 lr 2.87e-04 487s
+[TF_s0] ep 25 loss 0.6757 val_auroc 0.9289 lr 2.71e-04 508s
+[TF_s0] ep 26 loss 0.6670 val_auroc 0.9322 lr 2.54e-04 528s
+[TF_s0] ep 27 loss 0.6637 val_auroc 0.9294 lr 2.38e-04 548s
+[TF_s0] ep 28 loss 0.6572 val_auroc 0.9347 lr 2.21e-04 568s
+[TF_s0] ep 29 loss 0.6596 val_auroc 0.9284 lr 2.05e-04 589s
+[TF_s0] ep 30 loss 0.6682 val_auroc 0.9288 lr 1.89e-04 609s
+[TF_s0] ep 31 loss 0.6574 val_auroc 0.9260 lr 1.73e-04 629s
+[TF_s0] ep 32 loss 0.6533 val_auroc 0.9288 lr 1.57e-04 650s
+[TF_s0] ep 33 loss 0.6462 val_auroc 0.9302 lr 1.42e-04 670s
+[TF_s0] ep 34 loss 0.6496 val_auroc 0.9299 lr 1.27e-04 690s
+[TF_s0] ep 35 loss 0.6489 val_auroc 0.9309 lr 1.13e-04 710s
+[TF_s0] ep 36 loss 0.6441 val_auroc 0.9310 lr 9.97e-05 730s
+[TF_s0] ep 37 loss 0.6324 val_auroc 0.9301 lr 8.69e-05 751s
+[TF_s0] ep 38 loss 0.6375 val_auroc 0.9305 lr 7.47e-05 771s
+[TF_s0] early stop at ep 38
+[TF_s0] DONE best_ep 28 val 0.9347 test nan params 475270 time 771.0s
+
+===== 2026-10-03 15:46:41 Fall_s0 =====
+[Fall_s0] device=mps params=475270 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=dc6a2f781dd7358babecf8e50d60d05ae590ea97-dirty code=616e60f13152
+[Fall_s0] ep  1 loss 1.0427 val_auroc 0.8790 lr 2.00e-04 28s
+[Fall_s0] ep  2 loss 0.8713 val_auroc 0.8964 lr 4.00e-04 54s
+[Fall_s0] ep  3 loss 0.7928 val_auroc 0.9052 lr 5.00e-04 82s
+[Fall_s0] ep  4 loss 0.7687 val_auroc 0.9094 lr 4.99e-04 111s
+[Fall_s0] ep  5 loss 0.7496 val_auroc 0.9143 lr 4.97e-04 138s
+[Fall_s0] ep  6 loss 0.7436 val_auroc 0.9181 lr 4.93e-04 165s
+[Fall_s0] ep  7 loss 0.7371 val_auroc 0.9192 lr 4.89e-04 192s
+[Fall_s0] ep  8 loss 0.7281 val_auroc 0.9161 lr 4.84e-04 219s
+[Fall_s0] ep  9 loss 0.7220 val_auroc 0.9201 lr 4.77e-04 246s
+[Fall_s0] ep 10 loss 0.7222 val_auroc 0.9177 lr 4.70e-04 273s
+[Fall_s0] ep 11 loss 0.7126 val_auroc 0.9212 lr 4.62e-04 300s
+[Fall_s0] ep 12 loss 0.7120 val_auroc 0.9234 lr 4.52e-04 328s
+[Fall_s0] ep 13 loss 0.7160 val_auroc 0.9140 lr 4.42e-04 355s
+[Fall_s0] ep 14 loss 0.7046 val_auroc 0.9247 lr 4.31e-04 382s
+[Fall_s0] ep 15 loss 0.7041 val_auroc 0.9251 lr 4.19e-04 409s
+[Fall_s0] ep 16 loss 0.7046 val_auroc 0.9262 lr 4.07e-04 436s
+[Fall_s0] ep 17 loss 0.6945 val_auroc 0.9268 lr 3.94e-04 463s
+[Fall_s0] ep 18 loss 0.7025 val_auroc 0.9317 lr 3.80e-04 490s
+[Fall_s0] ep 19 loss 0.7045 val_auroc 0.9250 lr 3.65e-04 518s
+[Fall_s0] ep 20 loss 0.6903 val_auroc 0.9292 lr 3.50e-04 544s
+[Fall_s0] ep 21 loss 0.6894 val_auroc 0.9271 lr 3.35e-04 571s
+[Fall_s0] ep 22 loss 0.6925 val_auroc 0.9287 lr 3.19e-04 598s
+[Fall_s0] ep 23 loss 0.6894 val_auroc 0.9271 lr 3.03e-04 626s
+[Fall_s0] ep 24 loss 0.6788 val_auroc 0.9272 lr 2.87e-04 653s
+[Fall_s0] ep 25 loss 0.6816 val_auroc 0.9295 lr 2.71e-04 680s
+[Fall_s0] ep 26 loss 0.6684 val_auroc 0.9329 lr 2.54e-04 707s
+[Fall_s0] ep 27 loss 0.6698 val_auroc 0.9290 lr 2.38e-04 734s
+[Fall_s0] ep 28 loss 0.6635 val_auroc 0.9358 lr 2.21e-04 762s
+[Fall_s0] ep 29 loss 0.6631 val_auroc 0.9308 lr 2.05e-04 791s
+[Fall_s0] ep 30 loss 0.6716 val_auroc 0.9314 lr 1.89e-04 818s
+[Fall_s0] ep 31 loss 0.6649 val_auroc 0.9272 lr 1.73e-04 844s
+[Fall_s0] ep 32 loss 0.6577 val_auroc 0.9303 lr 1.57e-04 871s
+[Fall_s0] ep 33 loss 0.6532 val_auroc 0.9303 lr 1.42e-04 898s
+[Fall_s0] ep 34 loss 0.6524 val_auroc 0.9328 lr 1.27e-04 925s
+[Fall_s0] ep 35 loss 0.6534 val_auroc 0.9321 lr 1.13e-04 952s
+[Fall_s0] ep 36 loss 0.6495 val_auroc 0.9328 lr 9.97e-05 979s
+[Fall_s0] ep 37 loss 0.6380 val_auroc 0.9319 lr 8.69e-05 1005s
+[Fall_s0] ep 38 loss 0.6420 val_auroc 0.9320 lr 7.47e-05 1032s
+[Fall_s0] early stop at ep 38
+[Fall_s0] DONE best_ep 28 val 0.9358 test nan params 475270 time 1032.3s
+
+===== 2026-10-03 16:04:12 Fh128_s1 =====
+[Fh128_s1] device=mps params=493894 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=dc6a2f781dd7358babecf8e50d60d05ae590ea97-dirty code=616e60f13152
+[Fh128_s1] ep  1 loss 1.0222 val_auroc 0.8801 lr 2.00e-04 19s
+[Fh128_s1] ep  2 loss 0.8712 val_auroc 0.8925 lr 4.00e-04 36s
+[Fh128_s1] ep  3 loss 0.7907 val_auroc 0.9088 lr 5.00e-04 54s
+[Fh128_s1] ep  4 loss 0.7617 val_auroc 0.9106 lr 4.99e-04 71s
+[Fh128_s1] ep  5 loss 0.7484 val_auroc 0.9141 lr 4.97e-04 88s
+[Fh128_s1] ep  6 loss 0.7332 val_auroc 0.9152 lr 4.93e-04 106s
+[Fh128_s1] ep  7 loss 0.7294 val_auroc 0.9167 lr 4.89e-04 123s
+[Fh128_s1] ep  8 loss 0.7242 val_auroc 0.9166 lr 4.84e-04 141s
+[Fh128_s1] ep  9 loss 0.7237 val_auroc 0.9229 lr 4.77e-04 158s
+[Fh128_s1] ep 10 loss 0.7162 val_auroc 0.9171 lr 4.70e-04 176s
+[Fh128_s1] ep 11 loss 0.7183 val_auroc 0.9231 lr 4.62e-04 193s
+[Fh128_s1] ep 12 loss 0.7067 val_auroc 0.9228 lr 4.52e-04 211s
+[Fh128_s1] ep 13 loss 0.6931 val_auroc 0.9270 lr 4.42e-04 228s
+[Fh128_s1] ep 14 loss 0.7053 val_auroc 0.9266 lr 4.31e-04 245s
+[Fh128_s1] ep 15 loss 0.7028 val_auroc 0.9259 lr 4.19e-04 263s
+[Fh128_s1] ep 16 loss 0.6963 val_auroc 0.9254 lr 4.07e-04 281s
+[Fh128_s1] ep 17 loss 0.6915 val_auroc 0.9245 lr 3.94e-04 298s
+[Fh128_s1] ep 18 loss 0.6899 val_auroc 0.9281 lr 3.80e-04 316s
+[Fh128_s1] ep 19 loss 0.6957 val_auroc 0.9292 lr 3.65e-04 336s
+[Fh128_s1] ep 20 loss 0.6807 val_auroc 0.9276 lr 3.50e-04 355s
+[Fh128_s1] ep 21 loss 0.6805 val_auroc 0.9270 lr 3.35e-04 375s
+[Fh128_s1] ep 22 loss 0.6794 val_auroc 0.9294 lr 3.19e-04 394s
+[Fh128_s1] ep 23 loss 0.6797 val_auroc 0.9291 lr 3.03e-04 414s
+[Fh128_s1] ep 24 loss 0.6724 val_auroc 0.9276 lr 2.87e-04 432s
+[Fh128_s1] ep 25 loss 0.6641 val_auroc 0.9295 lr 2.71e-04 451s
+[Fh128_s1] ep 26 loss 0.6720 val_auroc 0.9280 lr 2.54e-04 471s
+[Fh128_s1] ep 27 loss 0.6669 val_auroc 0.9325 lr 2.38e-04 490s
+[Fh128_s1] ep 28 loss 0.6571 val_auroc 0.9315 lr 2.21e-04 510s
+[Fh128_s1] ep 29 loss 0.6590 val_auroc 0.9334 lr 2.05e-04 529s
+[Fh128_s1] ep 30 loss 0.6499 val_auroc 0.9302 lr 1.89e-04 549s
+[Fh128_s1] ep 31 loss 0.6515 val_auroc 0.9300 lr 1.73e-04 568s
+[Fh128_s1] ep 32 loss 0.6474 val_auroc 0.9297 lr 1.57e-04 587s
+[Fh128_s1] ep 33 loss 0.6431 val_auroc 0.9278 lr 1.42e-04 606s
+[Fh128_s1] ep 34 loss 0.6451 val_auroc 0.9289 lr 1.27e-04 626s
+[Fh128_s1] ep 35 loss 0.6373 val_auroc 0.9324 lr 1.13e-04 645s
+[Fh128_s1] ep 36 loss 0.6405 val_auroc 0.9326 lr 9.97e-05 664s
+[Fh128_s1] ep 37 loss 0.6369 val_auroc 0.9298 lr 8.69e-05 683s
+[Fh128_s1] ep 38 loss 0.6329 val_auroc 0.9309 lr 7.47e-05 702s
+[Fh128_s1] ep 39 loss 0.6328 val_auroc 0.9307 lr 6.33e-05 722s
+[Fh128_s1] early stop at ep 39
+[Fh128_s1] DONE best_ep 29 val 0.9334 test nan params 493894 time 722.2s
+
+===== 2026-10-03 16:16:32 T_s1 =====
+[T_s1] device=mps params=475270 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=dc6a2f781dd7358babecf8e50d60d05ae590ea97-dirty code=616e60f13152
+[T_s1] ep  1 loss 0.9302 val_auroc 0.8848 lr 2.00e-04 14s
+[T_s1] ep  2 loss 0.8146 val_auroc 0.9012 lr 4.00e-04 28s
+[T_s1] ep  3 loss 0.7652 val_auroc 0.9094 lr 5.00e-04 41s
+[T_s1] ep  4 loss 0.7393 val_auroc 0.9143 lr 4.99e-04 55s
+[T_s1] ep  5 loss 0.7249 val_auroc 0.9108 lr 4.97e-04 68s
+[T_s1] ep  6 loss 0.7085 val_auroc 0.9209 lr 4.93e-04 81s
+[T_s1] ep  7 loss 0.7037 val_auroc 0.9174 lr 4.89e-04 95s
+[T_s1] ep  8 loss 0.6968 val_auroc 0.9094 lr 4.84e-04 108s
+[T_s1] ep  9 loss 0.6967 val_auroc 0.9212 lr 4.77e-04 122s
+[T_s1] ep 10 loss 0.6929 val_auroc 0.9175 lr 4.70e-04 135s
+[T_s1] ep 11 loss 0.6924 val_auroc 0.9230 lr 4.62e-04 149s
+[T_s1] ep 12 loss 0.6783 val_auroc 0.9227 lr 4.52e-04 162s
+[T_s1] ep 13 loss 0.6662 val_auroc 0.9270 lr 4.42e-04 176s
+[T_s1] ep 14 loss 0.6775 val_auroc 0.9268 lr 4.31e-04 189s
+[T_s1] ep 15 loss 0.6755 val_auroc 0.9279 lr 4.19e-04 203s
+[T_s1] ep 16 loss 0.6695 val_auroc 0.9264 lr 4.07e-04 216s
+[T_s1] ep 17 loss 0.6638 val_auroc 0.9267 lr 3.94e-04 230s
+[T_s1] ep 18 loss 0.6608 val_auroc 0.9256 lr 3.80e-04 243s
+[T_s1] ep 19 loss 0.6675 val_auroc 0.9282 lr 3.65e-04 257s
+[T_s1] ep 20 loss 0.6507 val_auroc 0.9254 lr 3.50e-04 270s
+[T_s1] ep 21 loss 0.6516 val_auroc 0.9266 lr 3.35e-04 283s
+[T_s1] ep 22 loss 0.6520 val_auroc 0.9285 lr 3.19e-04 297s
+[T_s1] ep 23 loss 0.6505 val_auroc 0.9291 lr 3.03e-04 311s
+[T_s1] ep 24 loss 0.6441 val_auroc 0.9282 lr 2.87e-04 326s
+[T_s1] ep 25 loss 0.6319 val_auroc 0.9284 lr 2.71e-04 339s
+[T_s1] ep 26 loss 0.6441 val_auroc 0.9299 lr 2.54e-04 352s
+[T_s1] ep 27 loss 0.6408 val_auroc 0.9304 lr 2.38e-04 366s
+[T_s1] ep 28 loss 0.6237 val_auroc 0.9329 lr 2.21e-04 379s
+[T_s1] ep 29 loss 0.6274 val_auroc 0.9341 lr 2.05e-04 393s
+[T_s1] ep 30 loss 0.6149 val_auroc 0.9283 lr 1.89e-04 406s
+[T_s1] ep 31 loss 0.6202 val_auroc 0.9312 lr 1.73e-04 420s
+[T_s1] ep 32 loss 0.6161 val_auroc 0.9307 lr 1.57e-04 433s
+[T_s1] ep 33 loss 0.6125 val_auroc 0.9274 lr 1.42e-04 447s
+[T_s1] ep 34 loss 0.6114 val_auroc 0.9279 lr 1.27e-04 460s
+[T_s1] ep 35 loss 0.6031 val_auroc 0.9318 lr 1.13e-04 474s
+[T_s1] ep 36 loss 0.6069 val_auroc 0.9318 lr 9.97e-05 487s
+[T_s1] ep 37 loss 0.6065 val_auroc 0.9303 lr 8.69e-05 501s
+[T_s1] ep 38 loss 0.5977 val_auroc 0.9317 lr 7.47e-05 514s
+[T_s1] ep 39 loss 0.5969 val_auroc 0.9299 lr 6.33e-05 527s
+[T_s1] early stop at ep 39
+[T_s1] DONE best_ep 29 val 0.9341 test nan params 475270 time 527.5s
+
+===== 2026-10-03 16:25:40 TF_s1 =====
+[TF_s1] device=mps params=475270 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=dc6a2f781dd7358babecf8e50d60d05ae590ea97-dirty code=616e60f13152
+[TF_s1] ep  1 loss 1.0412 val_auroc 0.8743 lr 2.00e-04 21s
+[TF_s1] ep  2 loss 0.8832 val_auroc 0.8927 lr 4.00e-04 41s
+[TF_s1] ep  3 loss 0.7991 val_auroc 0.9079 lr 5.00e-04 61s
+[TF_s1] ep  4 loss 0.7684 val_auroc 0.9082 lr 4.99e-04 82s
+[TF_s1] ep  5 loss 0.7519 val_auroc 0.9102 lr 4.97e-04 102s
+[TF_s1] ep  6 loss 0.7365 val_auroc 0.9175 lr 4.93e-04 122s
+[TF_s1] ep  7 loss 0.7319 val_auroc 0.9165 lr 4.89e-04 142s
+[TF_s1] ep  8 loss 0.7260 val_auroc 0.9165 lr 4.84e-04 163s
+[TF_s1] ep  9 loss 0.7255 val_auroc 0.9186 lr 4.77e-04 183s
+[TF_s1] ep 10 loss 0.7205 val_auroc 0.9174 lr 4.70e-04 203s
+[TF_s1] ep 11 loss 0.7213 val_auroc 0.9203 lr 4.62e-04 223s
+[TF_s1] ep 12 loss 0.7097 val_auroc 0.9218 lr 4.52e-04 243s
+[TF_s1] ep 13 loss 0.6970 val_auroc 0.9253 lr 4.42e-04 263s
+[TF_s1] ep 14 loss 0.7085 val_auroc 0.9268 lr 4.31e-04 284s
+[TF_s1] ep 15 loss 0.7046 val_auroc 0.9253 lr 4.19e-04 304s
+[TF_s1] ep 16 loss 0.6968 val_auroc 0.9242 lr 4.07e-04 324s
+[TF_s1] ep 17 loss 0.6948 val_auroc 0.9230 lr 3.94e-04 344s
+[TF_s1] ep 18 loss 0.6928 val_auroc 0.9256 lr 3.80e-04 364s
+[TF_s1] ep 19 loss 0.6983 val_auroc 0.9264 lr 3.65e-04 384s
+[TF_s1] ep 20 loss 0.6838 val_auroc 0.9282 lr 3.50e-04 405s
+[TF_s1] ep 21 loss 0.6829 val_auroc 0.9260 lr 3.35e-04 425s
+[TF_s1] ep 22 loss 0.6824 val_auroc 0.9284 lr 3.19e-04 445s
+[TF_s1] ep 23 loss 0.6842 val_auroc 0.9291 lr 3.03e-04 465s
+[TF_s1] ep 24 loss 0.6782 val_auroc 0.9278 lr 2.87e-04 485s
+[TF_s1] ep 25 loss 0.6689 val_auroc 0.9285 lr 2.71e-04 506s
+[TF_s1] ep 26 loss 0.6753 val_auroc 0.9265 lr 2.54e-04 527s
+[TF_s1] ep 27 loss 0.6704 val_auroc 0.9308 lr 2.38e-04 547s
+[TF_s1] ep 28 loss 0.6586 val_auroc 0.9315 lr 2.21e-04 567s
+[TF_s1] ep 29 loss 0.6612 val_auroc 0.9321 lr 2.05e-04 588s
+[TF_s1] ep 30 loss 0.6508 val_auroc 0.9281 lr 1.89e-04 608s
+[TF_s1] ep 31 loss 0.6537 val_auroc 0.9290 lr 1.73e-04 628s
+[TF_s1] ep 32 loss 0.6505 val_auroc 0.9290 lr 1.57e-04 648s
+[TF_s1] ep 33 loss 0.6467 val_auroc 0.9262 lr 1.42e-04 668s
+[TF_s1] ep 34 loss 0.6475 val_auroc 0.9273 lr 1.27e-04 689s
+[TF_s1] ep 35 loss 0.6414 val_auroc 0.9310 lr 1.13e-04 709s
+[TF_s1] ep 36 loss 0.6442 val_auroc 0.9289 lr 9.97e-05 730s
+[TF_s1] ep 37 loss 0.6410 val_auroc 0.9291 lr 8.69e-05 750s
+[TF_s1] ep 38 loss 0.6352 val_auroc 0.9304 lr 7.47e-05 770s
+[TF_s1] ep 39 loss 0.6344 val_auroc 0.9293 lr 6.33e-05 790s
+[TF_s1] early stop at ep 39
+[TF_s1] DONE best_ep 29 val 0.9321 test nan params 475270 time 790.3s
+
+===== 2026-10-03 16:39:10 Fall_s1 =====
+[Fall_s1] device=mps params=475270 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=dc6a2f781dd7358babecf8e50d60d05ae590ea97-dirty code=616e60f13152
+[Fall_s1] ep  1 loss 1.0399 val_auroc 0.8809 lr 2.00e-04 28s
+[Fall_s1] ep  2 loss 0.8888 val_auroc 0.8927 lr 4.00e-04 55s
+[Fall_s1] ep  3 loss 0.8065 val_auroc 0.9008 lr 5.00e-04 82s
+[Fall_s1] ep  4 loss 0.7733 val_auroc 0.9058 lr 4.99e-04 109s
+[Fall_s1] ep  5 loss 0.7560 val_auroc 0.9139 lr 4.97e-04 136s
+[Fall_s1] ep  6 loss 0.7410 val_auroc 0.9157 lr 4.93e-04 163s
+[Fall_s1] ep  7 loss 0.7355 val_auroc 0.9159 lr 4.89e-04 190s
+[Fall_s1] ep  8 loss 0.7307 val_auroc 0.9175 lr 4.84e-04 216s
+[Fall_s1] ep  9 loss 0.7308 val_auroc 0.9169 lr 4.77e-04 244s
+[Fall_s1] ep 10 loss 0.7237 val_auroc 0.9175 lr 4.70e-04 271s
+[Fall_s1] ep 11 loss 0.7235 val_auroc 0.9226 lr 4.62e-04 298s
+[Fall_s1] ep 12 loss 0.7134 val_auroc 0.9216 lr 4.52e-04 325s
+[Fall_s1] ep 13 loss 0.7014 val_auroc 0.9207 lr 4.42e-04 352s
+[Fall_s1] ep 14 loss 0.7112 val_auroc 0.9253 lr 4.31e-04 379s
+[Fall_s1] ep 15 loss 0.7082 val_auroc 0.9237 lr 4.19e-04 406s
+[Fall_s1] ep 16 loss 0.7029 val_auroc 0.9245 lr 4.07e-04 435s
+[Fall_s1] ep 17 loss 0.6998 val_auroc 0.9221 lr 3.94e-04 462s
+[Fall_s1] ep 18 loss 0.6953 val_auroc 0.9241 lr 3.80e-04 489s
+[Fall_s1] ep 19 loss 0.7019 val_auroc 0.9271 lr 3.65e-04 516s
+[Fall_s1] ep 20 loss 0.6889 val_auroc 0.9286 lr 3.50e-04 543s
+[Fall_s1] ep 21 loss 0.6884 val_auroc 0.9251 lr 3.35e-04 570s
+[Fall_s1] ep 22 loss 0.6861 val_auroc 0.9294 lr 3.19e-04 597s
+[Fall_s1] ep 23 loss 0.6861 val_auroc 0.9281 lr 3.03e-04 624s
+[Fall_s1] ep 24 loss 0.6822 val_auroc 0.9232 lr 2.87e-04 651s
+[Fall_s1] ep 25 loss 0.6714 val_auroc 0.9279 lr 2.71e-04 678s
+[Fall_s1] ep 26 loss 0.6784 val_auroc 0.9286 lr 2.54e-04 705s
+[Fall_s1] ep 27 loss 0.6742 val_auroc 0.9298 lr 2.38e-04 732s
+[Fall_s1] ep 28 loss 0.6643 val_auroc 0.9307 lr 2.21e-04 759s
+[Fall_s1] ep 29 loss 0.6641 val_auroc 0.9331 lr 2.05e-04 786s
+[Fall_s1] ep 30 loss 0.6551 val_auroc 0.9285 lr 1.89e-04 813s
+[Fall_s1] ep 31 loss 0.6579 val_auroc 0.9282 lr 1.73e-04 840s
+[Fall_s1] ep 32 loss 0.6555 val_auroc 0.9312 lr 1.57e-04 867s
+[Fall_s1] ep 33 loss 0.6514 val_auroc 0.9276 lr 1.42e-04 895s
+[Fall_s1] ep 34 loss 0.6535 val_auroc 0.9277 lr 1.27e-04 922s
+[Fall_s1] ep 35 loss 0.6478 val_auroc 0.9320 lr 1.13e-04 949s
+[Fall_s1] ep 36 loss 0.6486 val_auroc 0.9321 lr 9.97e-05 976s
+[Fall_s1] ep 37 loss 0.6467 val_auroc 0.9311 lr 8.69e-05 1003s
+[Fall_s1] ep 38 loss 0.6394 val_auroc 0.9319 lr 7.47e-05 1030s
+[Fall_s1] ep 39 loss 0.6403 val_auroc 0.9300 lr 6.33e-05 1057s
+[Fall_s1] early stop at ep 39
+[Fall_s1] DONE best_ep 29 val 0.9331 test nan params 475270 time 1057.4s
+
+===== 2026-10-03 16:57:06 Fh128_s2 =====
+[Fh128_s2] device=mps params=493894 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=dc6a2f781dd7358babecf8e50d60d05ae590ea97-dirty code=616e60f13152
+[Fh128_s2] ep  1 loss 1.0329 val_auroc 0.8774 lr 2.00e-04 20s
+[Fh128_s2] ep  2 loss 0.8735 val_auroc 0.8954 lr 4.00e-04 39s
+[Fh128_s2] ep  3 loss 0.8009 val_auroc 0.9041 lr 5.00e-04 59s
+[Fh128_s2] ep  4 loss 0.7699 val_auroc 0.9078 lr 4.99e-04 77s
+[Fh128_s2] ep  5 loss 0.7444 val_auroc 0.9127 lr 4.97e-04 94s
+[Fh128_s2] ep  6 loss 0.7394 val_auroc 0.9159 lr 4.93e-04 111s
+[Fh128_s2] ep  7 loss 0.7330 val_auroc 0.9165 lr 4.89e-04 129s
+[Fh128_s2] ep  8 loss 0.7268 val_auroc 0.9140 lr 4.84e-04 146s
+[Fh128_s2] ep  9 loss 0.7218 val_auroc 0.9231 lr 4.77e-04 163s
+[Fh128_s2] ep 10 loss 0.7269 val_auroc 0.9233 lr 4.70e-04 180s
+[Fh128_s2] ep 11 loss 0.7097 val_auroc 0.9261 lr 4.62e-04 197s
+[Fh128_s2] ep 12 loss 0.7184 val_auroc 0.9205 lr 4.52e-04 214s
+[Fh128_s2] ep 13 loss 0.7056 val_auroc 0.9281 lr 4.42e-04 231s
+[Fh128_s2] ep 14 loss 0.6994 val_auroc 0.9257 lr 4.31e-04 248s
+[Fh128_s2] ep 15 loss 0.7002 val_auroc 0.9214 lr 4.19e-04 266s
+[Fh128_s2] ep 16 loss 0.7010 val_auroc 0.9237 lr 4.07e-04 283s
+[Fh128_s2] ep 17 loss 0.6955 val_auroc 0.9215 lr 3.94e-04 300s
+[Fh128_s2] ep 18 loss 0.6976 val_auroc 0.9284 lr 3.80e-04 317s
+[Fh128_s2] ep 19 loss 0.6865 val_auroc 0.9252 lr 3.65e-04 334s
+[Fh128_s2] ep 20 loss 0.6800 val_auroc 0.9299 lr 3.50e-04 351s
+[Fh128_s2] ep 21 loss 0.6735 val_auroc 0.9277 lr 3.35e-04 368s
+[Fh128_s2] ep 22 loss 0.6802 val_auroc 0.9283 lr 3.19e-04 386s
+[Fh128_s2] ep 23 loss 0.6763 val_auroc 0.9285 lr 3.03e-04 403s
+[Fh128_s2] ep 24 loss 0.6722 val_auroc 0.9282 lr 2.87e-04 420s
+[Fh128_s2] ep 25 loss 0.6784 val_auroc 0.9297 lr 2.71e-04 437s
+[Fh128_s2] ep 26 loss 0.6690 val_auroc 0.9292 lr 2.54e-04 454s
+[Fh128_s2] ep 27 loss 0.6670 val_auroc 0.9316 lr 2.38e-04 471s
+[Fh128_s2] ep 28 loss 0.6677 val_auroc 0.9314 lr 2.21e-04 488s
+[Fh128_s2] ep 29 loss 0.6585 val_auroc 0.9325 lr 2.05e-04 506s
+[Fh128_s2] ep 30 loss 0.6574 val_auroc 0.9321 lr 1.89e-04 523s
+[Fh128_s2] ep 31 loss 0.6580 val_auroc 0.9278 lr 1.73e-04 540s
+[Fh128_s2] ep 32 loss 0.6442 val_auroc 0.9305 lr 1.57e-04 557s
+[Fh128_s2] ep 33 loss 0.6497 val_auroc 0.9305 lr 1.42e-04 574s
+[Fh128_s2] ep 34 loss 0.6423 val_auroc 0.9317 lr 1.27e-04 591s
+[Fh128_s2] ep 35 loss 0.6423 val_auroc 0.9296 lr 1.13e-04 609s
+[Fh128_s2] ep 36 loss 0.6398 val_auroc 0.9302 lr 9.97e-05 626s
+[Fh128_s2] ep 37 loss 0.6454 val_auroc 0.9274 lr 8.69e-05 643s
+[Fh128_s2] ep 38 loss 0.6270 val_auroc 0.9317 lr 7.47e-05 663s
+[Fh128_s2] ep 39 loss 0.6240 val_auroc 0.9278 lr 6.33e-05 682s
+[Fh128_s2] early stop at ep 39
+[Fh128_s2] DONE best_ep 29 val 0.9325 test nan params 493894 time 681.9s
+
+===== 2026-10-03 17:08:47 T_s2 =====
+[T_s2] device=mps params=475270 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=dc6a2f781dd7358babecf8e50d60d05ae590ea97-dirty code=616e60f13152
+[T_s2] ep  1 loss 0.9253 val_auroc 0.8880 lr 2.00e-04 14s
+[T_s2] ep  2 loss 0.8109 val_auroc 0.9020 lr 4.00e-04 28s
+[T_s2] ep  3 loss 0.7672 val_auroc 0.9089 lr 5.00e-04 41s
+[T_s2] ep  4 loss 0.7414 val_auroc 0.9119 lr 4.99e-04 55s
+[T_s2] ep  5 loss 0.7175 val_auroc 0.9157 lr 4.97e-04 68s
+[T_s2] ep  6 loss 0.7074 val_auroc 0.9205 lr 4.93e-04 82s
+[T_s2] ep  7 loss 0.7051 val_auroc 0.9236 lr 4.89e-04 96s
+[T_s2] ep  8 loss 0.6965 val_auroc 0.9185 lr 4.84e-04 109s
+[T_s2] ep  9 loss 0.6894 val_auroc 0.9268 lr 4.77e-04 122s
+[T_s2] ep 10 loss 0.7003 val_auroc 0.9241 lr 4.70e-04 136s
+[T_s2] ep 11 loss 0.6808 val_auroc 0.9270 lr 4.62e-04 150s
+[T_s2] ep 12 loss 0.6903 val_auroc 0.9201 lr 4.52e-04 163s
+[T_s2] ep 13 loss 0.6759 val_auroc 0.9283 lr 4.42e-04 177s
+[T_s2] ep 14 loss 0.6705 val_auroc 0.9274 lr 4.31e-04 190s
+[T_s2] ep 15 loss 0.6733 val_auroc 0.9241 lr 4.19e-04 204s
+[T_s2] ep 16 loss 0.6741 val_auroc 0.9252 lr 4.07e-04 217s
+[T_s2] ep 17 loss 0.6648 val_auroc 0.9256 lr 3.94e-04 231s
+[T_s2] ep 18 loss 0.6688 val_auroc 0.9299 lr 3.80e-04 244s
+[T_s2] ep 19 loss 0.6566 val_auroc 0.9286 lr 3.65e-04 258s
+[T_s2] ep 20 loss 0.6482 val_auroc 0.9304 lr 3.50e-04 271s
+[T_s2] ep 21 loss 0.6450 val_auroc 0.9286 lr 3.35e-04 285s
+[T_s2] ep 22 loss 0.6481 val_auroc 0.9312 lr 3.19e-04 298s
+[T_s2] ep 23 loss 0.6471 val_auroc 0.9277 lr 3.03e-04 312s
+[T_s2] ep 24 loss 0.6415 val_auroc 0.9284 lr 2.87e-04 325s
+[T_s2] ep 25 loss 0.6484 val_auroc 0.9294 lr 2.71e-04 339s
+[T_s2] ep 26 loss 0.6369 val_auroc 0.9286 lr 2.54e-04 352s
+[T_s2] ep 27 loss 0.6347 val_auroc 0.9320 lr 2.38e-04 365s
+[T_s2] ep 28 loss 0.6397 val_auroc 0.9310 lr 2.21e-04 379s
+[T_s2] ep 29 loss 0.6259 val_auroc 0.9309 lr 2.05e-04 393s
+[T_s2] ep 30 loss 0.6290 val_auroc 0.9310 lr 1.89e-04 406s
+[T_s2] ep 31 loss 0.6271 val_auroc 0.9308 lr 1.73e-04 419s
+[T_s2] ep 32 loss 0.6120 val_auroc 0.9310 lr 1.57e-04 433s
+[T_s2] ep 33 loss 0.6162 val_auroc 0.9305 lr 1.42e-04 446s
+[T_s2] ep 34 loss 0.6104 val_auroc 0.9315 lr 1.27e-04 460s
+[T_s2] ep 35 loss 0.6123 val_auroc 0.9299 lr 1.13e-04 473s
+[T_s2] ep 36 loss 0.6078 val_auroc 0.9322 lr 9.97e-05 487s
+[T_s2] ep 37 loss 0.6146 val_auroc 0.9292 lr 8.69e-05 500s
+[T_s2] ep 38 loss 0.5931 val_auroc 0.9322 lr 7.47e-05 514s
+[T_s2] ep 39 loss 0.5895 val_auroc 0.9286 lr 6.33e-05 527s
+[T_s2] ep 40 loss 0.5870 val_auroc 0.9304 lr 5.27e-05 541s
+[T_s2] ep 41 loss 0.5987 val_auroc 0.9290 lr 4.30e-05 554s
+[T_s2] ep 42 loss 0.6005 val_auroc 0.9316 lr 3.42e-05 568s
+[T_s2] ep 43 loss 0.5864 val_auroc 0.9308 lr 2.63e-05 581s
+[T_s2] ep 44 loss 0.5968 val_auroc 0.9292 lr 1.94e-05 595s
+[T_s2] ep 45 loss 0.5766 val_auroc 0.9296 lr 1.35e-05 608s
+[T_s2] ep 46 loss 0.5883 val_auroc 0.9292 lr 8.70e-06 623s
+[T_s2] early stop at ep 46
+[T_s2] DONE best_ep 36 val 0.9322 test nan params 475270 time 622.6s
+
+===== 2026-10-03 17:19:27 TF_s2 =====
+[TF_s2] device=mps params=475270 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=dc6a2f781dd7358babecf8e50d60d05ae590ea97-dirty code=616e60f13152
+[TF_s2] ep  1 loss 1.0273 val_auroc 0.8761 lr 2.00e-04 21s
+[TF_s2] ep  2 loss 0.8724 val_auroc 0.9013 lr 4.00e-04 42s
+[TF_s2] ep  3 loss 0.8018 val_auroc 0.9070 lr 5.00e-04 62s
+[TF_s2] ep  4 loss 0.7689 val_auroc 0.9074 lr 4.99e-04 82s
+[TF_s2] ep  5 loss 0.7460 val_auroc 0.9153 lr 4.97e-04 103s
+[TF_s2] ep  6 loss 0.7382 val_auroc 0.9182 lr 4.93e-04 123s
+[TF_s2] ep  7 loss 0.7336 val_auroc 0.9212 lr 4.89e-04 143s
+[TF_s2] ep  8 loss 0.7254 val_auroc 0.9084 lr 4.84e-04 163s
+[TF_s2] ep  9 loss 0.7231 val_auroc 0.9242 lr 4.77e-04 183s
+[TF_s2] ep 10 loss 0.7279 val_auroc 0.9232 lr 4.70e-04 204s
+[TF_s2] ep 11 loss 0.7089 val_auroc 0.9266 lr 4.62e-04 224s
+[TF_s2] ep 12 loss 0.7195 val_auroc 0.9201 lr 4.52e-04 244s
+[TF_s2] ep 13 loss 0.7048 val_auroc 0.9287 lr 4.42e-04 264s
+[TF_s2] ep 14 loss 0.6995 val_auroc 0.9246 lr 4.31e-04 284s
+[TF_s2] ep 15 loss 0.7025 val_auroc 0.9238 lr 4.19e-04 304s
+[TF_s2] ep 16 loss 0.7029 val_auroc 0.9240 lr 4.07e-04 325s
+[TF_s2] ep 17 loss 0.6945 val_auroc 0.9255 lr 3.94e-04 345s
+[TF_s2] ep 18 loss 0.6979 val_auroc 0.9282 lr 3.80e-04 365s
+[TF_s2] ep 19 loss 0.6871 val_auroc 0.9250 lr 3.65e-04 386s
+[TF_s2] ep 20 loss 0.6811 val_auroc 0.9295 lr 3.50e-04 406s
+[TF_s2] ep 21 loss 0.6765 val_auroc 0.9287 lr 3.35e-04 426s
+[TF_s2] ep 22 loss 0.6804 val_auroc 0.9275 lr 3.19e-04 446s
+[TF_s2] ep 23 loss 0.6796 val_auroc 0.9265 lr 3.03e-04 466s
+[TF_s2] ep 24 loss 0.6742 val_auroc 0.9264 lr 2.87e-04 487s
+[TF_s2] ep 25 loss 0.6814 val_auroc 0.9283 lr 2.71e-04 507s
+[TF_s2] ep 26 loss 0.6704 val_auroc 0.9295 lr 2.54e-04 527s
+[TF_s2] ep 27 loss 0.6690 val_auroc 0.9306 lr 2.38e-04 547s
+[TF_s2] ep 28 loss 0.6713 val_auroc 0.9281 lr 2.21e-04 568s
+[TF_s2] ep 29 loss 0.6589 val_auroc 0.9314 lr 2.05e-04 588s
+[TF_s2] ep 30 loss 0.6604 val_auroc 0.9320 lr 1.89e-04 608s
+[TF_s2] ep 31 loss 0.6602 val_auroc 0.9277 lr 1.73e-04 628s
+[TF_s2] ep 32 loss 0.6473 val_auroc 0.9299 lr 1.57e-04 649s
+[TF_s2] ep 33 loss 0.6522 val_auroc 0.9285 lr 1.42e-04 669s
+[TF_s2] ep 34 loss 0.6442 val_auroc 0.9296 lr 1.27e-04 689s
+[TF_s2] ep 35 loss 0.6458 val_auroc 0.9288 lr 1.13e-04 709s
+[TF_s2] ep 36 loss 0.6429 val_auroc 0.9296 lr 9.97e-05 730s
+[TF_s2] ep 37 loss 0.6485 val_auroc 0.9261 lr 8.69e-05 750s
+[TF_s2] ep 38 loss 0.6300 val_auroc 0.9296 lr 7.47e-05 771s
+[TF_s2] ep 39 loss 0.6273 val_auroc 0.9267 lr 6.33e-05 791s
+[TF_s2] ep 40 loss 0.6242 val_auroc 0.9265 lr 5.27e-05 811s
+[TF_s2] early stop at ep 40
+[TF_s2] DONE best_ep 30 val 0.9320 test nan params 475270 time 811.4s
+
+===== 2026-10-03 17:33:17 Fall_s2 =====
+[Fall_s2] device=mps params=475270 train=17084 val=2146 test=2158 pos_weight=[1.2489999532699585, 2.9010000228881836, 3.0810000896453857, 3.372999906539917, 7.061999797821045] git=dc6a2f781dd7358babecf8e50d60d05ae590ea97-dirty code=616e60f13152
+[Fall_s2] ep  1 loss 1.0305 val_auroc 0.8773 lr 2.00e-04 28s
+[Fall_s2] ep  2 loss 0.8745 val_auroc 0.8961 lr 4.00e-04 55s
+[Fall_s2] ep  3 loss 0.8072 val_auroc 0.9045 lr 5.00e-04 83s
+[Fall_s2] ep  4 loss 0.7725 val_auroc 0.9095 lr 4.99e-04 110s
+[Fall_s2] ep  5 loss 0.7491 val_auroc 0.9134 lr 4.97e-04 137s
+[Fall_s2] ep  6 loss 0.7410 val_auroc 0.9168 lr 4.93e-04 164s
+[Fall_s2] ep  7 loss 0.7350 val_auroc 0.9154 lr 4.89e-04 191s
+[Fall_s2] ep  8 loss 0.7267 val_auroc 0.9130 lr 4.84e-04 219s
+[Fall_s2] ep  9 loss 0.7258 val_auroc 0.9220 lr 4.77e-04 246s
+[Fall_s2] ep 10 loss 0.7320 val_auroc 0.9236 lr 4.70e-04 273s
+[Fall_s2] ep 11 loss 0.7149 val_auroc 0.9254 lr 4.62e-04 300s
+[Fall_s2] ep 12 loss 0.7224 val_auroc 0.9164 lr 4.52e-04 327s
+[Fall_s2] ep 13 loss 0.7102 val_auroc 0.9270 lr 4.42e-04 354s
+[Fall_s2] ep 14 loss 0.7054 val_auroc 0.9265 lr 4.31e-04 381s
+[Fall_s2] ep 15 loss 0.7072 val_auroc 0.9196 lr 4.19e-04 409s
+[Fall_s2] ep 16 loss 0.7076 val_auroc 0.9254 lr 4.07e-04 436s
+[Fall_s2] ep 17 loss 0.6992 val_auroc 0.9248 lr 3.94e-04 463s
+[Fall_s2] ep 18 loss 0.7044 val_auroc 0.9286 lr 3.80e-04 490s
+[Fall_s2] ep 19 loss 0.6908 val_auroc 0.9279 lr 3.65e-04 518s
+[Fall_s2] ep 20 loss 0.6865 val_auroc 0.9292 lr 3.50e-04 545s
+[Fall_s2] ep 21 loss 0.6807 val_auroc 0.9273 lr 3.35e-04 572s
+[Fall_s2] ep 22 loss 0.6864 val_auroc 0.9311 lr 3.19e-04 599s
+[Fall_s2] ep 23 loss 0.6841 val_auroc 0.9280 lr 3.03e-04 628s
+[Fall_s2] ep 24 loss 0.6766 val_auroc 0.9271 lr 2.87e-04 656s
+[Fall_s2] ep 25 loss 0.6842 val_auroc 0.9278 lr 2.71e-04 683s
+[Fall_s2] ep 26 loss 0.6750 val_auroc 0.9289 lr 2.54e-04 710s
+[Fall_s2] ep 27 loss 0.6714 val_auroc 0.9313 lr 2.38e-04 737s
+[Fall_s2] ep 28 loss 0.6763 val_auroc 0.9304 lr 2.21e-04 765s
+[Fall_s2] ep 29 loss 0.6644 val_auroc 0.9323 lr 2.05e-04 792s
+[Fall_s2] ep 30 loss 0.6630 val_auroc 0.9308 lr 1.89e-04 819s
+[Fall_s2] ep 31 loss 0.6651 val_auroc 0.9303 lr 1.73e-04 846s
+[Fall_s2] ep 32 loss 0.6543 val_auroc 0.9287 lr 1.57e-04 874s
+[Fall_s2] ep 33 loss 0.6577 val_auroc 0.9297 lr 1.42e-04 901s
+[Fall_s2] ep 34 loss 0.6489 val_auroc 0.9306 lr 1.27e-04 928s
+[Fall_s2] ep 35 loss 0.6518 val_auroc 0.9291 lr 1.13e-04 955s
+[Fall_s2] ep 36 loss 0.6468 val_auroc 0.9297 lr 9.97e-05 982s
+[Fall_s2] ep 37 loss 0.6556 val_auroc 0.9281 lr 8.69e-05 1010s
+[Fall_s2] ep 38 loss 0.6335 val_auroc 0.9318 lr 7.47e-05 1037s
+[Fall_s2] ep 39 loss 0.6307 val_auroc 0.9283 lr 6.33e-05 1064s
+[Fall_s2] early stop at ep 39
+[Fall_s2] DONE best_ep 29 val 0.9323 test nan params 475270 time 1064.2s
+QUEUE_DONE b
