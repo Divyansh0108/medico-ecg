@@ -6,8 +6,8 @@ from sklearn.metrics import roc_auc_score
 from data import SUPERCLASSES
 
 
-def per_class_auroc(y: np.ndarray, p: np.ndarray) -> dict[str, float]:
-    return {c: float(roc_auc_score(y[:, i], p[:, i])) for i, c in enumerate(SUPERCLASSES)}
+def per_class_auroc(y: np.ndarray, p: np.ndarray, classes=SUPERCLASSES) -> dict[str, float]:
+    return {c: float(roc_auc_score(y[:, i], p[:, i])) for i, c in enumerate(classes)}
 
 
 def macro_auroc(y: np.ndarray, p: np.ndarray) -> float:

@@ -5,6 +5,8 @@ Usage: python track2_eval.py --name difficulty --snrs 15 6 0 -6 --tags TAG [TAG 
 Each condition is generated once (fixed seeded RNG per record, corruptions.py) and every model predicts
 on the same corrupted records. Writes results/track2/grid/{name}/{tag}.npz with
   conds (C,), probs (C, N, 5), r (C, N) (NaN when the model has no gate), y, patient_id, ecg_id.
+Chapman models (RULES4.md S4, config dataset == "chapman") are scored on the Chapman test split; one call
+takes models of one dataset only. --force-r R: the gate fusion weight is fixed to R (RULES4.md 5).
 Fold 10 only with --fold10 --purpose "...", which logs every model to FOLD10_LOG.md first.
 """
 from __future__ import annotations
@@ -20,9 +22,9 @@ import torch
 
 import nstdb
 from corruptions import cond_name, conditions, corrupt_split
-from data import load_filtered, set_seed, standardize
+from data import set_seed, standardize
 from fold10_log import log_fold10
-from train import HERE, build_model
+from train import HERE, build_model, classes_of, filtered
 from track2_models import predict_with_r
 
 RUN_DIRS = [os.path.join(HERE, "results", "track2", "runs"), os.path.join(HERE, "results", "crop")]
@@ -42,10 +44,15 @@ def main():
     ap.add_argument("--tags", nargs="+", required=True)
     ap.add_argument("--snrs", nargs="*", type=float, default=[], help="synthetic benchmark SNRs")
     ap.add_argument("--nstdb-snrs", nargs="*", type=float, default=[], help="NSTDB benchmark SNRs (EVAL noise)")
+    ap.add_argument("--force-r", type=float, default=None)
     ap.add_argument("--fold10", action="store_true")
     ap.add_argument("--purpose", default="")
     a = ap.parse_args()
-    split = "test" if a.fold10 else "val"
+    datasets = {getattr(SimpleNamespace(**run_json(t)["config"]), "dataset", "ptbxl") for t in a.tags}
+    assert len(datasets) == 1, datasets
+    dataset = datasets.pop()
+    assert not (a.fold10 and dataset != "ptbxl")
+    split = "test" if a.fold10 or dataset == "chapman" else "val"
     out_dir = os.path.join(HERE, "results", "track2", "grid", a.name + ("_fold10" if a.fold10 else ""))
     os.makedirs(out_dir, exist_ok=True)
     set_seed(0)
@@ -54,8 +61,11 @@ def main():
     for tag in a.tags:
         c = SimpleNamespace(**run_json(tag)["config"])
         assert c.norm == "dataset" and not c.no_bandpass and c.agg == "mean", tag
-        m = build_model(c.model).to(device)
+        m = build_model(c.model, n_classes=len(classes_of(dataset))).to(device)
         m.load_state_dict(torch.load(os.path.join(HERE, "checkpoints", f"{tag}.pt"), map_location=device))
+        if a.force_r is not None:
+            assert hasattr(m, "force_r"), tag
+            m.force_r = a.force_r
         models[tag] = (m, c.crop, c.stride)
     if a.fold10:
         if not a.purpose:
@@ -65,7 +75,7 @@ def main():
                 raise SystemExit(f"{tag} was already scored on fold 10 under '{a.name}'")
         for tag in a.tags:
             log_fold10(f"track2 grid '{a.name}': {tag}", [tag], a.purpose)
-    d, mu, sd = load_filtered()
+    d, mu, sd = filtered(dataset)
     Xf, Y, meta = d[split]
     ids = meta["ecg_id"].to_numpy()
     del d

@@ -9,6 +9,8 @@ p=0.5, seen families, SNR U[0,20] dB; noise RNG seeded by (seed, epoch). --aux (
 corrupted views of every record + consistency (>= --cons-min-snr only) and severity-ranking losses on r.
 --avg swa|ema: no early stopping; the final model is the weight average over the last --avg-epochs epochs
 (swa: mean of epoch-end weights, ema: per-step EMA), BatchNorm statistics recomputed on train.
+--dataset chapman (RULES4.md S4): Chapman-Shaoxing rhythm classes (chapman.py); train/val/test are its own
+stratified split, and "test" is always predicted (it is the robustness split, never used for selection).
 Writes {out}/{tag}.json, {out}/probs/{tag}.npz and checkpoints/{tag}.pt.
 """
 from __future__ import annotations
@@ -25,6 +27,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 
+import chapman
 import nstdb
 from corruptions import FAMILIES, SEEN, TRAIN_P, random_seen
 from data import SUPERCLASSES, load_filtered, load_variant, set_seed, standardize
@@ -95,18 +98,32 @@ def update_bn(model, X: torch.Tensor, bs: int, L: int, g: torch.Generator, devic
         m.momentum = v
 
 
-def build_model(name: str, leads=None) -> nn.Module:
-    return ALL_MODELS[name]() if leads is None else ALL_MODELS[name](in_ch=len(leads))
+def build_model(name: str, leads=None, n_classes: int = 5) -> nn.Module:
+    kw = {} if leads is None else {"in_ch": len(leads)}
+    if n_classes != 5:
+        kw["n_classes"] = n_classes
+    return ALL_MODELS[name](**kw)
+
+
+def classes_of(dataset: str) -> list[str]:
+    return chapman.CLASSES if dataset == "chapman" else SUPERCLASSES
+
+
+def filtered(dataset: str, leads=None):
+    """Band-passed, unstandardized splits and the train mean/std of a dataset (data.load_filtered API)."""
+    return chapman.load_filtered(leads) if dataset == "chapman" else load_filtered(leads=leads)
 
 
 def get_data(a):
-    d = load_variant(use_bandpass=not a.no_bandpass, norm=a.norm, leads=getattr(a, "leads", None))
+    loader = chapman.load_variant if getattr(a, "dataset", "ptbxl") == "chapman" else load_variant
+    d = loader(use_bandpass=not a.no_bandpass, norm=a.norm, leads=getattr(a, "leads", None))
     return d["train"], d["val"], d["test"]
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", choices=list(ALL_MODELS), required=True)
+    ap.add_argument("--dataset", choices=["ptbxl", "chapman"], default="ptbxl")
     ap.add_argument("--tag", default="", help="run name (default {model}_s{seed})")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--epochs", type=int, default=50)
@@ -155,6 +172,8 @@ def main():
     Xtr_t, Ytr_t = torch.from_numpy(Xtr).to(device), torch.from_numpy(Ytr).to(device)
     Xva_t, Xte_t = torch.from_numpy(Xva), torch.from_numpy(Xte)
     a.aug = a.aug or a.aux or a.aug_real
+    a.eval_test = a.eval_test or a.dataset == "chapman"
+    classes = classes_of(a.dataset)
 
     def draw(x, rng):
         if a.aug_real and rng.random() < 0.5:
@@ -162,13 +181,13 @@ def main():
         return random_seen(x, rng, FAMILIES if a.aug_families == "all" else SEEN)
     if a.aug:   # band-passed, unstandardized train records: noise is added here, then standardized
         assert a.norm == "dataset" and not a.no_bandpass, "--aug needs --norm dataset with band-pass"
-        dfl, mu_t, sd_t = load_filtered(leads=a.leads)
+        dfl, mu_t, sd_t = filtered(a.dataset, a.leads)
         Xtr_raw = dfl["train"][0][: len(Xtr)].astype(np.float32)
         del dfl
         assert np.abs(standardize(Xtr_raw[:16], mu_t, sd_t) - Xtr[:16]).max() < 1e-4
 
     torch.manual_seed(a.seed)
-    model = build_model(a.model, a.leads).to(device)
+    model = build_model(a.model, a.leads, len(classes)).to(device)
     n_params = sum(p.numel() for p in model.parameters())
     pos = Ytr.sum(0)
     pos_weight = torch.tensor((len(Ytr) - pos) / pos, dtype=torch.float32, device=device)
@@ -286,8 +305,8 @@ def main():
     probs = dict(val=pva, y_val=Yva, val_ecg_id=mva["ecg_id"].to_numpy(), val_patient_id=mva["patient_id"].to_numpy())
     res = {"model": a.model, "tag": tag, "seed": a.seed, "n_params": n_params, "git_hash": gh, "code_sha": cs,
            "device": str(device), "best_epoch": best_ep, "epochs_run": len(hist), "train_time_s": train_time,
-           "val_macro_auroc": macro_auroc(Yva, pva), "val_best_epoch_auroc": best, "val_per_class_auroc": per_class_auroc(Yva, pva),
-           "classes": SUPERCLASSES, "config": vars(a), "history": hist}
+           "val_macro_auroc": macro_auroc(Yva, pva), "val_best_epoch_auroc": best, "val_per_class_auroc": per_class_auroc(Yva, pva, classes),
+           "classes": classes, "config": vars(a), "history": hist}
     if a.crop:   # alternative aggregation, fold 9 only (reported, not used for selection unless stated)
         res["val_macro_auroc_agg_" + ("max" if a.agg == "mean" else "mean")] = macro_auroc(
             Yva, predict(model, Xva_t, device, **{**ev, "agg": "max" if a.agg == "mean" else "mean"}))
@@ -295,7 +314,7 @@ def main():
         pte = predict(model, Xte_t, device, **ev)   # single test evaluation
         probs.update(test=pte, y_test=Yte, test_ecg_id=mte["ecg_id"].to_numpy(),
                      test_patient_id=mte["patient_id"].to_numpy())
-        res.update(test_macro_auroc=macro_auroc(Yte, pte), test_per_class_auroc=per_class_auroc(Yte, pte))
+        res.update(test_macro_auroc=macro_auroc(Yte, pte), test_per_class_auroc=per_class_auroc(Yte, pte, classes))
     os.makedirs(os.path.join(a.out, "probs"), exist_ok=True)
     np.savez(os.path.join(a.out, "probs", f"{tag}.npz"), **probs)
     with open(os.path.join(a.out, f"{tag}.json"), "w") as f:
